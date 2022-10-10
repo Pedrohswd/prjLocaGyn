@@ -6,8 +6,8 @@ package com.locagyn.visao;
 
 /**
  *
- * @author emill
+ * @author aluno
  */
-class jTableMarcas {
+public class RoundJTextField {
     
 }
