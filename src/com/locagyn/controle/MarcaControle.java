@@ -51,5 +51,9 @@ public class MarcaControle implements IMarcaControle{
     public ArrayList<Marca> listagem() throws Exception {
         return marcaPersistencia.listagem(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
+    @Override
+    public ArrayList<Marca> buscar() throws Exception {
+        return marcaPersistencia.buscar();
+    }
 }

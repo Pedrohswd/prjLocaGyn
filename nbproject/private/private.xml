@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aluno/Desktop/ProjetoLocaGynEstudo%20(1)/ProjetoLocaGynEstudo/src/com/locagyn/visao/TelaDasMarcas.java</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/ProjetoLocaGynEstudo%201.0/ProjetoLocaGynEstudo/src/com/locagyn/persistencia/IMarcaDao.java</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/ProjetoLocaGynEstudo%201.0/ProjetoLocaGynEstudo/src/com/locagyn/controle/MarcaControle.java</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/ProjetoLocaGynEstudo%201.0/ProjetoLocaGynEstudo/src/com/locagyn/visao/jTableMarcas.java</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/ProjetoLocaGynEstudo%201.0/ProjetoLocaGynEstudo/src/com/locagyn/persistencia/MarcaDao.java</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/ProjetoLocaGynEstudo%201.0/ProjetoLocaGynEstudo/src/com/locagyn/ferramentas/GeradorIdentificador.java</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/ProjetoLocaGynEstudo%201.0/ProjetoLocaGynEstudo/src/com/locagyn/arquivosdedados/Marca.txt</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/ProjetoLocaGynEstudo%201.0/ProjetoLocaGynEstudo/src/com/locagyn/controle/IMarcaControle.java</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/ProjetoLocaGynEstudo%201.0/ProjetoLocaGynEstudo/src/com/locagyn/visao/TelaDasMarcas.java</file>
         </group>
     </open-files>
 </project-private>
