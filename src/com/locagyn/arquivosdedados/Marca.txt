@@ -1,7 +1,6 @@
-13;GFNMJGFMJ;\src\com\locadora\logos\logo FIAT.jpg
-14;HTRHJTRJ;C:\Users\aluno\Desktop\ProjetoLocaGynEstudo (1)\ProjetoLocaGynEstudo\src\com\locadora\logos\logo CITROEN.jpg
-15;SEA;C:\Users\aluno\Desktop\projeto\ProjetoLocaGynEstudo (1)\ProjetoLocaGynEstudo\src\com\locadora\logos\logo FIAT.jpg
-16;SDGDSGDSG;C:\Users\aluno\Desktop\projeto\ProjetoLocaGynEstudo (1)\ProjetoLocaGynEstudo\src\com\locadora\logos\logo FORD.png
-17;PEDRO;C:\Users\pedro\OneDrive\�rea de Trabalho\ProjetoLocaGynEstudo 1.0\ProjetoLocaGynEstudo\src\com\locadora\logos\logo VOLKSWAGEN.png
-18;ESTUDO;C:\Users\pedro\OneDrive\�rea de Trabalho\ProjetoLocaGynEstudo 1.0\ProjetoLocaGynEstudo\src\com\locadora\logos\logo FORD.png
-19;PEDRAAAAO;C:\Users\pedro\OneDrive\Área de Trabalho\ProjetoLocaGynEstudo 1.0\ProjetoLocaGynEstudo\src\com\locadora\logos\Logo LAMBORGHINI.png
+1;FORD;.\src\com\locadora\logos\logo FORD.png
+2;CHEVROLET;.\src\com\locadora\logos\logo CHEVROLET.jpg
+3;SE LEU, DEU;.\src\com\locadora\logos\logo FIAT.jpg
+4;QUEM LEU DA O RABO;.\src\com\locadora\logos\logo FORD.png
+5;LEU MAMOU;.\src\com\locadora\logos\logo CHEVROLET.jpg
+6;PARA DE LER CURIOSO;.\src\com\locadora\logos\logo HONDA.png

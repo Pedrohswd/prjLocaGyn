@@ -12,6 +12,5 @@ import java.util.ArrayList;
 public interface IMarcaDao {
     void incluir(Marca objeto)throws Exception;
     void alterar(Marca objeto)throws Exception;
-    ArrayList<Marca> buscar()throws Exception;
     ArrayList<Marca> listagem()throws Exception;
 }
