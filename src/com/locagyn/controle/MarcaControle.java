@@ -44,7 +44,14 @@ public class MarcaControle implements IMarcaControle{
 
     @Override
     public void alterar(Marca objeto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(buscarMarca(objeto.getDescricao()))  {
+             throw new Exception("Marca já foi cadastrada");
+        }
+        String descricao = objeto.getDescricao();
+        if("".equals(descricao)){
+            throw new Exception("Digite a Descrição");
+        }
+        marcaPersistencia.alterar(objeto);
     }
 
     @Override
