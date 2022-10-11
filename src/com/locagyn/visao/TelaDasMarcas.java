@@ -300,7 +300,18 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDescricaoKeyReleased
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
+
+        try {
+
+            IMarcaDao incluirMarca = new MarcaDao();
+            Marca objeto = new Marca(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricao.getText(), jTextFieldUrl.getText());
+            marcaControle.alterar(objeto);
+            imprimirDadosNaGrid(incluirMarca.listagem());
+        } catch (Exception ex) {
+
+        }
+        jTextFieldDescricao.setText("");
 
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 

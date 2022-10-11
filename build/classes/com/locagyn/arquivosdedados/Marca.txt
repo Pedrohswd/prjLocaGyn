@@ -1,9 +1,6 @@
-1;FORD;.\src\com\locadora\logos\logo FORD.png
+1;FORDA;.\src\com\locadora\logos\logo FORD.png
 2;CHEVROLET;.\src\com\locadora\logos\logo CHEVROLET.jpg
 3;SE LEU, DEU;.\src\com\locadora\logos\logo FIAT.jpg
 4;QUEM LEU DA O RABO;.\src\com\locadora\logos\logo FORD.png
 5;LEU MAMOU;.\src\com\locadora\logos\logo CHEVROLET.jpg
 6;PARA DE LER CURIOSO;.\src\com\locadora\logos\logo HONDA.png
-7;VOLKS;. .\src\com\locadora\logos\logo VOLKSWAGEN.png
-8;VOLKSK;. 1.0\src\com\locadora\logos\logo BMW.jpg
-9;TOY;.\src\com\locadora\logos\logo TOYOTA.png
