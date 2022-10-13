@@ -59,4 +59,5 @@ public class MarcaControle implements IMarcaControle{
         return marcaPersistencia.listagem(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    
 }

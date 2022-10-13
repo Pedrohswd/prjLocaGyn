@@ -14,5 +14,6 @@ import java.util.ArrayList;
 public interface IMarcaControle {
     void incluir(Marca objeto)throws Exception;
     void alterar(Marca objeto)throws Exception;
+    String buscar(Marca objeto)throws Exception;
     ArrayList<Marca> listagem()throws Exception;
 }
