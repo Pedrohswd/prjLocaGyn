@@ -1,4 +1,4 @@
-1;FORD;.\src\com\locadora\logos\logo FORD.png
+1;FIAT;.\src\com\locadora\logos/logo FIAT.jpg
 2;CHEVROLET;.\src\com\locadora\logos\logo CHEVROLET.jpg
 3;SE LEU, DEU;.\src\com\locadora\logos\logo FIAT.jpg
 4;QUEM LEU DA O RABO;.\src\com\locadora\logos\logo FORD.png

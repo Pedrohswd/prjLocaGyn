@@ -6,6 +6,7 @@ package com.locagyn.persistencia;
 
 import com.locagyn.ferramentas.GeradorIdentificador;
 import com.locagyn.modelos.Marca;
+import com.locagyn.visao.TelaDasMarcas;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -46,6 +47,7 @@ public class MarcaDao implements IMarcaDao {
     @Override
     public void alterar(Marca objeto) throws Exception {
         try {
+            Marca objetoMarca = new Marca();
             Iterator<Marca> lista = listagem().iterator();
             FileWriter fw = new FileWriter(nomeDoArquivoNoDisco);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -54,6 +56,7 @@ public class MarcaDao implements IMarcaDao {
                 Marca aux = lista.next();
                 if (aux.getId() == objeto.getId()) {
                     bw.write(objeto.toString() + "\n");
+
                 } else {
                     bw.write(aux.toString() + "\n");
                 }

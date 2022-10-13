@@ -250,7 +250,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         try {
             JFileChooser fc = new JFileChooser();
@@ -262,17 +262,16 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             String nomeDoArquivo = arquivo.getPath();
             String nome = arquivo.getName();
             String url = logo.getPath();
-            url += "/"+ nome;
+            url += "/" + nome;
             System.out.println(url);
             jTextFieldUrl.setText(url);
             ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
             iconLogo.setImage(iconLogo.getImage().getScaledInstance(jTextFieldLogo.getWidth(), jTextFieldLogo.getHeight(), 1));
             jTextFieldLogo.setIcon(iconLogo);
 
-        }catch(Exception erro)
-    {
-        JOptionPane.showMessageDialog(this, erro);
-    }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
     }
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         // TODO add your handling code here:
@@ -299,13 +298,16 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDescricaoKeyReleased
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
-         // TODO add your handling code here:
+        // TODO add your handling code here:
 
         try {
 
             IMarcaDao incluirMarca = new MarcaDao();
             Marca objeto = new Marca(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricao.getText(), jTextFieldUrl.getText());
+            Marca objetoMarca = new Marca();
+            objetoMarca.setUrl(jTextFieldUrl.getText());
             marcaControle.alterar(objeto);
+
             imprimirDadosNaGrid(incluirMarca.listagem());
         } catch (Exception ex) {
 
