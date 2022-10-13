@@ -253,6 +253,8 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
         try {
+                // TODO add your handling code here:
+        try {
             JFileChooser fc = new JFileChooser();
             File logo = new File("./src/com/locadora/logos");
             fc.setCurrentDirectory(logo);
@@ -260,19 +262,21 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             fc.showOpenDialog(this);
             File arquivo = fc.getSelectedFile();
             String nomeDoArquivo = arquivo.getPath();
-            String nome = nomeDoArquivo;
-            String[] teste = nome.split("ProjetoLocaGynEstudo");
-            nome = teste[0];
-            nome = "." + nome;
-            System.out.println(nome);
-            jTextFieldUrl.setText(nome);
+            String nome = arquivo.getName();
+            String url = logo.getPath();
+            url += "/"+ nome;
+            System.out.println(url);
+            jTextFieldUrl.setText(url);
             ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
             iconLogo.setImage(iconLogo.getImage().getScaledInstance(jTextFieldLogo.getWidth(), jTextFieldLogo.getHeight(), 1));
             jTextFieldLogo.setIcon(iconLogo);
 
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
-        }
+        }catch(
+
+    Exception erro)
+    {
+        JOptionPane.showMessageDialog(this, erro);
+    }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
