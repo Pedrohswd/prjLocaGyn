@@ -59,5 +59,10 @@ public class MarcaControle implements IMarcaControle{
         return marcaPersistencia.listagem(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    @Override
+    public String buscar(Marca objeto) throws Exception {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 }
