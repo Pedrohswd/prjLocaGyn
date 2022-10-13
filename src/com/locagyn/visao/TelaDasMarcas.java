@@ -262,7 +262,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             String nomeDoArquivo = arquivo.getPath();
             String nome = nomeDoArquivo;
             String[] teste = nome.split("ProjetoLocaGynEstudo");
-            nome = teste[2];
+            nome = teste[0];
             nome = "." + nome;
             System.out.println(nome);
             jTextFieldUrl.setText(nome);
