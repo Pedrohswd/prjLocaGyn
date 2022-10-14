@@ -5,7 +5,7 @@
 package com.locagyn.persistencia;
 
 
-import com.locagyn.ferramentas.GeradorIdentificadorModelo;
+import com.locagyn.ferramentas.GeradorIdentificador;
 import com.locagyn.modelos.Modelo;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -34,7 +34,7 @@ public class ModeloDao implements IModeloDao {
             //Criar o buffer do arquivo
             BufferedWriter bw = new BufferedWriter(fw);
             // Incluindo o id no objeto ******
-            objeto.setId(GeradorIdentificadorModelo.getID());
+            objeto.setId(GeradorIdentificador.getID());
             //Escreve no arquivo
             bw.write(objeto.toString() + "\n");
             //fecha o arquivo

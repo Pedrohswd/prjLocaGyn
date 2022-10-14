@@ -4,7 +4,7 @@
  */
 package com.locagyn.persistencia;
 
-import com.locagyn.ferramentas.GeradorIdentificadorMarca;
+import com.locagyn.ferramentas.GeradorIdentificador;
 import com.locagyn.modelos.Marca;
 import com.locagyn.visao.TelaDasMarcas;
 import java.io.BufferedReader;
@@ -34,7 +34,7 @@ public class MarcaDao implements IMarcaDao {
             //Criar o buffer do arquivo
             BufferedWriter bw = new BufferedWriter(fw);
             // Incluindo o id no objeto ******
-            objeto.setId(GeradorIdentificadorMarca.getID());
+            objeto.setId(GeradorIdentificador.getID());
             //Escreve no arquivo
             bw.write(objeto.toString() + "\n");
             //fecha o arquivo

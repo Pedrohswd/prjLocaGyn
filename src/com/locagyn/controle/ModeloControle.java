@@ -40,7 +40,7 @@ public class ModeloControle implements IModeloControle {
     @Override
     public void incluir(Modelo objeto) throws Exception {
          if(buscarModelo(objeto.getDescricao())){
-            throw new Exception("Marca já foi cadastrada");
+            throw new Exception("Modelo já foi cadastrada");
         }
         modeloPersistencia.incluir(objeto);
     }
@@ -48,7 +48,7 @@ public class ModeloControle implements IModeloControle {
     @Override
     public void alterar(Modelo objeto) throws Exception {
         if(buscarModelo(objeto.getDescricao()))  {
-             throw new Exception("Marca já foi cadastrada");
+             throw new Exception("Modelo já foi cadastrada");
         }
         String descricao = objeto.getDescricao();
         if("".equals(descricao)){
