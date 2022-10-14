@@ -6,7 +6,7 @@ package com.locagyn.visao;
 
 import com.locagyn.controle.IMarcaControle;
 import com.locagyn.controle.MarcaControle;
-import com.locagyn.ferramentas.GeradorIdentificador;
+import com.locagyn.ferramentas.GeradorIdentificadorMarca;
 import javax.swing.JOptionPane;
 import com.locagyn.modelos.Marca;
 import com.locagyn.persistencia.IMarcaDao;
@@ -23,7 +23,7 @@ import javax.swing.table.TableCellRenderer;
 
 /**
  *
- * @author ejmcc
+ * @author emill
  */
 public class TelaDasMarcas extends javax.swing.JFrame {
 

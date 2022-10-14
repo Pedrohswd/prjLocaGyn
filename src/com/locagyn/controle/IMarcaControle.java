@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author ejmcc
+ * @author pedro
  */
 public interface IMarcaControle {
     void incluir(Marca objeto)throws Exception;

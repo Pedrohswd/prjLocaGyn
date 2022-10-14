@@ -4,7 +4,7 @@
  */
 package com.locagyn.persistencia;
 
-import com.locagyn.ferramentas.GeradorIdentificador;
+import com.locagyn.ferramentas.GeradorIdentificadorMarca;
 import com.locagyn.modelos.Marca;
 import com.locagyn.visao.TelaDasMarcas;
 import java.io.BufferedReader;
@@ -16,7 +16,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author ejmcc
+ * @author cauan
  */
 public class MarcaDao implements IMarcaDao {
 
@@ -34,7 +34,7 @@ public class MarcaDao implements IMarcaDao {
             //Criar o buffer do arquivo
             BufferedWriter bw = new BufferedWriter(fw);
             // Incluindo o id no objeto ******
-            objeto.setId(GeradorIdentificador.getID());
+            objeto.setId(GeradorIdentificadorMarca.getID());
             //Escreve no arquivo
             bw.write(objeto.toString() + "\n");
             //fecha o arquivo
@@ -89,5 +89,11 @@ public class MarcaDao implements IMarcaDao {
             throw erro;
         }
     }
+
+    @Override
+    public String buscar(Marca objeto) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
 
 }

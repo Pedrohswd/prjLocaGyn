@@ -6,17 +6,20 @@ package com.locagyn.modelos;
 
 /**
  *
- * @author ejmcc
+ * @author cauan
  */
 public class Marca {
+
     //Atributos
     private int id = 0;
     private String descricao = "";
     private String url = "";
+
     //Metodos
-    public Marca(){
+    public Marca() {
     }
-    public Marca(int id, String descricao, String url){
+
+    public Marca(int id, String descricao, String url) {
         this.id = id;
         this.descricao = descricao;
         this.url = url;
@@ -25,27 +28,34 @@ public class Marca {
     public Marca(int i, String text) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getDescricao() {
         return descricao;
     }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     public String getUrl() {
         return url;
     }
+
     public void setUrl(String url) {
         this.url = url;
     }
+
     @Override
     public String toString() {
         return id + ";" + descricao + ";" + url;
     }
-    
+
 }

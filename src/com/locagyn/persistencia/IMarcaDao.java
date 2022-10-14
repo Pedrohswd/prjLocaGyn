@@ -7,10 +7,11 @@ import com.locagyn.modelos.Marca;
 import java.util.ArrayList;
 /**
  *
- * @author ejmcc
+ * @author cauan
  */
 public interface IMarcaDao {
     void incluir(Marca objeto)throws Exception;
     void alterar(Marca objeto)throws Exception;
+    String buscar(Marca objeto)throws Exception;
     ArrayList<Marca> listagem()throws Exception;
 }

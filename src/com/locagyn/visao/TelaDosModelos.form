@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -23,14 +23,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -59,13 +64,12 @@
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextFieldDescricaoModelos" alignment="0" min="-2" pref="425" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldDescricaoModelos1" alignment="0" min="-2" pref="299" max="-2" attributes="0"/>
+                              <Component id="jTextFieldDescricaoModelos" alignment="0" min="-2" pref="299" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldIdentificador1" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="jTextFieldIdentificador" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jComboBoxMarcaLogo" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
@@ -74,8 +78,9 @@
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Component id="jLabelMarcaLogo" min="-2" pref="157" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jTextFieldUrlModelo" alignment="0" min="-2" pref="485" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="111" max="32767" attributes="0"/>
+                          <EmptySpace pref="51" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -83,21 +88,17 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabel1" min="-2" pref="249" max="-2" attributes="0"/>
+                                      <Component id="BotaoIncluir" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelImagemModelo" min="-2" pref="249" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jButtonBuscarModelo" min="-2" max="-2" attributes="0"/>
+                                          <Component id="BotaoBuscarImagem" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="BotaoAlterar" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -118,33 +119,32 @@
                                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" pref="202" max="-2" attributes="0"/>
+                                  <Component id="jLabelImagemModelo" min="-2" pref="202" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                  <Component id="jButtonBuscarModelo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="BotaoBuscarImagem" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="BotaoIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="BotaoAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldIdentificador1" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jTextFieldIdentificador" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldDescricaoModelos1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDescricaoModelos" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldDescricaoModelos" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jTextFieldUrlModelo" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -156,9 +156,9 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="317" max="-2" attributes="0"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -178,7 +178,7 @@
             <Property name="text" type="java.lang.String" value="ID:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldDescricaoModelos">
+        <Component class="javax.swing.JTextField" name="jTextFieldUrlModelo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="0"/>
@@ -204,7 +204,7 @@
             <Property name="text" type="java.lang.String" value="Marca:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldIdentificador1">
+        <Component class="javax.swing.JTextField" name="jTextFieldIdentificador">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="0"/>
@@ -230,7 +230,7 @@
             <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldDescricaoModelos1">
+        <Component class="javax.swing.JTextField" name="jTextFieldDescricaoModelos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="0"/>
@@ -271,7 +271,7 @@
             <Property name="text" type="java.lang.String" value="URL:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jLabelImagemModelo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -360,7 +360,7 @@
                   </TableColumnModel>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -377,36 +377,37 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButtonBuscarModelo">
+        <Component class="javax.swing.JButton" name="BotaoBuscarImagem">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="BUSCAR MODELO"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoBuscarImagemActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="BotaoIncluir">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="INCLUIR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoIncluirActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="BotaoAlterar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ALTERAR"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="aux outra tela"/>
-          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAlterarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
