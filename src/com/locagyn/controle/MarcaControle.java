@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author ejmcc
+ * @author pedro
  */
 public class MarcaControle implements IMarcaControle{
     IMarcaDao marcaPersistencia = null;
