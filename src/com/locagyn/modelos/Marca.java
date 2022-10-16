@@ -55,7 +55,7 @@ public class Marca {
 
     @Override
     public String toString() {
-        return id + ";" + descricao + ";" + url;
+        return id + " ; " + descricao + ";" + url;
     }
 
 }

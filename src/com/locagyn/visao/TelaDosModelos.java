@@ -5,9 +5,11 @@
 package com.locagyn.visao;
 import com.locagyn.controle.IModeloControle;
 import com.locagyn.controle.ModeloControle;
+import com.locagyn.modelos.Marca;
 import com.locagyn.persistencia.IModeloDao;
 import com.locagyn.persistencia.ModeloDao;
 import com.locagyn.modelos.Modelo;
+import com.locagyn.persistencia.MarcaDao;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,6 +18,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.locagyn.utils.jTableRender;
+import com.locagyn.persistencia.MarcaDao;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -58,7 +63,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jTextFieldIdentificador = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldDescricaoModelos = new javax.swing.JTextField();
-        jComboBoxMarcaLogo = new javax.swing.JComboBox<>();
+        jComboBoxMarcaLogo = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
         jLabelImagemModelo = new javax.swing.JLabel();
         jLabelMarcaLogo = new javax.swing.JLabel();
@@ -103,7 +108,15 @@ public class TelaDosModelos extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxMarcaLogo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxMarcaLogo.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jComboBoxMarcaLogoAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
@@ -342,6 +355,23 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jTextFieldDescricaoModelos.setCaretPosition(posicao);
     }//GEN-LAST:event_jTextFieldDescricaoModelosKeyReleased
 
+    private void jComboBoxMarcaLogoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jComboBoxMarcaLogoAncestorAdded
+        // TODO add your handling code here:
+        MarcaDao marcaDao = new MarcaDao();
+        try {
+            ArrayList<Marca> lista = marcaDao.listagem();
+            jComboBoxMarcaLogo.removeAll();
+            
+            for (Marca m : lista){
+                jComboBoxMarcaLogo.addItem(m);
+            }
+            
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+        
+    }//GEN-LAST:event_jComboBoxMarcaLogoAncestorAdded
+
     private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
         try {
             DefaultTableModel model = (DefaultTableModel) jTableModelos.getModel();
@@ -402,7 +432,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
     private javax.swing.JButton BotaoBuscarImagem;
     private javax.swing.JButton BotaoIncluir;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBoxMarcaLogo;
+    private javax.swing.JComboBox jComboBoxMarcaLogo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
