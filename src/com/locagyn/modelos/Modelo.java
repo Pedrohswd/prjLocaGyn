@@ -13,10 +13,17 @@ public class Modelo {
     private int id = 0;
     private String descricao = "";
     private String url = "";
+    private String idMarca ="";
 
     public Modelo() {
     }
 
+    public Modelo(int id, String descricao, String url, String idMarca) {
+        this.id = id;
+        this.descricao = descricao;
+        this.url = url;
+        this.idMarca = idMarca;
+    }
     public Modelo(int id, String descricao, String url) {
         this.id = id;
         this.descricao = descricao;
@@ -33,6 +40,14 @@ public class Modelo {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getIdMarca() {
+        return idMarca;
+    }
+
+    public void setIdMarca(String idMarca) {
+        this.idMarca = idMarca;
     }
 
     public String getDescricao() {
@@ -53,7 +68,7 @@ public class Modelo {
 
     @Override
     public String toString() {
-        return id + ";" + descricao + ";" + url;
+        return id + ";" + descricao + ";" + url + ";" + idMarca;
     }
 
 }

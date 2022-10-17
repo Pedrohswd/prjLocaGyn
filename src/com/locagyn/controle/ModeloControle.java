@@ -63,7 +63,7 @@ public class ModeloControle implements IModeloControle {
     }
 
     @Override
-    public String buscar(Modelo objeto) throws Exception {
+    public ArrayList<Modelo> buscar() throws Exception {
         return null;
     }
 

@@ -5,3 +5,10 @@
 5;LEU ;.\src\com\locadora\logos\logo CHEVROLET.jpg
 6;PARA DE LER CURIOSO;.\src\com\locadora\logos\logo HONDA.png
 7;CITROEN;. 1.0\src\com\locadora\logos\logo CITROEN.jpg
+13;COMBOBOX TESTE;.\src\com\locadora\logos/logo BMW.jpg
+14;TESTE;.\src\com\locadora\logos/logo TOYODA.jpg
+15;TESTES;.\src\com\locadora\logos/logo CHEVROLET.jpg
+22;MARCANOVA;.\src\com\locadora\logos/Logo LAMBORGHINI.png
+23;PEDRO;.\src\com\locadora\logos/logo CHEVROLET.jpg
+24;EMILLYFIUFIU;.\src\com\locadora\logos/logo BMW.jpg
+25;EMILL;.\src\com\locadora\logos/logo HONDA.png

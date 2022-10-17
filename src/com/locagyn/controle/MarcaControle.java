@@ -5,6 +5,7 @@
 package com.locagyn.controle;
 
 import com.locagyn.modelos.Marca;
+import com.locagyn.modelos.Modelo;
 import com.locagyn.persistencia.IMarcaDao;
 import com.locagyn.persistencia.MarcaDao;
 import java.util.ArrayList;
@@ -14,18 +15,20 @@ import java.util.Iterator;
  *
  * @author pedro
  */
-public class MarcaControle implements IMarcaControle{
+public class MarcaControle implements IMarcaControle {
     IMarcaDao marcaPersistencia = null;
-    public MarcaControle(){
+
+    public MarcaControle() {
         this.marcaPersistencia = new MarcaDao();
     }
-    private boolean buscarMarca(String descricao)throws Exception{
+
+    private boolean buscarMarca(String descricao) throws Exception {
         try {
             ArrayList<Marca> listagem = marcaPersistencia.listagem();
             Iterator<Marca> lista = listagem.iterator();
-            while(lista.hasNext()){
-                 Marca aux = lista.next();
-                if(aux.getDescricao().equalsIgnoreCase(descricao)){
+            while (lista.hasNext()) {
+                Marca aux = lista.next();
+                if (aux.getDescricao().equalsIgnoreCase(descricao)) {
                     return true;
                 }
             }
@@ -34,9 +37,10 @@ public class MarcaControle implements IMarcaControle{
             throw erro;
         }
     }
+
     @Override
     public void incluir(Marca objeto) throws Exception {
-        if(buscarMarca(objeto.getDescricao())){
+        if (buscarMarca(objeto.getDescricao())) {
             throw new Exception("Marca já foi cadastrada");
         }
         marcaPersistencia.incluir(objeto);
@@ -44,11 +48,11 @@ public class MarcaControle implements IMarcaControle{
 
     @Override
     public void alterar(Marca objeto) throws Exception {
-        if(buscarMarca(objeto.getDescricao()))  {
-             throw new Exception("Marca já foi cadastrada");
+        if (buscarMarca(objeto.getDescricao())) {
+            throw new Exception("Marca já foi cadastrada");
         }
         String descricao = objeto.getDescricao();
-        if("".equals(descricao)){
+        if ("".equals(descricao)) {
             throw new Exception("Digite a Descrição");
         }
         marcaPersistencia.alterar(objeto);
@@ -56,13 +60,18 @@ public class MarcaControle implements IMarcaControle{
 
     @Override
     public ArrayList<Marca> listagem() throws Exception {
-        return marcaPersistencia.listagem(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return marcaPersistencia.listagem(); // Generated from
+                                             // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
     @Override
     public String buscar(Marca objeto) throws Exception {
         // TODO Auto-generated method stub
-        return null;
+        return marcaPersistencia.buscar(objeto);
     }
-    
+
+    public void buscar(String marca) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

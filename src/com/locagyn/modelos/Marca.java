@@ -52,10 +52,12 @@ public class Marca {
     public void setUrl(String url) {
         this.url = url;
     }
+    
 
     @Override
     public String toString() {
-        return id + " ; " + descricao + ";" + url;
+        return id + ";" + descricao + ";" + url;
     }
+    
 
 }
