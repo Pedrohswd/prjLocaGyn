@@ -422,9 +422,9 @@ public class TelaDosModelos extends javax.swing.JFrame {
         MarcaControle marcaControle = new MarcaControle();
         try {
             ArrayList<Marca> lista = marcaControle.listagem();
-            jComboBoxMarcaLogo.removeAll();
+            jComboBoxMarcaLogo.removeAllItems();
             for (Marca m : lista) {
-                jComboBoxMarcaLogo.addItem(m);
+                jComboBoxMarcaLogo.addItem(m.getID + " - " + m.getDescricao);
             }
         } catch (Exception erro) {
             throw erro;
