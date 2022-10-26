@@ -392,7 +392,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
     private String IdentificadorMarca() {
         String marca = jComboBoxMarcaLogo.getSelectedItem().toString();
         Modelo modelo = new Modelo();
-        String[] comboBox = marca.split(";");
+        String[] comboBox = marca.split(" - ");
         String saida = comboBox[0];
         return saida;
     }
@@ -424,7 +424,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
             ArrayList<Marca> lista = marcaControle.listagem();
             jComboBoxMarcaLogo.removeAllItems();
             for (Marca m : lista) {
-                jComboBoxMarcaLogo.addItem(m.getID + " - " + m.getDescricao);
+                jComboBoxMarcaLogo.addItem(m.getId() + " - " + m.getDescricao());
             }
         } catch (Exception erro) {
             throw erro;

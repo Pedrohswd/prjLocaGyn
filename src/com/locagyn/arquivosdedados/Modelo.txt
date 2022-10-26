@@ -8,3 +8,4 @@
 19;OI;.\src\com\locadora\modelos/pexels-photo-116675.jpeg
 20;OIII;.\src\com\locadora\modelos/pexels-photo-116675.jpeg;
 21;OLAAA;.\src\com\locadora\modelos/pexels-photo-116675.jpeg;1
+26;TESTES FINAL;.\src\com\locadora\modelos/pexels-photo-116675.jpeg;24
