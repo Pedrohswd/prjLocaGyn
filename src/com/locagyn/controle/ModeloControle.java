@@ -62,9 +62,4 @@ public class ModeloControle implements IModeloControle {
         return modeloPersistencia.listagem();
     }
 
-    @Override
-    public ArrayList<Modelo> buscar() throws Exception {
-        return null;
-    }
-
 }

@@ -18,7 +18,7 @@ import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import com.locagyn.utils.jTableRender;
-import static com.locagyn.visao.TelaDosModelos.atualizarComboBox;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
@@ -297,7 +297,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             marcaControle.incluir(objeto);
             jTextFieldDescricao.setText("");
             imprimirDadosNaGrid(incluirMarca.listagem());
-            atualizarComboBox();
+            
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
@@ -324,7 +324,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             Marca objetoMarca = new Marca();
             objetoMarca.setUrl(jTextFieldUrl.getText());
             marcaControle.alterar(objeto);
-            atualizarComboBox();
+            
 
             imprimirDadosNaGrid(incluirMarca.listagem());
         } catch (Exception ex) {

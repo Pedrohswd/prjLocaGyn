@@ -70,29 +70,28 @@ public class ModeloDao implements IModeloDao {
     @Override
     public ArrayList<Modelo> listagem() throws Exception {
         try {
-            ArrayList<Modelo> listaDeModelo = new ArrayList<Modelo>();
+            ArrayList<Modelo> listaDeMarcas = new ArrayList<Modelo>();
             FileReader fr = new FileReader(nomeDoArquivoNoDisco);
             BufferedReader br = new BufferedReader(fr);
             String linha = "";
             while ((linha = br.readLine()) != null) {
+                IMarcaDao objetoMarca = new MarcaDao();
                 Modelo objetoModelo = new Modelo();
                 String vetorString[] = linha.split(";");
                 objetoModelo.setId(Integer.parseInt(vetorString[0]));
                 objetoModelo.setDescricao(vetorString[1]);
                 objetoModelo.setUrl(vetorString[2]);
-                listaDeModelo.add(objetoModelo);
+                int idMarca = Integer.parseInt(vetorString[3]);
+                objetoModelo.setMarca(objetoMarca.buscar(idMarca));
+                
+                
+                listaDeMarcas.add(objetoModelo);
             }
             br.close();
-            return listaDeModelo;
+            return listaDeMarcas;
         } catch (Exception erro) {
             throw erro;
         }
-    }
-    
-
-    @Override
-    public ArrayList<Modelo> buscar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

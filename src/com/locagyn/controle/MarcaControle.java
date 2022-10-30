@@ -16,6 +16,7 @@ import java.util.Iterator;
  * @author pedro
  */
 public class MarcaControle implements IMarcaControle {
+
     IMarcaDao marcaPersistencia = null;
 
     public MarcaControle() {
@@ -61,17 +62,16 @@ public class MarcaControle implements IMarcaControle {
     @Override
     public ArrayList<Marca> listagem() throws Exception {
         return marcaPersistencia.listagem(); // Generated from
-                                             // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public String buscar(Marca objeto) throws Exception {
-        // TODO Auto-generated method stub
-        return marcaPersistencia.buscar(objeto);
+        // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public void buscar(String marca) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Marca buscar(int id) throws Exception {
+        return marcaPersistencia.buscar(id);
     }
 
 }

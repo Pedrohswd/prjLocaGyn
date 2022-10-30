@@ -3,15 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package com.locagyn.persistencia;
+
 import com.locagyn.modelos.Marca;
 import java.util.ArrayList;
+
 /**
  *
  * @author cauan
  */
 public interface IMarcaDao {
-    void incluir(Marca objeto)throws Exception;
-    void alterar(Marca objeto)throws Exception;
-    String buscar(Marca objeto)throws Exception;
-    ArrayList<Marca> listagem()throws Exception;
+
+    void incluir(Marca objeto) throws Exception;
+
+    void alterar(Marca objeto) throws Exception;
+
+
+
+    ArrayList<Marca> listagem() throws Exception;
+
+    Marca buscar(int id) throws Exception;
 }

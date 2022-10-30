@@ -13,25 +13,25 @@ public class Modelo {
     private int id = 0;
     private String descricao = "";
     private String url = "";
-    private String idMarca ="";
+    private String idMarca = "";
+    private Marca marca;
 
     public Modelo() {
     }
 
-    public Modelo(int id, String descricao, String url, String idMarca) {
+    public Modelo(int id, String descricao, String url, Marca marca) {
         this.id = id;
         this.descricao = descricao;
         this.url = url;
-        this.idMarca = idMarca;
-    }
-    public Modelo(int id, String descricao, String url) {
-        this.id = id;
-        this.descricao = descricao;
-        this.url = url;
+        this.marca = marca;
     }
 
-    public Modelo(int i, String text) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 
     public int getId() {
@@ -68,7 +68,7 @@ public class Modelo {
 
     @Override
     public String toString() {
-        return id + ";" + descricao + ";" + url + ";" + idMarca;
+        return id + ";" + descricao + ";" + url  + ";" + marca.getId();
     }
 
 }
