@@ -24,7 +24,6 @@ import com.locagyn.utils.jTableRender;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author emill
@@ -43,9 +42,8 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jTextFieldIdentificador.setEnabled(false);
         jTextFieldUrlModelo.setEnabled(false);
         this.setLocationRelativeTo(null);
-         try {
-     
-        
+        try {
+
             IModeloDao incluirMarca = new ModeloDao();
             imprimirDadosNaGrid(incluirMarca.listagem());
         } catch (Exception erro) {
@@ -55,15 +53,15 @@ public class TelaDosModelos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         MarcaDao objeto = new MarcaDao();
         try {
-            ArrayList<Marca>lista=objeto.listagem();
-            
-            String []listaCombo= new String[lista.size()];
-            for(int pos =0;pos<lista.size();pos++){
-                listaCombo[pos]=lista.get(pos).getDescricao();
+            ArrayList<Marca> lista = objeto.listagem();
+
+            String[] listaCombo = new String[lista.size()];
+            for (int pos = 0; pos < lista.size(); pos++) {
+                listaCombo[pos] = lista.get(pos).getDescricao();
                 jComboBoxMarcaLogo.addItem(listaCombo[pos]);
             }
-       } catch (Exception erro) {
-           JOptionPane.showMessageDialog(this, "Marca Não Existe");
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, "Marca Não Existe");
         }
     }
 
@@ -308,29 +306,56 @@ public class TelaDosModelos extends javax.swing.JFrame {
 
     private void jComboBoxMarcaLogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcaLogoActionPerformed
         // TODO add your handling code here:
-         try {
-         // TODO add your handling code here:
-         IMarcaDao objeto = new MarcaDao();
-         ArrayList<Marca> lista = objeto.listagem();
-          for(int i = 0;i<lista.size();i++){
-              if(jComboBoxMarcaLogo.getSelectedItem().equals(lista.get(i).getDescricao())){
-                  ImageIcon iconlogo = new ImageIcon(lista.get(i).getUrl());
-                   iconlogo.setImage(iconlogo.getImage().getScaledInstance(jLabelMarcaLogo.getWidth(), jLabelMarcaLogo.getHeight(), 1));
-                  jLabelMarcaLogo.setIcon(iconlogo);
-              }
-          }
-         
-                 
-                 } catch (Exception ex) {
-         Logger.getLogger(TelaDosModelos.class.getName()).log(Level.SEVERE, null, ex);
-     }
+        try {
+            atualizarCombobox();
+        } catch (Exception erro) {
+            Logger.getLogger(TelaDosModelos.class.getName()).log(Level.SEVERE, null, erro);
+        }
     }//GEN-LAST:event_jComboBoxMarcaLogoActionPerformed
 
-    private void jTableModelosMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jTableModelosMouseClicked
-        
+    public static void atualizarCombobox() throws Exception {
+        /*feito como método static para acesso a rotinas de cadastro de marca e assim
+        ter a atualização sem que seja preciso dar run novamente no projeto*/
+        try {
+            IMarcaDao objeto = new MarcaDao();
+            ArrayList<Marca> lista = objeto.listagem();
+            for (int i = 0; i < lista.size(); i++) {
+                if (jComboBoxMarcaLogo.getSelectedItem().equals(lista.get(i).getDescricao())) {
+                    ImageIcon iconlogo = new ImageIcon(lista.get(i).getUrl());
+                    iconlogo.setImage(iconlogo.getImage().getScaledInstance(jLabelMarcaLogo.getWidth(), jLabelMarcaLogo.getHeight(), 1));
+                    jLabelMarcaLogo.setIcon(iconlogo);
+                }
+            }
+        } catch (Exception erro) {
+            Logger.getLogger(TelaDosModelos.class.getName()).log(Level.SEVERE, null, erro);
 
-    }// GEN-LAST:event_jTableModelosMouseClicked
-private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
+        }
+
+    }
+
+    private void jTableModelosMouseClicked(java.awt.event.MouseEvent evt) {
+        try{
+            MarcaControle marcaControle = new MarcaControle();
+            jTextFieldIdentificador.setText(jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 0).toString());
+            jTextFieldDescricaoModelos.setText(jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 1).toString());
+            jTextFieldUrlModelo.setText(jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 2).toString());
+            String nomeArquivo = (String) this.jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 2);
+            jTextFieldUrlModelo.setText(nomeArquivo);
+            ImageIcon iconLogoModelo = new ImageIcon(nomeArquivo);
+            iconLogoModelo.setImage(iconLogoModelo.getImage().getScaledInstance(jLabelImagemModelo.getWidth(), jLabelImagemModelo.getHeight(), 1));
+            jLabelImagemModelo.setIcon(iconLogoModelo);
+            int id =(int) this.jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 3);
+            Marca marca = new Marca();
+            
+            jComboBoxMarcaLogo.getModel().setSelectedItem(marca);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+
+    }
+
+    private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
         try {
             DefaultTableModel model = (DefaultTableModel) jTableModelos.getModel();
             // Limpa a tabela
@@ -351,19 +376,20 @@ private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
         }
 
     }
+
     private void BotaoIncluirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BotaoIncluirActionPerformed
         // TODO add your handling code here:
         try {
             int idMarca = 0;
             File path = new File(jTextFieldUrlModelo.getText());
-            String logo = ".\\src\\com\\locadora\\modelos\\"+path.getName();
-            
-                MarcaControle objeto1 = new MarcaControle();
-            
-            Modelo objeto = new Modelo(0, jTextFieldDescricaoModelos.getText(), logo,objeto1.buscar(idMarca));
+            String logo = ".\\src\\com\\locadora\\modelos\\" + path.getName();
+
+            MarcaControle objeto1 = new MarcaControle();
+
+            Modelo objeto = new Modelo(0, jTextFieldDescricaoModelos.getText(), logo, objeto1.buscar(idMarca));
             ArrayList<Marca> lista = obj.listagem();
-            for(int i = 0; i < lista.size(); i++){
-                if(jComboBoxMarcaLogo.getSelectedItem().equals(lista.get(i).getDescricao())){
+            for (int i = 0; i < lista.size(); i++) {
+                if (jComboBoxMarcaLogo.getSelectedItem().equals(lista.get(i).getDescricao())) {
                     objeto.setMarca(lista.get(i));
                 }
             }
@@ -374,7 +400,6 @@ private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-
 
     }// GEN-LAST:event_BotaoIncluirActionPerformed
 
@@ -406,21 +431,20 @@ private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
     private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BotaoAlterarActionPerformed
         // TODO add your handling code here:
         try {
-           int idMarca = 0;
-           MarcaControle objeto1 = new MarcaControle();
-            
-              Modelo objeto = new Modelo(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricaoModelos.getText(), jTextFieldUrlModelo.getText(),objeto1.buscar(idMarca));
+            int idMarca = 0;
+            MarcaControle objeto1 = new MarcaControle();
+
+            Modelo objeto = new Modelo(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricaoModelos.getText(), jTextFieldUrlModelo.getText(), objeto1.buscar(idMarca));
             ArrayList<Marca> lista = obj.listagem();
-            for(int i = 0; i < lista.size(); i++){
-                if(jComboBoxMarcaLogo.getSelectedItem().equals(lista.get(i).getDescricao())){
+            for (int i = 0; i < lista.size(); i++) {
+                if (jComboBoxMarcaLogo.getSelectedItem().equals(lista.get(i).getDescricao())) {
                     objeto.setMarca(lista.get(i));
                 }
             }
             modeloControle.alterar(objeto);
             jTextFieldDescricaoModelos.setText("");
             imprimirDadosNaGrid(modeloControle.listagem());
-         
-            
+
         } catch (Exception ex) {
 
         }
@@ -433,8 +457,6 @@ private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
         jTextFieldDescricaoModelos.setText(jTextFieldDescricaoModelos.getText().toUpperCase());
         jTextFieldDescricaoModelos.setCaretPosition(posicao);
     }// GEN-LAST:event_jTextFieldDescricaoModelosKeyReleased
-
-   
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // Trazer a tela de cadastro de marcas
@@ -449,11 +471,6 @@ private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
 
     }// GEN-LAST:event_jButton1ActionPerformed
 
-    
-    
-    
-    
-
     /**
      * @param args the command line arguments
      */
@@ -467,7 +484,7 @@ private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
          * For details see
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        
+
         // </editor-fold>
 
         /* Create and display the form */
@@ -483,13 +500,13 @@ private void imprimirDadosNaGrid(ArrayList<Modelo> listaDeMarcas) {
     private javax.swing.JButton BotaoBuscarImagem;
     private javax.swing.JButton BotaoIncluir;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBoxMarcaLogo;
+    public static javax.swing.JComboBox<String> jComboBoxMarcaLogo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelImagemModelo;
-    private javax.swing.JLabel jLabelMarcaLogo;
+    public static javax.swing.JLabel jLabelMarcaLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableModelos;

@@ -18,6 +18,8 @@ import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import com.locagyn.utils.jTableRender;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -352,7 +354,12 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableMarcasMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();
+       try {
+            TelaDosModelos.atualizarCombobox();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaDasMarcas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void imprimirDadosNaGrid(ArrayList<Marca> listaDeMarcas) {
