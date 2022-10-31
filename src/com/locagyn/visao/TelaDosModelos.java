@@ -344,11 +344,6 @@ public class TelaDosModelos extends javax.swing.JFrame {
             ImageIcon iconLogoModelo = new ImageIcon(nomeArquivo);
             iconLogoModelo.setImage(iconLogoModelo.getImage().getScaledInstance(jLabelImagemModelo.getWidth(), jLabelImagemModelo.getHeight(), 1));
             jLabelImagemModelo.setIcon(iconLogoModelo);
-            int id =(int) this.jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 3);
-            Marca marca = new Marca();
-            
-            jComboBoxMarcaLogo.getModel().setSelectedItem(marca);
-            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }
