@@ -1,1 +1,1 @@
-7;PALIO;.\src\com\locadora\modelos\pexels-photo-116675.jpeg;2
+23;CIAO;.\src\com\locadora\modelos/Uno_Ciao_0032.jpg;22

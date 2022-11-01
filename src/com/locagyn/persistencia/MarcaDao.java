@@ -9,6 +9,7 @@ import com.locagyn.modelos.Marca;
 import com.locagyn.visao.TelaDasMarcas;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -73,6 +74,11 @@ public class MarcaDao implements IMarcaDao {
     public ArrayList<Marca> listagem() throws Exception {
         try {
             ArrayList<Marca> listaDeMarcas = new ArrayList<Marca>();
+            File arquivo = new File("./src/com/locagyn/arquivosdedados/Marca.txt");
+            if(!arquivo.exists()){
+                arquivo.createNewFile();
+                nomeDoArquivoNoDisco = "./src/com/locagyn/arquivosdedados/Marca.txt";
+            }
             FileReader fr = new FileReader(nomeDoArquivoNoDisco);
             BufferedReader br = new BufferedReader(fr);
             String linha = "";
@@ -96,19 +102,18 @@ public class MarcaDao implements IMarcaDao {
         FileReader fr = new FileReader(nomeDoArquivoNoDisco);
         BufferedReader br = new BufferedReader(fr);
         String linha = "";
-        while ((linha = br.readLine()) != null){
+        while ((linha = br.readLine()) != null) {
             Marca objetomMarca = new Marca();
             String vetorString[] = linha.split(";");
             objetomMarca.setId(Integer.parseInt(vetorString[0]));
             objetomMarca.setDescricao(vetorString[1]);
             objetomMarca.setUrl(vetorString[2]);
-            if(objetomMarca.getId() == id){
+            if (objetomMarca.getId() == id) {
                 br.close();
                 return new Marca((Integer.parseInt(vetorString[0])), vetorString[1], vetorString[2]);
             }
         }
         return null;
     }
-    
 
 }

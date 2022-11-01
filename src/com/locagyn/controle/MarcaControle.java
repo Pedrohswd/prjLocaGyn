@@ -24,7 +24,7 @@ public class MarcaControle implements IMarcaControle {
     }
 
     private boolean buscarMarca(String descricao) throws Exception {
-        try {
+      try {
             ArrayList<Marca> listagem = marcaPersistencia.listagem();
             Iterator<Marca> lista = listagem.iterator();
             while (lista.hasNext()) {
@@ -35,7 +35,7 @@ public class MarcaControle implements IMarcaControle {
             }
             return false;
         } catch (Exception erro) {
-            throw erro;
+          throw erro;
         }
     }
 
@@ -44,6 +44,15 @@ public class MarcaControle implements IMarcaControle {
         if (buscarMarca(objeto.getDescricao())) {
             throw new Exception("Marca já foi cadastrada");
         }
+
+        if ("".equals(objeto.getDescricao().replace(" ", ""))) {
+            throw new Exception("Digite a Descrição");
+        }
+
+        if ("".equals(objeto.getUrl().replace(" ", ""))) {
+            throw new Exception("Selecione Uma Imagem");
+        }
+
         marcaPersistencia.incluir(objeto);
     }
 
@@ -52,9 +61,12 @@ public class MarcaControle implements IMarcaControle {
         if (buscarMarca(objeto.getDescricao())) {
             throw new Exception("Marca já foi cadastrada");
         }
-        String descricao = objeto.getDescricao();
-        if ("".equals(descricao)) {
+        if ("".equals(objeto.getDescricao().replace(" ", ""))) {
             throw new Exception("Digite a Descrição");
+        }
+
+        if ("".equals(objeto.getUrl().replace(" ", ""))) {
+            throw new Exception("Selecione Uma Imagem");
         }
         marcaPersistencia.alterar(objeto);
     }

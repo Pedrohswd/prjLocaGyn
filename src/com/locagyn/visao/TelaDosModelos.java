@@ -47,7 +47,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
             IModeloDao incluirMarca = new ModeloDao();
             imprimirDadosNaGrid(incluirMarca.listagem());
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro.getMessage());
+            JOptionPane.showMessageDialog(this, "Incluir imagem!");
         }
         jTextFieldUrlModelo.setEnabled(false);
         this.setLocationRelativeTo(null);
@@ -97,31 +97,34 @@ public class TelaDosModelos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(176, 198, 238));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel2.setText("ID:");
 
         jTextFieldUrlModelo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextFieldUrlModelo.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jTextFieldUrlModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel3.setText("Marca:");
 
         jTextFieldIdentificador.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextFieldIdentificador.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jTextFieldIdentificador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel4.setText("Descrição:");
 
         jTextFieldDescricaoModelos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextFieldDescricaoModelos.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jTextFieldDescricaoModelos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextFieldDescricaoModelos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldDescricaoModelosKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDescricaoModelosKeyTyped(evt);
             }
         });
 
@@ -130,10 +133,11 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jLabel5.setText("URL:");
 
         jLabelImagemModelo.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelImagemModelo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "MODELO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
 
         jLabelMarcaLogo.setBackground(new java.awt.Color(0, 0, 0));
 
-        jTableModelos.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jTableModelos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableModelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -168,7 +172,6 @@ public class TelaDosModelos extends javax.swing.JFrame {
         BotaoBuscarImagem.setBackground(new java.awt.Color(0, 0, 0));
         BotaoBuscarImagem.setForeground(new java.awt.Color(255, 255, 255));
         BotaoBuscarImagem.setText("BUSCAR MODELO");
-        BotaoBuscarImagem.setBorderPainted(false);
         BotaoBuscarImagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoBuscarImagemActionPerformed(evt);
@@ -208,6 +211,11 @@ public class TelaDosModelos extends javax.swing.JFrame {
             }
         });
 
+        jLabelMarcaLogoTable.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "MARCA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
+        jLabelMarcaLogoTable.setMaximumSize(new java.awt.Dimension(25, 25));
+        jLabelMarcaLogoTable.setMinimumSize(new java.awt.Dimension(25, 25));
+        jLabelMarcaLogoTable.setPreferredSize(new java.awt.Dimension(25, 25));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -215,6 +223,9 @@ public class TelaDosModelos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -231,8 +242,8 @@ public class TelaDosModelos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelMarcaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelMarcaLogoTable, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104))
+                        .addComponent(jLabelMarcaLogoTable, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -250,7 +261,6 @@ public class TelaDosModelos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabelImagemModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59))))
-            .addComponent(jScrollPane2)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,17 +290,17 @@ public class TelaDosModelos extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(8, 8, 8)
                                 .addComponent(jComboBoxMarcaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 25, Short.MAX_VALUE))
+                                .addGap(0, 6, Short.MAX_VALUE))
                             .addComponent(jLabelMarcaLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BotaoAlterar)
                             .addComponent(BotaoIncluir)
-                            .addComponent(jButton1)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelMarcaLogoTable, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addGap(12, 12, 12))
+                    .addComponent(jLabelMarcaLogoTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -302,9 +312,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -318,6 +326,14 @@ public class TelaDosModelos extends javax.swing.JFrame {
             Logger.getLogger(TelaDosModelos.class.getName()).log(Level.SEVERE, null, erro);
         }
     }//GEN-LAST:event_jComboBoxMarcaLogoActionPerformed
+
+    private void jTextFieldDescricaoModelosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoModelosKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isLetter(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldDescricaoModelosKeyTyped
 
     public static void atualizarCombobox() throws Exception {
         /*feito como método static para acesso a rotinas de cadastro de marca e assim
@@ -352,8 +368,9 @@ public class TelaDosModelos extends javax.swing.JFrame {
             jLabelImagemModelo.setIcon(iconLogoModelo);
 
             //Aqui ta a gambiarra linda do cauan que pega a imagem da logo da marca do modelo do carro.
-            ImageIcon iconLogoMarca = new ImageIcon((String)jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 3));
-            iconLogoMarca.setImage(iconLogoMarca.getImage().getScaledInstance(jLabelMarcaLogo.getWidth(), jLabelMarcaLogo.getHeight(), 1));
+            ImageIcon iconLogoMarca = new ImageIcon((String) jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 3));
+            //iconLogoMarca.setImage(iconLogoMarca.getImage().getScaledInstance(jLabelMarcaLogoTable.getWidth(), jLabelMarcaLogoTable.getHeight(), 1));
+            iconLogoMarca.setImage(iconLogoMarca.getImage().getScaledInstance(jLabelMarcaLogoTable.getWidth(), jLabelMarcaLogoTable.getHeight(), 1));
             jLabelMarcaLogoTable.setIcon(iconLogoMarca);
 
         } catch (Exception e) {
@@ -393,7 +410,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
 
             MarcaControle objeto1 = new MarcaControle();
 
-            Modelo objeto = new Modelo(0, jTextFieldDescricaoModelos.getText(), logo, objeto1.buscar(idMarca));
+            Modelo objeto = new Modelo(0, jTextFieldDescricaoModelos.getText(), jTextFieldUrlModelo.getText(), objeto1.buscar(idMarca));
             ArrayList<Marca> lista = obj.listagem();
             for (int i = 0; i < lista.size(); i++) {
                 if (jComboBoxMarcaLogo.getSelectedItem().equals(lista.get(i).getDescricao())) {
@@ -426,13 +443,13 @@ public class TelaDosModelos extends javax.swing.JFrame {
             System.out.println(url);
             jTextFieldUrlModelo.setText(url);
             ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
-            iconLogo.setImage(iconLogo.getImage().getScaledInstance(jLabelImagemModelo.getWidth(),
-                    jLabelImagemModelo.getHeight(), 1));
+            iconLogo.setImage(iconLogo.getImage().getScaledInstance(jLabelImagemModelo.getWidth(), jLabelImagemModelo.getHeight(), 1));
             jLabelImagemModelo.setIcon(iconLogo);
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
+           JOptionPane.showMessageDialog(this, erro);
         }
+
     }// GEN-LAST:event_BotaoBuscarImagemActionPerformed
 
     private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BotaoAlterarActionPerformed
@@ -468,9 +485,11 @@ public class TelaDosModelos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // Trazer a tela de cadastro de marcas
         try {
+
             TelaDasMarcas telaMarca = new TelaDasMarcas();
             telaMarca.setLocationRelativeTo(null);
             telaMarca.setVisible(true);
+            this.setVisible(false);
             telaMarca.setResizable(false);
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro);
