@@ -329,10 +329,6 @@ public class TelaDosModelos extends javax.swing.JFrame {
 
     private void jTextFieldDescricaoModelosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoModelosKeyTyped
         // TODO add your handling code here:
-        char e = evt.getKeyChar();
-        if (!Character.isLetter(e)) {
-            evt.consume();
-        }
     }//GEN-LAST:event_jTextFieldDescricaoModelosKeyTyped
 
     public static void atualizarCombobox() throws Exception {
@@ -422,7 +418,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
             imprimirDadosNaGrid(modeloControle.listagem());
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, "Preencha todos os campos");
+            JOptionPane.showMessageDialog(this, erro.getMessage());
         }
 
     }// GEN-LAST:event_BotaoIncluirActionPerformed

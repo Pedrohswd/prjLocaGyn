@@ -17,7 +17,8 @@ import java.util.Iterator;
 public class ModeloControle implements IModeloControle {
 
     IModeloDao modeloPersistencia = null;
-    public ModeloControle(){
+
+    public ModeloControle() {
         this.modeloPersistencia = new ModeloDao();
     }
 
@@ -39,21 +40,40 @@ public class ModeloControle implements IModeloControle {
 
     @Override
     public void incluir(Modelo objeto) throws Exception {
-         if(buscarModelo(objeto.getDescricao())){
+        if (buscarModelo(objeto.getDescricao())) {
             throw new Exception("Modelo já foi cadastrada");
+        }
+
+        if (objeto.getDescricao().startsWith(" ") || objeto.getDescricao().endsWith(" ")){
+            throw new Exception("Retire Os Espaços Do Início E Do Fim Da Descrição");
+        }
+        
+        
+        
+        if ("".equals(objeto.getDescricao().replace(" ", ""))) {
+            throw new Exception("Digite a Descrição");
+        }
+
+        if ("".equals(objeto.getUrl().replace(" ", ""))) {
+            throw new Exception("Selecione Uma Imagem");
         }
         modeloPersistencia.incluir(objeto);
     }
 
     @Override
     public void alterar(Modelo objeto) throws Exception {
-        if(buscarModelo(objeto.getDescricao()))  {
-             throw new Exception("Modelo já foi cadastrada");
+        if (buscarModelo(objeto.getDescricao())) {
+            throw new Exception("Modelo já foi cadastrada");
         }
-        String descricao = objeto.getDescricao();
-        if("".equals(descricao)){
+
+        if ("".equals(objeto.getDescricao().replace(" ", ""))) {
             throw new Exception("Digite a Descrição");
         }
+
+        if ("".equals(objeto.getUrl().replace(" ", ""))) {
+            throw new Exception("Selecione Uma Imagem");
+        }
+
         modeloPersistencia.alterar(objeto);
     }
 
