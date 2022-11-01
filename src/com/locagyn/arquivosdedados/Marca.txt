@@ -1,1 +1,2 @@
 22;FIAT;.\src\com\locadora\logos/logo FIAT.jpg
+24;BMW;.\src\com\locadora\logos/logo BMW.jpg

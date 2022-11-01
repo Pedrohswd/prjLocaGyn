@@ -422,7 +422,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
             imprimirDadosNaGrid(modeloControle.listagem());
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro.getMessage());
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos");
         }
 
     }// GEN-LAST:event_BotaoIncluirActionPerformed
