@@ -499,7 +499,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
             imprimirDadosNaGrid(modeloControle.listagem());
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro.getMessage());
+            JOptionPane.showMessageDialog(this, "Você não selecionou uma imagem!");
         }
 
     }// GEN-LAST:event_BotaoIncluirActionPerformed

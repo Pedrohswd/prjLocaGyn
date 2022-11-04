@@ -311,7 +311,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             jTextFieldLogo.setIcon(iconLogo);
 
        } catch (Exception erro) {
-           JOptionPane.showMessageDialog(this, erro);
+           JOptionPane.showMessageDialog(this, "Você não selecionou sua imagem.");
        }
     }
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed

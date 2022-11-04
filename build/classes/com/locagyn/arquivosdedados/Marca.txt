@@ -1,1 +1,1 @@
-22;FIAT;.\src\com\locadora\logos/logo FIAT.jpg
+1;FIAT;.\src\com\locadora\logos/logo FIAT.jpg

@@ -1,8 +1,0 @@
-23;CIAO;.\src\com\locadora\modelos/Uno_Ciao_0032.jpg;22
-24;              FIAT          ;.\src\com\locadora\modelos/Uno_Ciao_0032.jpg;22
-25;FIAT;.\src\com\locadora\modelos/Uno_Ciao_0032.jpg;22
-26;    A;.\src\com\locadora\modelos/Uno_Ciao_0032.jpg;22
-27; TESTE ;.\src\com\locadora\modelos/Uno_Ciao_0032.jpg;22
-28;FIATT;.\src\com\locadora\modelos/Uno_Ciao_0032.jpg;22
-29;ONIX LS;.\src\com\locadora\modelos/Uno_Ciao_0032.jpg;22
-30;ONIX  LS;.\src\com\locadora\modelos/Uno_Ciao_0032.jpg;22
