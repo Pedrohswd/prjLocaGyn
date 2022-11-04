@@ -1,1 +1,4 @@
 22;FIAT;.\src\com\locadora\logos/logo FIAT.jpg
+31;OIIII;.\src\com\locadora\logos/logo HYUNDAI.png
+32;SLA;.\src\com\locadora\logos/logo TOYODA.jpg
+33;SLAAAA;.\src\com\locadora\logos/logo VOLKSWAGEN.png

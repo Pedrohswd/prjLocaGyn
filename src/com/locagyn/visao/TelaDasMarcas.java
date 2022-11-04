@@ -73,7 +73,12 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jTextFieldLogo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableMarcas = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeMarca = new javax.swing.JMenuItem();
+        jMenuItemTelaInicial = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,15 +178,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             jTableMarcas.getColumnModel().getColumn(3).setCellRenderer(new jTableRender());
         }
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("SAIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -201,17 +197,11 @@ public class TelaDasMarcas extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 68, Short.MAX_VALUE)
+                        .addComponent(jTextFieldLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(0, 56, Short.MAX_VALUE)
-                                .addComponent(jTextFieldLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonBuscar)
-                                .addGap(23, 23, 23))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jButtonBuscar)
+                        .addGap(23, 23, 23))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jScrollPane2)
                         .addContainerGap())))
@@ -246,12 +236,44 @@ public class TelaDasMarcas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonAlterar)
-                            .addComponent(jButtonIncluir)
-                            .addComponent(jButton1))))
+                            .addComponent(jButtonIncluir))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jMenuOpcoes.setText("Options");
+
+        jMenuItemCadastroDeModelo.setText("Cadastro de Modelo");
+        jMenuItemCadastroDeModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeModeloActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeModelo);
+
+        jMenuItemCadastroDeMarca.setText("Cadastro de Marca");
+        jMenuItemCadastroDeMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeMarcaActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeMarca);
+
+        jMenuItemTelaInicial.setText("Tela Inicial");
+        jMenuItemTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemTelaInicialActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemTelaInicial);
+
+        jMenuBar1.add(jMenuOpcoes);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -261,7 +283,9 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
@@ -298,6 +322,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             marcaControle.incluir(objeto);
             jTextFieldDescricao.setText("");
             imprimirDadosNaGrid(incluirMarca.listagem());
+         
 
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, "Preencher todos os campos");
@@ -330,6 +355,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             marcaControle.alterar(objeto);
 
             imprimirDadosNaGrid(incluirMarca.listagem());
+        
         } catch (Exception ex) {
 
         }
@@ -354,19 +380,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTableMarcasMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-
-            TelaDosModelos frame = new TelaDosModelos();
-            frame.setVisible(true);
-            this.setVisible(false);
-            TelaDosModelos.atualizarCombobox();
-        } catch (Exception ex) {
-            Logger.getLogger(TelaDasMarcas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jTextFieldDescricaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyTyped
         // TODO add your handling code here:
         char e = evt.getKeyChar();
@@ -374,6 +387,48 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldDescricaoKeyTyped
+
+    private void jMenuItemCadastroDeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeModeloActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaDosModelos telaModelo = new TelaDosModelos();
+            telaModelo.setLocationRelativeTo(null);
+            telaModelo.setVisible(true);
+            this.setVisible(false);
+            telaModelo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeModeloActionPerformed
+
+    private void jMenuItemCadastroDeMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeMarcaActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaDasMarcas telaMarca = new TelaDasMarcas();
+            telaMarca.setLocationRelativeTo(null);
+            telaMarca.setVisible(true);
+            this.setVisible(false);
+            telaMarca.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeMarcaActionPerformed
+
+    private void jMenuItemTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTelaInicialActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaInicial telaInicial = new TelaInicial();
+            telaInicial.setLocationRelativeTo(null);
+            telaInicial.setVisible(true);
+            this.setVisible(false);
+            telaInicial.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
 
     private void imprimirDadosNaGrid(ArrayList<Marca> listaDeMarcas) {
         try {
@@ -432,13 +487,18 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonIncluir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
+    private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
+    private javax.swing.JMenuItem jMenuItemTelaInicial;
+    private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableMarcas;

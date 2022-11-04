@@ -93,6 +93,12 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jComboBoxMarcaLogo = new javax.swing.JComboBox<>();
         jLabelMarcaLogoTable = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeMarca = new javax.swing.JMenuItem();
+        jMenuItemTelaInicial = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -290,7 +296,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(8, 8, 8)
                                 .addComponent(jComboBoxMarcaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 6, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jLabelMarcaLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -304,6 +310,39 @@ public class TelaDosModelos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jMenuOpcoes.setText("Options");
+
+        jMenuItemCadastroDeModelo.setText("Cadastro de Modelo");
+        jMenuItemCadastroDeModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeModeloActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeModelo);
+
+        jMenuItemCadastroDeMarca.setText("Cadastro de Marca");
+        jMenuItemCadastroDeMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeMarcaActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeMarca);
+
+        jMenuItemTelaInicial.setText("Tela Inicial");
+        jMenuItemTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemTelaInicialActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemTelaInicial);
+
+        jMenuBar1.add(jMenuOpcoes);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -312,7 +351,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 625, Short.MAX_VALUE)
         );
 
         pack();
@@ -330,6 +369,48 @@ public class TelaDosModelos extends javax.swing.JFrame {
     private void jTextFieldDescricaoModelosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoModelosKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDescricaoModelosKeyTyped
+
+    private void jMenuItemCadastroDeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeModeloActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaDosModelos telaModelo = new TelaDosModelos();
+            telaModelo.setLocationRelativeTo(null);
+            telaModelo.setVisible(true);
+            this.setVisible(false);
+            telaModelo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeModeloActionPerformed
+
+    private void jMenuItemCadastroDeMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeMarcaActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaDasMarcas telaMarca = new TelaDasMarcas();
+            telaMarca.setLocationRelativeTo(null);
+            telaMarca.setVisible(true);
+            this.setVisible(false);
+            telaMarca.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeMarcaActionPerformed
+
+    private void jMenuItemTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTelaInicialActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaInicial telaInicial = new TelaInicial();
+            telaInicial.setLocationRelativeTo(null);
+            telaInicial.setVisible(true);
+            this.setVisible(false);
+            telaInicial.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
 
     public static void atualizarCombobox() throws Exception {
         /*feito como método static para acesso a rotinas de cadastro de marca e assim
@@ -530,6 +611,12 @@ public class TelaDosModelos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelImagemModelo;
     public static javax.swing.JLabel jLabelMarcaLogo;
     private javax.swing.JLabel jLabelMarcaLogoTable;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
+    private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
+    private javax.swing.JMenuItem jMenuItemTelaInicial;
+    private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableModelos;
