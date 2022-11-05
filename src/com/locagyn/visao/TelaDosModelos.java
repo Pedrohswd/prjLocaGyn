@@ -4,15 +4,12 @@
  */
 package com.locagyn.visao;
 
+import com.locagyn.controle.IMarcaControle;
 import com.locagyn.controle.IModeloControle;
 import com.locagyn.controle.MarcaControle;
 import com.locagyn.controle.ModeloControle;
 import com.locagyn.modelos.Marca;
 import com.locagyn.modelos.Modelo;
-import com.locagyn.persistencia.IMarcaDao;
-import com.locagyn.persistencia.IModeloDao;
-import com.locagyn.persistencia.MarcaDao;
-import com.locagyn.persistencia.ModeloDao;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -43,15 +40,15 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jTextFieldUrlModelo.setEnabled(false);
         this.setLocationRelativeTo(null);
         try {
-
-            IModeloDao incluirMarca = new ModeloDao();
-            imprimirDadosNaGrid(incluirMarca.listagem());
+            
+            IModeloControle incluirModelo = new ModeloControle();
+            imprimirDadosNaGrid(incluirModelo.listagem());
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, "Incluir imagem!");
+            JOptionPane.showMessageDialog(this, "Erro ao carregar a lista de Modelos! Verifique os arquivos.");
         }
         jTextFieldUrlModelo.setEnabled(false);
         this.setLocationRelativeTo(null);
-        MarcaDao objeto = new MarcaDao();
+        MarcaControle objeto = new MarcaControle();
         try {
             ArrayList<Marca> lista = objeto.listagem();
 
@@ -416,7 +413,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         /*feito como método static para acesso a rotinas de cadastro de marca e assim
         ter a atualização sem que seja preciso dar run novamente no projeto*/
         try {
-            IMarcaDao objeto = new MarcaDao();
+            IMarcaControle objeto = new MarcaControle();
             ArrayList<Marca> lista = objeto.listagem();
             for (int i = 0; i < lista.size(); i++) {
                 if (jComboBoxMarcaLogo.getSelectedItem().equals(lista.get(i).getDescricao())) {

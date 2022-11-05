@@ -9,8 +9,6 @@ import com.locagyn.controle.MarcaControle;
 import com.locagyn.ferramentas.GeradorIdentificador;
 import javax.swing.JOptionPane;
 import com.locagyn.modelos.Marca;
-import com.locagyn.persistencia.IMarcaDao;
-import com.locagyn.persistencia.MarcaDao;
 import com.locagyn.utils.jTableRender;
 import java.io.File;
 import java.util.ArrayList;
@@ -18,8 +16,6 @@ import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import com.locagyn.utils.jTableRender;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -325,7 +321,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
          
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, "Preencher todos os campos");
+            JOptionPane.showMessageDialog(this, "Preencher todos os campos e sem repetir os nomes.");
 
         }
     }//GEN-LAST:event_jButtonIncluirActionPerformed
@@ -391,7 +387,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     private void jMenuItemCadastroDeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeModeloActionPerformed
         // TODO add your handling code here:
         try {
-
             TelaDosModelos telaModelo = new TelaDosModelos();
             telaModelo.setLocationRelativeTo(null);
             telaModelo.setVisible(true);

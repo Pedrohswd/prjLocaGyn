@@ -21,50 +21,34 @@ public class GeradorIdentificador {
 
     public static void criarArquivoDeID() throws FileNotFoundException, IOException {
         String nomeDoArquivo = "./src/com/locagyn/arquivosdedados/idGerado.txt";
-        //String nomeDoArquivo ="idGerado.txt";
         FileWriter fw = new FileWriter(nomeDoArquivo);
-        //Criar o buffer do arquivo
         BufferedWriter bw = new BufferedWriter(fw);
-        //Escreve no arquivo
-        String saida = 1 + "";
+        String saida = 0 + "";
         bw.write(saida);
-        //fecha o arquivo
         bw.close();
     }
 
     public static int getID() throws FileNotFoundException, IOException {
         String nomeDoArquivo = "./src/com/locagyn/arquivosdedados/idGerado.txt";
         File arquivo = new File("./src/com/locagyn/arquivosdedados/idGerado.txt");
-        if (!arquivo.exists()){
-            arquivo.createNewFile();
-            nomeDoArquivo = "./src/com/locagyn/arquivosdedados/idGerado.txt";
-            FileWriter fileWriter = new FileWriter(arquivo);
-            BufferedWriter bufW = new BufferedWriter(fileWriter);
-            String saida = 0 + "";
-            bufW.write(saida);
-            bufW.close();
-        }
-        if (arquivo.list()== null){
-            FileWriter fileWriter = new FileWriter(arquivo);
-            BufferedWriter bufW = new BufferedWriter(fileWriter);
-            String saida = 0 + "";
-            bufW.write(saida);
-            bufW.close();
+        if (!arquivo.exists()) {
+            criarArquivoDeID();
         }
         FileReader fr = new FileReader(nomeDoArquivo);
         BufferedReader br = new BufferedReader(fr);
         String linha = br.readLine();
+        if (linha == null) {
+            arquivo.delete();
+            criarArquivoDeID();
+            linha = br.readLine();
+        }
         int id = Integer.parseInt(linha);
         br.close();
         id++;
-        //cria o arquivo
         FileWriter fw = new FileWriter(nomeDoArquivo);
-        //Criar o buffer do arquivo
         BufferedWriter bw = new BufferedWriter(fw);
-        //Escreve no arquivo
         String saida = id + "";
         bw.write(saida);
-        //fecha o arquivo
         bw.close();
         return id;
     }

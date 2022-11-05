@@ -4,7 +4,6 @@
  */
 package com.locagyn.persistencia;
 
-
 import com.locagyn.ferramentas.GeradorIdentificador;
 import com.locagyn.modelos.Modelo;
 import java.io.BufferedReader;
@@ -30,15 +29,15 @@ public class ModeloDao implements IModeloDao {
     @Override
     public void incluir(Modelo objeto) throws Exception {
         try {
-            //cria o arquivo
+            // cria o arquivo
             FileWriter fw = new FileWriter(nomeDoArquivoNoDisco, true);
-            //Criar o buffer do arquivo
+            // Criar o buffer do arquivo
             BufferedWriter bw = new BufferedWriter(fw);
             // Incluindo o id no objeto ******
             objeto.setId(GeradorIdentificador.getID());
-            //Escreve no arquivo
+            // Escreve no arquivo
             bw.write(objeto.toString() + "\n");
-            //fecha o arquivo
+            // fecha o arquivo
             bw.close();
         } catch (Exception erro) {
             throw erro;
@@ -73,25 +72,26 @@ public class ModeloDao implements IModeloDao {
         try {
             ArrayList<Modelo> listaDeMarcas = new ArrayList<Modelo>();
             File arquivo = new File("./src/com/locagyn/arquivosdedados/Modelo.txt");
-            if(!arquivo.exists()){
+            if (!arquivo.exists()) {
                 arquivo.createNewFile();
                 nomeDoArquivoNoDisco = "./src/com/locagyn/arquivosdedados/Modelo.txt";
             }
             FileReader fr = new FileReader(nomeDoArquivoNoDisco);
             BufferedReader br = new BufferedReader(fr);
-            String linha = "";
+            String linha;
             while ((linha = br.readLine()) != null) {
                 IMarcaDao objetoMarca = new MarcaDao();
                 Modelo objetoModelo = new Modelo();
                 String vetorString[] = linha.split(";");
+                System.out.printf(linha);
                 objetoModelo.setId(Integer.parseInt(vetorString[0]));
                 objetoModelo.setDescricao(vetorString[1]);
                 objetoModelo.setUrl(vetorString[2]);
                 int idMarca = Integer.parseInt(vetorString[3]);
                 objetoModelo.setMarca(objetoMarca.buscar(idMarca));
-                
-                
+
                 listaDeMarcas.add(objetoModelo);
+
             }
             br.close();
             return listaDeMarcas;
