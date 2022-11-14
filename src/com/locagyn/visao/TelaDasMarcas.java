@@ -300,14 +300,13 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             String nome = arquivo.getName();
             String url = logo.getPath();
             url += "/" + nome;
-            System.out.println(url);
             jTextFieldUrl.setText(url);
             ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
             iconLogo.setImage(iconLogo.getImage().getScaledInstance(jTextFieldLogo.getWidth(), jTextFieldLogo.getHeight(), 1));
             jTextFieldLogo.setIcon(iconLogo);
 
        } catch (Exception erro) {
-           JOptionPane.showMessageDialog(this, "Você não selecionou sua imagem.");
+           JOptionPane.showMessageDialog(this, "Selecione uma imagem!");
        }
     }
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
@@ -321,7 +320,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
          
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, "Preencher todos os campos e sem repetir os nomes.");
+            JOptionPane.showMessageDialog(this, erro.getMessage());
 
         }
     }//GEN-LAST:event_jButtonIncluirActionPerformed
@@ -352,7 +351,8 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
             imprimirDadosNaGrid(incluirMarca.listagem());
         
-        } catch (Exception ex) {
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
 
         }
         jTextFieldDescricao.setText("");

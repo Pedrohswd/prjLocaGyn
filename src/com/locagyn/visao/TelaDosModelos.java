@@ -496,7 +496,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
             imprimirDadosNaGrid(modeloControle.listagem());
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, "Você não selecionou uma imagem!");
+            JOptionPane.showMessageDialog(this, erro.getMessage());
         }
 
     }// GEN-LAST:event_BotaoIncluirActionPerformed
@@ -521,7 +521,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
             jLabelImagemModelo.setIcon(iconLogo);
 
         } catch (Exception erro) {
-           JOptionPane.showMessageDialog(this, erro);
+           JOptionPane.showMessageDialog(this, "Selecione uma imagem!");
         }
 
     }// GEN-LAST:event_BotaoBuscarImagemActionPerformed
@@ -543,10 +543,10 @@ public class TelaDosModelos extends javax.swing.JFrame {
             jTextFieldDescricaoModelos.setText("");
             imprimirDadosNaGrid(modeloControle.listagem());
 
-        } catch (Exception ex) {
-
+        } catch (Exception erro) {
+           JOptionPane.showMessageDialog(this, erro);
         }
-        jTextFieldDescricaoModelos.setText("");
+       jTextFieldDescricaoModelos.setText("");
     }
 
     private void jTextFieldDescricaoModelosKeyReleased(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTextFieldDescricaoModelosKeyReleased
