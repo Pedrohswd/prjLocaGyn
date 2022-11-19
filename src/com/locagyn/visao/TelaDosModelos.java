@@ -92,6 +92,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jLabelMarcaLogoTable = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemCadastroDeCliente = new javax.swing.JMenuItem();
         jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeMarca = new javax.swing.JMenuItem();
         jMenuItemTelaInicial = new javax.swing.JMenuItem();
@@ -103,21 +104,21 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel2.setText("ID:");
 
         jTextFieldUrlModelo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextFieldUrlModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel3.setText("Marca:");
 
         jTextFieldIdentificador.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextFieldIdentificador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel4.setText("Descrição:");
 
         jTextFieldDescricaoModelos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -132,7 +133,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         });
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel5.setText("URL:");
 
         jLabelImagemModelo.setBackground(new java.awt.Color(0, 0, 0));
@@ -173,6 +174,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         }
 
         BotaoBuscarImagem.setBackground(new java.awt.Color(0, 0, 0));
+        BotaoBuscarImagem.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         BotaoBuscarImagem.setForeground(new java.awt.Color(255, 255, 255));
         BotaoBuscarImagem.setText("BUSCAR MODELO");
         BotaoBuscarImagem.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +184,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         });
 
         BotaoIncluir.setBackground(new java.awt.Color(0, 0, 0));
+        BotaoIncluir.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         BotaoIncluir.setForeground(new java.awt.Color(255, 255, 255));
         BotaoIncluir.setText("INCLUIR");
         BotaoIncluir.addActionListener(new java.awt.event.ActionListener() {
@@ -191,6 +194,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         });
 
         BotaoAlterar.setBackground(new java.awt.Color(0, 0, 0));
+        BotaoAlterar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         BotaoAlterar.setForeground(new java.awt.Color(255, 255, 255));
         BotaoAlterar.setText("ALTERAR");
         BotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -200,6 +204,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         });
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cadastrar Marca");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -238,8 +243,8 @@ public class TelaDosModelos extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(146, 146, 146)
-                                .addComponent(BotaoIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(BotaoIncluir)
+                                .addGap(17, 17, 17)
                                 .addComponent(BotaoAlterar))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -290,8 +295,9 @@ public class TelaDosModelos extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
                                 .addComponent(jLabel3)
-                                .addGap(8, 8, 8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBoxMarcaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jLabelMarcaLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -304,10 +310,18 @@ public class TelaDosModelos extends javax.swing.JFrame {
                     .addComponent(jLabelMarcaLogoTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(3, 3, 3))
         );
 
         jMenuOpcoes.setText("Options");
+
+        jMenuItemCadastroDeCliente.setText("Cadastro de Cliente");
+        jMenuItemCadastroDeCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeClienteActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeCliente);
 
         jMenuItemCadastroDeModelo.setText("Cadastro de Modelo");
         jMenuItemCadastroDeModelo.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +362,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 625, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -367,10 +381,23 @@ public class TelaDosModelos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDescricaoModelosKeyTyped
 
-    private void jMenuItemCadastroDeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeModeloActionPerformed
+    private void jMenuItemCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeClienteActionPerformed
         // TODO add your handling code here:
         try {
 
+            TelaCadastroCliente cadastroCliente = new TelaCadastroCliente();
+            cadastroCliente.setLocationRelativeTo(null);
+            cadastroCliente.setVisible(true);
+            this.setVisible(false);
+            cadastroCliente.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeClienteActionPerformed
+
+    private void jMenuItemCadastroDeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeModeloActionPerformed
+        // TODO add your handling code here:
+        try {
             TelaDosModelos telaModelo = new TelaDosModelos();
             telaModelo.setLocationRelativeTo(null);
             telaModelo.setVisible(true);
@@ -610,6 +637,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMarcaLogoTable;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemCadastroDeCliente;
     private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
     private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
     private javax.swing.JMenuItem jMenuItemTelaInicial;

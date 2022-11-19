@@ -36,8 +36,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabelCadastroDeModelo = new javax.swing.JLabel();
         jButtonCadastroDeMarca = new javax.swing.JButton();
         jLabelCadastroDeMarca = new javax.swing.JLabel();
+        jButtonCadastroDeCliente = new javax.swing.JButton();
+        jLabelCadastroDeCliente = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemCadastroDeCliente = new javax.swing.JMenuItem();
         jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeMarca = new javax.swing.JMenuItem();
         jMenuItemTelaInicial = new javax.swing.JMenuItem();
@@ -47,7 +50,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(176, 198, 238));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\emill\\Downloads\\carro-sedan-na-frente.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/locadora/icones/iconePrincipal.png"))); // NOI18N
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -56,7 +59,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel2.setText("NOME NÃO DEFINIDO");
 
         jButtonCadastroDeModelo.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonCadastroDeModelo.setIcon(new javax.swing.ImageIcon("C:\\Users\\emill\\Downloads\\MicrosoftTeams-image (4).png")); // NOI18N
+        jButtonCadastroDeModelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/locadora/icones/CadastroDeModelo.png"))); // NOI18N
         jButtonCadastroDeModelo.setBorder(null);
         jButtonCadastroDeModelo.setBorderPainted(false);
         jButtonCadastroDeModelo.setContentAreaFilled(false);
@@ -78,7 +81,7 @@ public class TelaInicial extends javax.swing.JFrame {
         });
 
         jButtonCadastroDeMarca.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonCadastroDeMarca.setIcon(new javax.swing.ImageIcon("C:\\Users\\emill\\Downloads\\MicrosoftTeams-image (5).png")); // NOI18N
+        jButtonCadastroDeMarca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/locadora/icones/CadastroDeMarca.png"))); // NOI18N
         jButtonCadastroDeMarca.setBorder(null);
         jButtonCadastroDeMarca.setBorderPainted(false);
         jButtonCadastroDeMarca.setContentAreaFilled(false);
@@ -95,6 +98,28 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabelCadastroDeMarca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelCadastroDeMarcaMouseClicked(evt);
+            }
+        });
+
+        jButtonCadastroDeCliente.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCadastroDeCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/locadora/icones/CadastroDeCliente.png"))); // NOI18N
+        jButtonCadastroDeCliente.setBorder(null);
+        jButtonCadastroDeCliente.setBorderPainted(false);
+        jButtonCadastroDeCliente.setContentAreaFilled(false);
+        jButtonCadastroDeCliente.setFocusPainted(false);
+        jButtonCadastroDeCliente.setPreferredSize(new java.awt.Dimension(15, 15));
+        jButtonCadastroDeCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastroDeClienteActionPerformed(evt);
+            }
+        });
+
+        jLabelCadastroDeCliente.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabelCadastroDeCliente.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelCadastroDeCliente.setText("Cadastro de Cliente");
+        jLabelCadastroDeCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCadastroDeClienteMouseClicked(evt);
             }
         });
 
@@ -117,13 +142,17 @@ public class TelaInicial extends javax.swing.JFrame {
                         .addGap(92, 92, 92)
                         .addComponent(jLabelCadastroDeModelo)
                         .addGap(47, 47, 47)
-                        .addComponent(jLabelCadastroDeMarca))
+                        .addComponent(jLabelCadastroDeMarca)
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabelCadastroDeCliente))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(jButtonCadastroDeModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(101, 101, 101)
-                        .addComponent(jButtonCadastroDeMarca)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButtonCadastroDeMarca)
+                        .addGap(101, 101, 101)
+                        .addComponent(jButtonCadastroDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,9 +164,13 @@ public class TelaInicial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addGap(96, 96, 96)
-                        .addComponent(jButtonCadastroDeMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonCadastroDeMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCadastroDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelCadastroDeMarca))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCadastroDeMarca)
+                            .addComponent(jLabelCadastroDeCliente)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(299, 299, 299)
                         .addComponent(jButtonCadastroDeModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,9 +179,15 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap(121, Short.MAX_VALUE))
         );
 
-        jLabelCadastroDeMarca.getAccessibleContext().setAccessibleName("Cadastro de Marca");
-
         jMenuOpcoes.setText("Options");
+
+        jMenuItemCadastroDeCliente.setText("Cadastro de Cliente");
+        jMenuItemCadastroDeCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeClienteActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeCliente);
 
         jMenuItemCadastroDeModelo.setText("Cadastro de Modelo");
         jMenuItemCadastroDeModelo.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +228,7 @@ public class TelaInicial extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -251,10 +290,23 @@ public class TelaInicial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonCadastroDeMarcaActionPerformed
 
+    private void jMenuItemCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeClienteActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaCadastroCliente cadastroCliente = new TelaCadastroCliente();
+            cadastroCliente.setLocationRelativeTo(null);
+            cadastroCliente.setVisible(true);
+            this.setVisible(false);
+            cadastroCliente.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeClienteActionPerformed
+
     private void jMenuItemCadastroDeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeModeloActionPerformed
         // TODO add your handling code here:
-         try {
-
+        try {
             TelaDosModelos telaModelo = new TelaDosModelos();
             telaModelo.setLocationRelativeTo(null);
             telaModelo.setVisible(true);
@@ -267,7 +319,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jMenuItemCadastroDeMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeMarcaActionPerformed
         // TODO add your handling code here:
-            try {
+        try {
 
             TelaDasMarcas telaMarca = new TelaDasMarcas();
             telaMarca.setLocationRelativeTo(null);
@@ -281,7 +333,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jMenuItemTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTelaInicialActionPerformed
         // TODO add your handling code here:
-           try {
+        try {
 
             TelaInicial telaInicial = new TelaInicial();
             telaInicial.setLocationRelativeTo(null);
@@ -292,6 +344,32 @@ public class TelaInicial extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, erro);
         }
     }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
+
+    private void jButtonCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroDeClienteActionPerformed
+        // TODO add your handling code here:
+               try {
+            TelaCadastroCliente telaCliente = new TelaCadastroCliente();
+            telaCliente.setLocationRelativeTo(null);
+            telaCliente.setVisible(true);
+            this.setVisible(false);
+            telaCliente.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jButtonCadastroDeClienteActionPerformed
+
+    private void jLabelCadastroDeClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCadastroDeClienteMouseClicked
+        // TODO add your handling code here:
+               try {
+            TelaCadastroCliente telaCliente = new TelaCadastroCliente();
+            telaCliente.setLocationRelativeTo(null);
+            telaCliente.setVisible(true);
+            this.setVisible(false);
+            telaCliente.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jLabelCadastroDeClienteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -329,14 +407,17 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCadastroDeCliente;
     private javax.swing.JButton jButtonCadastroDeMarca;
     private javax.swing.JButton jButtonCadastroDeModelo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelCadastroDeCliente;
     private javax.swing.JLabel jLabelCadastroDeMarca;
     private javax.swing.JLabel jLabelCadastroDeModelo;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemCadastroDeCliente;
     private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
     private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
     private javax.swing.JMenuItem jMenuItemTelaInicial;

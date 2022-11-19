@@ -9,5 +9,6 @@ package com.locagyn.enumeracao;
  * @author emill
  */
 public enum TipoDeCliente {
-    
+    PESSOA_FISICA,
+    PESSOA_JURIDICA;
 }

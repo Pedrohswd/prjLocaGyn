@@ -9,5 +9,8 @@ package com.locagyn.enumeracao;
  * @author emill
  */
 public enum Situacao {
+    DISPONIVEL,
+    LOCADO,
+    VENDIDO;
     
 }
