@@ -52,6 +52,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemCadastroVeiculo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeCliente = new javax.swing.JMenuItem();
         jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeMarca = new javax.swing.JMenuItem();
@@ -166,7 +167,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                             .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                             .addComponent(jTextField1)
                             .addComponent(jButtonInserirTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel4)
@@ -184,7 +185,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                             .addComponent(jButtonInserirEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(21, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jComboBoxTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -241,6 +242,14 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         jMenuOpcoes.setText("Options");
 
+        jMenuItemCadastroVeiculo.setText("Cadastro de Veículo");
+        jMenuItemCadastroVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroVeiculoActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroVeiculo);
+
         jMenuItemCadastroDeCliente.setText("Cadastro de Cliente");
         jMenuItemCadastroDeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,66 +299,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItemCadastroDeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeModeloActionPerformed
-        // TODO add your handling code here:
-        try {
-            TelaDosModelos telaModelo = new TelaDosModelos();
-            telaModelo.setLocationRelativeTo(null);
-            telaModelo.setVisible(true);
-            this.setVisible(false);
-            telaModelo.setResizable(false);
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
-        }
-    }//GEN-LAST:event_jMenuItemCadastroDeModeloActionPerformed
-
-    private void jMenuItemCadastroDeMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeMarcaActionPerformed
-        // TODO add your handling code here:
-        try {
-
-            TelaDasMarcas telaMarca = new TelaDasMarcas();
-            telaMarca.setLocationRelativeTo(null);
-            telaMarca.setVisible(true);
-            this.setVisible(false);
-            telaMarca.setResizable(false);
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
-        }
-    }//GEN-LAST:event_jMenuItemCadastroDeMarcaActionPerformed
-
-    private void jMenuItemTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTelaInicialActionPerformed
-        // TODO add your handling code here:
-        try {
-
-            TelaInicial telaInicial = new TelaInicial();
-            telaInicial.setLocationRelativeTo(null);
-            telaInicial.setVisible(true);
-            this.setVisible(false);
-            telaInicial.setResizable(false);
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
-        }
-    }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
-
-    private void jMenuItemCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeClienteActionPerformed
-        // TODO add your handling code here:
-        try {
-
-            TelaCadastroCliente cadastroCliente = new TelaCadastroCliente();
-            cadastroCliente.setLocationRelativeTo(null);
-            cadastroCliente.setVisible(true);
-            this.setVisible(false);
-            cadastroCliente.setResizable(false);
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
-        }
-    }//GEN-LAST:event_jMenuItemCadastroDeClienteActionPerformed
 
     private void jButtonInserirTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInserirTelefoneActionPerformed
         // TODO add your handling code here:
@@ -392,6 +346,75 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItemCadastroVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroVeiculoActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaCadastroVeiculo telaVeiculo = new TelaCadastroVeiculo();
+            telaVeiculo.setLocationRelativeTo(null);
+            telaVeiculo.setVisible(true);
+            this.setVisible(false);
+            telaVeiculo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroVeiculoActionPerformed
+
+    private void jMenuItemCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeClienteActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaCadastroCliente cadastroCliente = new TelaCadastroCliente();
+            cadastroCliente.setLocationRelativeTo(null);
+            cadastroCliente.setVisible(true);
+            this.setVisible(false);
+            cadastroCliente.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeClienteActionPerformed
+
+    private void jMenuItemCadastroDeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeModeloActionPerformed
+        // TODO add your handling code here:
+        try {
+            TelaDosModelos telaModelo = new TelaDosModelos();
+            telaModelo.setLocationRelativeTo(null);
+            telaModelo.setVisible(true);
+            this.setVisible(false);
+            telaModelo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeModeloActionPerformed
+
+    private void jMenuItemCadastroDeMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeMarcaActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaDasMarcas telaMarca = new TelaDasMarcas();
+            telaMarca.setLocationRelativeTo(null);
+            telaMarca.setVisible(true);
+            this.setVisible(false);
+            telaMarca.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeMarcaActionPerformed
+
+    private void jMenuItemTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTelaInicialActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaInicial telaInicial = new TelaInicial();
+            telaInicial.setLocationRelativeTo(null);
+            telaInicial.setVisible(true);
+            this.setVisible(false);
+            telaInicial.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
 
        
     /**
@@ -448,6 +471,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCadastroDeCliente;
     private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
     private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
+    private javax.swing.JMenuItem jMenuItemCadastroVeiculo;
     private javax.swing.JMenuItem jMenuItemTelaInicial;
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel1;

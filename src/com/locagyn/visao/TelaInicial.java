@@ -38,8 +38,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabelCadastroDeMarca = new javax.swing.JLabel();
         jButtonCadastroDeCliente = new javax.swing.JButton();
         jLabelCadastroDeCliente = new javax.swing.JLabel();
+        jButtonCadastroDeVeiculo = new javax.swing.JButton();
+        jLabelCadastroDeVeiculo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemCadastroVeiculo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeCliente = new javax.swing.JMenuItem();
         jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeMarca = new javax.swing.JMenuItem();
@@ -56,6 +59,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("NOME NÃO DEFINIDO");
 
         jButtonCadastroDeModelo.setBackground(new java.awt.Color(255, 255, 255));
@@ -123,56 +127,78 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        jButtonCadastroDeVeiculo.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCadastroDeVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/locadora/icones/CadastroVeiculo.png"))); // NOI18N
+        jButtonCadastroDeVeiculo.setBorder(null);
+        jButtonCadastroDeVeiculo.setBorderPainted(false);
+        jButtonCadastroDeVeiculo.setContentAreaFilled(false);
+        jButtonCadastroDeVeiculo.setFocusPainted(false);
+        jButtonCadastroDeVeiculo.setPreferredSize(new java.awt.Dimension(15, 15));
+        jButtonCadastroDeVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastroDeVeiculoActionPerformed(evt);
+            }
+        });
+
+        jLabelCadastroDeVeiculo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabelCadastroDeVeiculo.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelCadastroDeVeiculo.setText("Cadastro de Veículo");
+        jLabelCadastroDeVeiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCadastroDeVeiculoMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(312, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(290, 290, 290))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(369, 369, 369))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jLabelCadastroDeModelo)
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabelCadastroDeMarca)
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabelCadastroDeCliente))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jButtonCadastroDeModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101)
-                        .addComponent(jButtonCadastroDeMarca)
-                        .addGap(101, 101, 101)
-                        .addComponent(jButtonCadastroDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jLabelCadastroDeModelo)
+                .addGap(47, 47, 47)
+                .addComponent(jLabelCadastroDeMarca)
+                .addGap(49, 49, 49)
+                .addComponent(jLabelCadastroDeCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelCadastroDeVeiculo)
+                .addGap(45, 45, 45))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jButtonCadastroDeModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101)
+                .addComponent(jButtonCadastroDeMarca)
+                .addGap(101, 101, 101)
+                .addComponent(jButtonCadastroDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addComponent(jButtonCadastroDeVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(362, 362, 362)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(96, 96, 96)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addGap(96, 96, 96)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonCadastroDeMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonCadastroDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonCadastroDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCadastroDeVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelCadastroDeMarca)
-                            .addComponent(jLabelCadastroDeCliente)))
+                            .addComponent(jLabelCadastroDeCliente)
+                            .addComponent(jLabelCadastroDeVeiculo)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
                         .addComponent(jButtonCadastroDeModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelCadastroDeModelo)))
@@ -180,6 +206,14 @@ public class TelaInicial extends javax.swing.JFrame {
         );
 
         jMenuOpcoes.setText("Options");
+
+        jMenuItemCadastroVeiculo.setText("Cadastro de Veículo");
+        jMenuItemCadastroVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroVeiculoActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroVeiculo);
 
         jMenuItemCadastroDeCliente.setText("Cadastro de Cliente");
         jMenuItemCadastroDeCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -290,6 +324,46 @@ public class TelaInicial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonCadastroDeMarcaActionPerformed
 
+    private void jButtonCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroDeClienteActionPerformed
+        // TODO add your handling code here:
+               try {
+            TelaCadastroCliente telaCliente = new TelaCadastroCliente();
+            telaCliente.setLocationRelativeTo(null);
+            telaCliente.setVisible(true);
+            this.setVisible(false);
+            telaCliente.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jButtonCadastroDeClienteActionPerformed
+
+    private void jLabelCadastroDeClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCadastroDeClienteMouseClicked
+        // TODO add your handling code here:
+               try {
+            TelaCadastroCliente telaCliente = new TelaCadastroCliente();
+            telaCliente.setLocationRelativeTo(null);
+            telaCliente.setVisible(true);
+            this.setVisible(false);
+            telaCliente.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jLabelCadastroDeClienteMouseClicked
+
+    private void jMenuItemCadastroVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroVeiculoActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaCadastroVeiculo telaVeiculo = new TelaCadastroVeiculo();
+            telaVeiculo.setLocationRelativeTo(null);
+            telaVeiculo.setVisible(true);
+            this.setVisible(false);
+            telaVeiculo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroVeiculoActionPerformed
+
     private void jMenuItemCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeClienteActionPerformed
         // TODO add your handling code here:
         try {
@@ -345,31 +419,33 @@ public class TelaInicial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
 
-    private void jButtonCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroDeClienteActionPerformed
+    private void jButtonCadastroDeVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroDeVeiculoActionPerformed
         // TODO add your handling code here:
-               try {
-            TelaCadastroCliente telaCliente = new TelaCadastroCliente();
-            telaCliente.setLocationRelativeTo(null);
-            telaCliente.setVisible(true);
-            this.setVisible(false);
-            telaCliente.setResizable(false);
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
-        }
-    }//GEN-LAST:event_jButtonCadastroDeClienteActionPerformed
+        try {
 
-    private void jLabelCadastroDeClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCadastroDeClienteMouseClicked
-        // TODO add your handling code here:
-               try {
-            TelaCadastroCliente telaCliente = new TelaCadastroCliente();
-            telaCliente.setLocationRelativeTo(null);
-            telaCliente.setVisible(true);
+            TelaCadastroVeiculo telaVeiculo = new TelaCadastroVeiculo();
+            telaVeiculo.setLocationRelativeTo(null);
+            telaVeiculo.setVisible(true);
             this.setVisible(false);
-            telaCliente.setResizable(false);
+            telaVeiculo.setResizable(false);
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro);
         }
-    }//GEN-LAST:event_jLabelCadastroDeClienteMouseClicked
+    }//GEN-LAST:event_jButtonCadastroDeVeiculoActionPerformed
+
+    private void jLabelCadastroDeVeiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCadastroDeVeiculoMouseClicked
+        // TODO add your handling code here:
+        try {
+
+            TelaCadastroVeiculo telaVeiculo = new TelaCadastroVeiculo();
+            telaVeiculo.setLocationRelativeTo(null);
+            telaVeiculo.setVisible(true);
+            this.setVisible(false);
+            telaVeiculo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jLabelCadastroDeVeiculoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -410,16 +486,19 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadastroDeCliente;
     private javax.swing.JButton jButtonCadastroDeMarca;
     private javax.swing.JButton jButtonCadastroDeModelo;
+    private javax.swing.JButton jButtonCadastroDeVeiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCadastroDeCliente;
     private javax.swing.JLabel jLabelCadastroDeMarca;
     private javax.swing.JLabel jLabelCadastroDeModelo;
+    private javax.swing.JLabel jLabelCadastroDeVeiculo;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCadastroDeCliente;
     private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
     private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
+    private javax.swing.JMenuItem jMenuItemCadastroVeiculo;
     private javax.swing.JMenuItem jMenuItemTelaInicial;
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel1;

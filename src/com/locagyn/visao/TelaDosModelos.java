@@ -92,6 +92,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jLabelMarcaLogoTable = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemCadastroVeiculo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeCliente = new javax.swing.JMenuItem();
         jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeMarca = new javax.swing.JMenuItem();
@@ -102,9 +103,11 @@ public class TelaDosModelos extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(176, 198, 238));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ID:");
 
         jTextFieldUrlModelo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -112,6 +115,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Marca:");
 
         jTextFieldIdentificador.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -119,6 +123,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Descrição:");
 
         jTextFieldDescricaoModelos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -134,6 +139,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("URL:");
 
         jLabelImagemModelo.setBackground(new java.awt.Color(0, 0, 0));
@@ -315,6 +321,14 @@ public class TelaDosModelos extends javax.swing.JFrame {
 
         jMenuOpcoes.setText("Options");
 
+        jMenuItemCadastroVeiculo.setText("Cadastro de Veículo");
+        jMenuItemCadastroVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroVeiculoActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroVeiculo);
+
         jMenuItemCadastroDeCliente.setText("Cadastro de Cliente");
         jMenuItemCadastroDeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,6 +394,20 @@ public class TelaDosModelos extends javax.swing.JFrame {
     private void jTextFieldDescricaoModelosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoModelosKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDescricaoModelosKeyTyped
+
+    private void jMenuItemCadastroVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroVeiculoActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaCadastroVeiculo telaVeiculo = new TelaCadastroVeiculo();
+            telaVeiculo.setLocationRelativeTo(null);
+            telaVeiculo.setVisible(true);
+            this.setVisible(false);
+            telaVeiculo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroVeiculoActionPerformed
 
     private void jMenuItemCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeClienteActionPerformed
         // TODO add your handling code here:
@@ -640,6 +668,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCadastroDeCliente;
     private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
     private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
+    private javax.swing.JMenuItem jMenuItemCadastroVeiculo;
     private javax.swing.JMenuItem jMenuItemTelaInicial;
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel1;

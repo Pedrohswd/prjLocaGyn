@@ -71,6 +71,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jTableMarcas = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemCadastroVeiculo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeCliente = new javax.swing.JMenuItem();
         jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeMarca = new javax.swing.JMenuItem();
@@ -244,6 +245,14 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
         jMenuOpcoes.setText("Options");
 
+        jMenuItemCadastroVeiculo.setText("Cadastro de Veículo");
+        jMenuItemCadastroVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroVeiculoActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroVeiculo);
+
         jMenuItemCadastroDeCliente.setText("Cadastro de Cliente");
         jMenuItemCadastroDeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -394,6 +403,20 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldDescricaoKeyTyped
 
+    private void jMenuItemCadastroVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroVeiculoActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaCadastroVeiculo telaVeiculo = new TelaCadastroVeiculo();
+            telaVeiculo.setLocationRelativeTo(null);
+            telaVeiculo.setVisible(true);
+            this.setVisible(false);
+            telaVeiculo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroVeiculoActionPerformed
+
     private void jMenuItemCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeClienteActionPerformed
         // TODO add your handling code here:
         try {
@@ -517,6 +540,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCadastroDeCliente;
     private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
     private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
+    private javax.swing.JMenuItem jMenuItemCadastroVeiculo;
     private javax.swing.JMenuItem jMenuItemTelaInicial;
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel3;

@@ -9,6 +9,14 @@
             <Property name="text" type="java.lang.String" value="Options"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCadastroVeiculo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cadastro de Ve&#xed;culo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCadastroVeiculoActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCadastroDeCliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastro de Cliente"/>
@@ -94,64 +102,59 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="312" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="369" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                          <Component id="jLabelCadastroDeModelo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="jLabelCadastroDeMarca" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="jLabelCadastroDeCliente" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                          <Component id="jButtonCadastroDeModelo" min="-2" pref="99" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="jButtonCadastroDeMarca" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="jButtonCadastroDeCliente" min="-2" pref="99" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="241" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="jLabelCadastroDeModelo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="jLabelCadastroDeMarca" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="jLabelCadastroDeCliente" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabelCadastroDeVeiculo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="jButtonCadastroDeModelo" min="-2" pref="99" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="jButtonCadastroDeMarca" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="jButtonCadastroDeCliente" min="-2" pref="99" max="-2" attributes="0"/>
+                  <EmptySpace pref="113" max="32767" attributes="0"/>
+                  <Component id="jButtonCadastroDeVeiculo" min="-2" pref="99" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+              </Group>
+              <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jButtonCadastroDeMarca" min="-2" pref="101" max="-2" attributes="0"/>
                               <Component id="jButtonCadastroDeCliente" min="-2" pref="101" max="-2" attributes="0"/>
+                              <Component id="jButtonCadastroDeVeiculo" min="-2" pref="101" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelCadastroDeMarca" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelCadastroDeCliente" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelCadastroDeVeiculo" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="299" max="-2" attributes="0"/>
                           <Component id="jButtonCadastroDeModelo" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabelCadastroDeModelo" min="-2" max="-2" attributes="0"/>
@@ -182,6 +185,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="NOME N&#xc3;O DEFINIDO"/>
           </Properties>
         </Component>
@@ -288,6 +292,42 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelCadastroDeClienteMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonCadastroDeVeiculo">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/locadora/icones/CadastroVeiculo.png"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[15, 15]"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastroDeVeiculoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCadastroDeVeiculo">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cadastro de Ve&#xed;culo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelCadastroDeVeiculoMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>

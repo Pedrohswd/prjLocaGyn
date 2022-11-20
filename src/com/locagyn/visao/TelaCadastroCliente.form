@@ -9,6 +9,14 @@
             <Property name="text" type="java.lang.String" value="Options"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCadastroVeiculo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cadastro de Ve&#xed;culo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCadastroVeiculoActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCadastroDeCliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastro de Cliente"/>
@@ -82,7 +90,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="593" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="1" pref="593" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -115,7 +123,7 @@
                               <Component id="jTextField1" max="32767" attributes="0"/>
                               <Component id="jButtonInserirTelefone" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="56" max="32767" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -137,7 +145,7 @@
                               <Component id="jTextField6" pref="144" max="32767" attributes="0"/>
                               <Component id="jButtonInserirEndereco" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jComboBoxTipoCliente" min="-2" pref="144" max="-2" attributes="0"/>
