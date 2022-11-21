@@ -82,4 +82,10 @@ public class ModeloControle implements IModeloControle {
         return modeloPersistencia.listagem();
     }
 
+    @Override
+    public Modelo buscar(int id) throws Exception {
+        return modeloPersistencia.buscar(id);
+    }
+    
+
 }

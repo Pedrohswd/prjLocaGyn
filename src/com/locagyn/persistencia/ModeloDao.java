@@ -83,7 +83,6 @@ public class ModeloDao implements IModeloDao {
                 IMarcaDao objetoMarca = new MarcaDao();
                 Modelo objetoModelo = new Modelo();
                 String vetorString[] = linha.split(";");
-                System.out.printf(linha);
                 objetoModelo.setId(Integer.parseInt(vetorString[0]));
                 objetoModelo.setDescricao(vetorString[1]);
                 objetoModelo.setUrl(vetorString[2]);
@@ -99,5 +98,24 @@ public class ModeloDao implements IModeloDao {
             throw erro;
         }
     }
+
+    @Override
+    public Modelo buscar(int id) throws Exception {
+    FileReader fr = new FileReader(nomeDoArquivoNoDisco);
+        BufferedReader br = new BufferedReader(fr);
+        String linha = "";
+        while ((linha = br.readLine()) != null) {
+            Modelo objetomMarca = new Modelo();
+            String vetorString[] = linha.split(";");
+            objetomMarca.setId(Integer.parseInt(vetorString[0]));
+            objetomMarca.setDescricao(vetorString[1]);
+            objetomMarca.setUrl(vetorString[2]);
+            if (objetomMarca.getId() == id) {
+                br.close();
+                return new Modelo((Integer.parseInt(vetorString[0])), vetorString[1], vetorString[2]);
+            }
+        }
+        return null;   
+    }   
 
 }

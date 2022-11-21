@@ -26,6 +26,10 @@ public class Modelo {
         this.marca = marca;
     }
 
+    public Modelo(int i, String string, String string0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public Marca getMarca() {
         return marca;
     }
