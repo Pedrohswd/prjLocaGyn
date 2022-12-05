@@ -680,7 +680,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 jTextFieldEmail.setText("");
 
             }
-            System.out.println(clienteControle.listagem(TipoDeCliente.PESSOA_FISICA));
 
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());

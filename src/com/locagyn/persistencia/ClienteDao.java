@@ -149,9 +149,9 @@ public class ClienteDao implements IClienteDao {
                     Endereco endereco = new Endereco(logradouro, complemento, cidade, estado, bairro, cep);
                     objetoCliente.setEndereco(endereco);
                     listaDeClientes.add(objetoCliente);
-                    br.close();
-                    return listaDeClientes;
                 }
+                br.close();
+                return listaDeClientes;
             }
             if (tipoDoCliente.equals(TipoDeCliente.PESSOA_JURIDICA)) {
                 FileReader fr = new FileReader(nomeDoArquivoNoDiscoPJ);
@@ -179,9 +179,10 @@ public class ClienteDao implements IClienteDao {
                     Endereco endereco = new Endereco(logradouro, complemento, cidade, estado, bairro, cep);
                     objetoCliente.setEndereco(endereco);
                     listaDeClientes.add(objetoCliente);
-                    br.close();
-                    return listaDeClientes;
+
                 }
+                br.close();
+                return listaDeClientes;
             }
             return null;
 
