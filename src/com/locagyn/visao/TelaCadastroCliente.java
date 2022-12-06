@@ -38,6 +38,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabelRazaoSocialNome.setVisible(false);
         jTableCPF.getTableHeader().setReorderingAllowed(false);
         jTableCNPJ.getTableHeader().setReorderingAllowed(false);
+        jTableCNPJ.setVisible(false);
 
         try {
             clienteControle.verTxt();
@@ -710,6 +711,8 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             jTextFieldCPFCNPJ.setVisible(true);
             jTextFieldRazaoSocialNome.setVisible(true);
             jTextFieldIdentidade.setVisible(true);
+            jTableCPF.setVisible(true);
+            jTableCNPJ.setVisible(false);
             //jTableCNPJ.setVisible(false);
             //jTableCPF.setVisible(true);
         }
