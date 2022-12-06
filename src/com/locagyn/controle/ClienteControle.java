@@ -79,7 +79,7 @@ public class ClienteControle implements IClienteControle {
     @Override
     public void alterar(Cliente objeto, TipoDeCliente tipoDoCliente) throws Exception {
 
-        if (tipoDoCliente.equals(TipoDeCliente.PESSOA_FISICA)) {
+        /*if (tipoDoCliente.equals(TipoDeCliente.PESSOA_FISICA)) {
             if (buscarCliente(objeto.getCpf(), tipoDoCliente)) {
                 throw new Exception("Cliente já foi cadastrado(a)");
             }
@@ -97,7 +97,9 @@ public class ClienteControle implements IClienteControle {
                 throw new Exception("Digite um nome válido.");
             }
         }
+*/
         clientePersistencia.alterar(objeto, tipoDoCliente);
+
     }
 
     @Override

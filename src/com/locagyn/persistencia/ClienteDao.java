@@ -40,7 +40,6 @@ public class ClienteDao implements IClienteDao {
 
         try {
             if (tipoDoCliente == PESSOA_FISICA) {
-                caminho = nomeDoArquivoNoDiscoPF;
                 //cria o arquivo
                 FileWriter fw = new FileWriter(nomeDoArquivoNoDiscoPF, true);
                 //Criar o buffer do arquivo
@@ -53,7 +52,6 @@ public class ClienteDao implements IClienteDao {
                 bw.close();
             }
             if (tipoDoCliente == PESSOA_JURIDICA) {
-                caminho = nomeDoArquivoNoDiscoPJ;
                 //cria o arquivo
                 FileWriter fw = new FileWriter(nomeDoArquivoNoDiscoPJ, true);
                 //Criar o buffer do arquivo
@@ -75,15 +73,14 @@ public class ClienteDao implements IClienteDao {
     @Override
     public void alterar(Cliente objeto, TipoDeCliente tipoDoCliente) throws Exception {
         try {
-
             Iterator<Cliente> lista = listagem(objeto.getTipoDoCliente()).iterator();
             if (tipoDoCliente == PESSOA_FISICA) {
                 FileWriter fw = new FileWriter(nomeDoArquivoNoDiscoPF);
                 BufferedWriter bw = new BufferedWriter(fw);
-
                 while (lista.hasNext()) {
 
                     Cliente aux = lista.next();
+                    //System.out.println(aux);
                     if (aux.getId() == objeto.getId()) {
                         bw.write(objeto.toString() + "\n");
                     } else {
@@ -127,6 +124,7 @@ public class ClienteDao implements IClienteDao {
                 BufferedReader br = new BufferedReader(fr);
 
                 while ((linha = br.readLine()) != null) {
+                    Cliente objetoCliente = new Cliente();
                     String vetorString[] = linha.split(";");
                     objetoCliente.setId(Integer.parseInt(vetorString[0]));
                     objetoCliente.setCpf(vetorString[1]);
@@ -146,6 +144,7 @@ public class ClienteDao implements IClienteDao {
                     String cidade = vetorString[11];
                     String estado = vetorString[12];
                     long cep = Long.parseLong(vetorString[13]);
+
                     Endereco endereco = new Endereco(logradouro, complemento, cidade, estado, bairro, cep);
                     objetoCliente.setEndereco(endereco);
                     listaDeClientes.add(objetoCliente);
@@ -158,6 +157,7 @@ public class ClienteDao implements IClienteDao {
                 BufferedReader br = new BufferedReader(fr);
 
                 while ((linha = br.readLine()) != null) {
+                    Cliente objetoCliente = new Cliente();
                     String vetorString[] = linha.split(";");
                     objetoCliente.setId(Integer.parseInt(vetorString[0]));
                     objetoCliente.setRazaoSocial(vetorString[1]);
