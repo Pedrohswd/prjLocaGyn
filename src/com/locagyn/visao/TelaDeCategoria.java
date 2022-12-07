@@ -5,6 +5,18 @@
 package com.locagyn.visao;
 
 import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
+import com.locagyn.controle.ICategoriaControle;
+import com.locagyn.controle.CategoriaControle;
+import com.locagyn.modelos.Categoria;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.table.DefaultTableModel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -12,6 +24,8 @@ import javax.swing.JOptionPane;
  * @author emill
  */
 public class TelaDeCategoria extends javax.swing.JFrame {
+    
+    ICategoriaControle categoriaControle = new CategoriaControle();
 
     /**
      * Creates new form TelaDeCategoria
@@ -19,6 +33,12 @@ public class TelaDeCategoria extends javax.swing.JFrame {
     public TelaDeCategoria() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jTextFieldID.setEnabled(false);
+        try {
+            imprimirDadosNaGrid(categoriaControle.listagem());
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
     }
 
     /**
@@ -32,13 +52,13 @@ public class TelaDeCategoria extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableCategoria = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldID = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonAlterar = new javax.swing.JButton();
+        jButtonIncluir = new javax.swing.JButton();
         jTextFieldDescricao = new javax.swing.JTextField();
         jTextFieldValorLocacao = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -58,7 +78,7 @@ public class TelaDeCategoria extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(176, 198, 238));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCategoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -69,7 +89,12 @@ public class TelaDeCategoria extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jTableCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCategoriaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableCategoria);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel1.setText("ID:");
@@ -82,15 +107,20 @@ public class TelaDeCategoria extends javax.swing.JFrame {
 
         jTextFieldID.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Alterar");
+        jButtonAlterar.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonAlterar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAlterar.setText("Alterar");
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Incluir");
+        jButtonIncluir.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonIncluir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonIncluir.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIncluir.setText("Incluir");
+        jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIncluirActionPerformed(evt);
+            }
+        });
 
         jTextFieldDescricao.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -115,13 +145,13 @@ public class TelaDeCategoria extends javax.swing.JFrame {
                         .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addComponent(jTextFieldValorLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(jButtonAlterar)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -131,19 +161,19 @@ public class TelaDeCategoria extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldValorLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonAlterar)
+                    .addComponent(jButtonIncluir))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         jMenuOpcoes.setText("Options");
@@ -235,7 +265,9 @@ public class TelaDeCategoria extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -363,6 +395,53 @@ public class TelaDeCategoria extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
 
+    private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
+        // TODO add your handling code here:
+        try {
+            Categoria objeto = new Categoria(0, jTextFieldDescricao.getText(), Float.parseFloat (jTextFieldValorLocacao.getText()));
+            categoriaControle.incluir(objeto);
+            jTextFieldDescricao.setText("");
+            imprimirDadosNaGrid(categoriaControle.listagem());
+         
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+
+        }
+        
+    }//GEN-LAST:event_jButtonIncluirActionPerformed
+
+    private void jTableCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCategoriaMouseClicked
+        // TODO add your handling code here:
+        try {
+            jTextFieldID.setText(jTableCategoria.getValueAt(jTableCategoria.getSelectedRow(), 0).toString());
+            jTextFieldDescricao.setText(jTableCategoria.getValueAt(jTableCategoria.getSelectedRow(), 1).toString());
+            jTextFieldValorLocacao.setText(jTableCategoria.getValueAt(jTableCategoria.getSelectedRow(), 2).toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }
+        private void imprimirDadosNaGrid(ArrayList<Categoria> listaDeCategoria) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTableCategoria.getModel();
+            //Limpa a tabela
+            model.setNumRows(0);
+            Iterator<Categoria> lista = listaDeCategoria.iterator();
+            while (lista.hasNext()) {
+                String[] saida = new String[3];
+                Categoria aux = lista.next();
+                saida[0] = aux.getId() + "";
+                saida[1] = aux.getDescricao();
+                saida[2] = aux.getValorDaLocacao()+"";
+                //Incluir nova linha na Tabela
+                model.addRow(saida);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+        
+    }//GEN-LAST:event_jTableCategoriaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -399,8 +478,8 @@ public class TelaDeCategoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonAlterar;
+    private javax.swing.JButton jButtonIncluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -418,7 +497,7 @@ public class TelaDeCategoria extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableCategoria;
     private javax.swing.JTextField jTextFieldDescricao;
     private javax.swing.JTextField jTextFieldID;
     private javax.swing.JTextField jTextFieldValorLocacao;

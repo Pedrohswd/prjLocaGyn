@@ -111,43 +111,36 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(176, 198, 238));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("ID:");
 
         jTextFieldIdVeiculo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Placa:");
 
         jTextFieldPlaca.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Renavam:");
 
         jTextFieldRenavam.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Ano de Fabricação:");
 
         jTextFieldAnoFabricacao.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Ano do Modelo:");
 
         jTextFieldAnoModelo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Tipo:");
 
         jComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Combustivel:");
 
         jComboBoxTipoDeCombustivel.setModel(new javax.swing.DefaultComboBoxModel(TipoDeCombustivel.values()));
@@ -158,17 +151,14 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Km:");
 
         jTextFieldQuilometragem.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Valor de Compra:");
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Valor de Venda:");
 
         jTextFieldValorVenda.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -202,10 +192,9 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Modelo:");
 
-        jLabelModeloLogoTable.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "MARCA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
+        jLabelModeloLogoTable.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "MODELO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
         jLabelModeloLogoTable.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelModeloLogoTable.setMinimumSize(new java.awt.Dimension(25, 25));
         jLabelModeloLogoTable.setPreferredSize(new java.awt.Dimension(25, 25));

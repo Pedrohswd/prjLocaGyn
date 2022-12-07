@@ -23,7 +23,7 @@ public class CategoriaDao implements ICategoriaDao{
     private String nomeDoArquivoNoDisco;
 
     public CategoriaDao() {
-        nomeDoArquivoNoDisco = "./src/com/locagyn/arquivosdedados/Acessorios.txt";
+        nomeDoArquivoNoDisco = "./src/com/locagyn/arquivosdedados/Categoria.txt";
     }
 
     @Override
@@ -47,7 +47,7 @@ public class CategoriaDao implements ICategoriaDao{
     @Override
     public void alterar(Categoria objeto) throws Exception {
         try {
-            Categoria objetoaCategoria = new Categoria();
+            Categoria objetoCategoria = new Categoria();
             Iterator<Categoria> lista = listagem().iterator();
             FileWriter fw = new FileWriter(nomeDoArquivoNoDisco);
             BufferedWriter bw = new BufferedWriter(fw);

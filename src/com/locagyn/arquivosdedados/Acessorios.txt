@@ -1,0 +1,6 @@
+90;aaaaaaaaa;1111.0;Item 2
+91;llghggf;64565.0;Item 1
+92;arrasou;64565.0;Item 1
+93;.jkl.l;64565.0;Item 2
+94;çklçlk;64565.0;Item 3
+95;klçlkçkl;64565.0;Item 4

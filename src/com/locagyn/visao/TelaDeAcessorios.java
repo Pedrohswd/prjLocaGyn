@@ -8,14 +8,9 @@ import javax.swing.JOptionPane;
 import com.locagyn.controle.IAcessoriosControle;
 import com.locagyn.controle.AcessoriosControle;
 import com.locagyn.modelos.Acessorios;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 
@@ -329,11 +324,11 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
         // TODO add your handling code here:
          try {
 
-            IAcessoriosControle incluirMarca = new AcessoriosControle();
+            IAcessoriosControle incluirAcessorios = new AcessoriosControle();
             Acessorios objeto = new Acessorios(Integer.parseInt(jTextFieldID1.getText()), jTextFieldDescricao.getText(), Float.parseFloat (jTextFieldValorLocacao.getText()), jComboBoxSituacao.getSelectedItem());
             acessoriosControle.alterar(objeto);
 
-            imprimirDadosNaGrid(incluirMarca.listagem());
+            imprimirDadosNaGrid(incluirAcessorios.listagem());
         
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
@@ -361,12 +356,12 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
             model.setNumRows(0);
             Iterator<Acessorios> lista = listaDeAcessorios.iterator();
             while (lista.hasNext()) {
-                String[] saida = new String[3];
+                String[] saida = new String[4];
                 Acessorios aux = lista.next();
                 saida[0] = aux.getId() + "";
                 saida[1] = aux.getDescricao();
                 saida[2] = aux.getValorDaLocacao()+"";
-                saida[3] = (String) aux.getSituacao();
+                saida[3] = aux.getSituacao().toString();
                 //Incluir nova linha na Tabela
                 model.addRow(saida);
             }

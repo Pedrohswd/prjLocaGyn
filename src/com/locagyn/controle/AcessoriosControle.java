@@ -55,9 +55,9 @@ public class AcessoriosControle  implements IAcessoriosControle{
 
     @Override
     public void alterar(Acessorios objeto) throws Exception {
-        if (buscarAcessorios(objeto.getDescricao())) {
+        /*if (buscarAcessorios(objeto.getDescricao())) {
             throw new Exception("Acessorio já foi cadastrado");
-        }
+        }*/
         if ("".equals(objeto.getDescricao().replace(" ", ""))) {
             throw new Exception("Digite a Descrição");
         }
