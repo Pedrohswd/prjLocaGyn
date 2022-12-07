@@ -58,7 +58,7 @@ public class Acessorios {
     
     @Override
     public String toString() {
-        return id + ";" + descricao + ";" + valorDaLocacao;
+        return id + ";" + descricao + ";" + valorDaLocacao + ";" + situacao;
     }
     
 }

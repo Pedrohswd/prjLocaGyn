@@ -46,7 +46,7 @@ public class AcessoriosDao implements IAcessoriosDao {
     @Override
     public void alterar(Acessorios objeto) throws Exception {
         try {
-            Acessorios objetoaAcessorios = new Acessorios();
+            Acessorios objetoAcessorios = new Acessorios();
             Iterator<Acessorios> lista = listagem().iterator();
             FileWriter fw = new FileWriter(nomeDoArquivoNoDisco);
             BufferedWriter bw = new BufferedWriter(fw);

@@ -5,6 +5,18 @@
 package com.locagyn.visao;
 
 import javax.swing.JOptionPane;
+import com.locagyn.controle.IAcessoriosControle;
+import com.locagyn.controle.AcessoriosControle;
+import com.locagyn.modelos.Acessorios;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.table.DefaultTableModel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 /**
@@ -12,6 +24,7 @@ import javax.swing.JOptionPane;
  * @author emill
  */
 public class TelaDeAcessorios extends javax.swing.JFrame {
+     IAcessoriosControle acessoriosControle = new AcessoriosControle();
 
     /**
      * Creates new form TelaDeAcessorios
@@ -19,6 +32,13 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
     public TelaDeAcessorios() {
         initComponents();
         this.setLocationRelativeTo(null);
+         jTextFieldID1.setEnabled(false);
+        try {
+            imprimirDadosNaGrid(acessoriosControle.listagem());
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+        
     }
 
     /**
@@ -45,6 +65,10 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
         jButtonAlterar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemLocacao = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeMotorista = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeCategorias = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeAcessorios = new javax.swing.JMenuItem();
         jMenuItemCadastroVeiculo = new javax.swing.JMenuItem();
         jMenuItemCadastroDeCliente = new javax.swing.JMenuItem();
         jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
@@ -67,22 +91,23 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableAcessorios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAcessoriosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAcessorios);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Descrição:");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ID:");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Valor da Locação:");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Situação:");
 
         jTextFieldID1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -102,11 +127,21 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
         jButtonIncluir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonIncluir.setForeground(new java.awt.Color(255, 255, 255));
         jButtonIncluir.setText("Incluir");
+        jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIncluirActionPerformed(evt);
+            }
+        });
 
         jButtonAlterar.setBackground(new java.awt.Color(0, 0, 0));
         jButtonAlterar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonAlterar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,6 +209,38 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
 
         jMenuOpcoes.setText("Options");
 
+        jMenuItemLocacao.setText("Locação");
+        jMenuItemLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLocacaoActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemLocacao);
+
+        jMenuItemCadastroDeMotorista.setText("Cadastro de Motorista");
+        jMenuItemCadastroDeMotorista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeMotoristaActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeMotorista);
+
+        jMenuItemCadastroDeCategorias.setText("Cadastro de Categorias");
+        jMenuItemCadastroDeCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeCategoriasActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeCategorias);
+
+        jMenuItemCadastroDeAcessorios.setText("Cadastro de Acessorios");
+        jMenuItemCadastroDeAcessorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeAcessoriosActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeAcessorios);
+
         jMenuItemCadastroVeiculo.setText("Cadastro de Veículo");
         jMenuItemCadastroVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,6 +301,132 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    
+ 
+    private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDescricaoActionPerformed
+
+    private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
+        // TODO add your handling code here:
+         try {
+            IAcessoriosControle incluirAcessorios = new AcessoriosControle();
+            Acessorios objeto = new Acessorios(0, jTextFieldDescricao.getText(), Float.parseFloat (jTextFieldValorLocacao.getText()), jComboBoxSituacao.getSelectedItem());
+            acessoriosControle.incluir(objeto);
+            jTextFieldDescricao.setText("");
+            imprimirDadosNaGrid(incluirAcessorios.listagem());
+         
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+
+        }
+
+    }//GEN-LAST:event_jButtonIncluirActionPerformed
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        // TODO add your handling code here:
+         try {
+
+            IAcessoriosControle incluirMarca = new AcessoriosControle();
+            Acessorios objeto = new Acessorios(Integer.parseInt(jTextFieldID1.getText()), jTextFieldDescricao.getText(), Float.parseFloat (jTextFieldValorLocacao.getText()), jComboBoxSituacao.getSelectedItem());
+            acessoriosControle.alterar(objeto);
+
+            imprimirDadosNaGrid(incluirMarca.listagem());
+        
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+
+        }
+        jTextFieldDescricao.setText("");
+
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
+
+    private void jTableAcessoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAcessoriosMouseClicked
+        // TODO add your handling code here:
+         try {
+            jTextFieldID1.setText(jTableAcessorios.getValueAt(jTableAcessorios.getSelectedRow(), 0).toString());
+            jTextFieldDescricao.setText(jTableAcessorios.getValueAt(jTableAcessorios.getSelectedRow(), 1).toString());
+            jTextFieldValorLocacao.setText(jTableAcessorios.getValueAt(jTableAcessorios.getSelectedRow(), 2).toString());
+            jComboBoxSituacao.setSelectedItem(jTableAcessorios.getValueAt(jTableAcessorios.getSelectedRow(), 3).toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }
+         private void imprimirDadosNaGrid(ArrayList<Acessorios> listaDeAcessorios) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTableAcessorios.getModel();
+            //Limpa a tabela
+            model.setNumRows(0);
+            Iterator<Acessorios> lista = listaDeAcessorios.iterator();
+            while (lista.hasNext()) {
+                String[] saida = new String[3];
+                Acessorios aux = lista.next();
+                saida[0] = aux.getId() + "";
+                saida[1] = aux.getDescricao();
+                saida[2] = aux.getValorDaLocacao()+"";
+                saida[3] = (String) aux.getSituacao();
+                //Incluir nova linha na Tabela
+                model.addRow(saida);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_jTableAcessoriosMouseClicked
+
+    private void jMenuItemLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLocacaoActionPerformed
+        // TODO add your handling code here:
+        try {
+            TelaDeLocacao telaLocacao = new TelaDeLocacao();
+            telaLocacao.setLocationRelativeTo(null);
+            telaLocacao.setVisible(true);
+            this.setVisible(false);
+            telaLocacao.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemLocacaoActionPerformed
+
+    private void jMenuItemCadastroDeMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeMotoristaActionPerformed
+        // TODO add your handling code here:
+        try {
+            TelaCadastroMotorista telaMotorista = new TelaCadastroMotorista();
+            telaMotorista.setLocationRelativeTo(null);
+            telaMotorista.setVisible(true);
+            this.setVisible(false);
+            telaMotorista.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeMotoristaActionPerformed
+
+    private void jMenuItemCadastroDeCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeCategoriasActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaDeCategoria telaCategoria = new TelaDeCategoria();
+            telaCategoria.setLocationRelativeTo(null);
+            telaCategoria.setVisible(true);
+            this.setVisible(false);
+            telaCategoria.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeCategoriasActionPerformed
+
+    private void jMenuItemCadastroDeAcessoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeAcessoriosActionPerformed
+        // TODO add your handling code here:
+        try {
+            TelaDeAcessorios telaAcessorios = new TelaDeAcessorios();
+            telaAcessorios.setLocationRelativeTo(null);
+            telaAcessorios.setVisible(true);
+            this.setVisible(false);
+            telaAcessorios.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeAcessoriosActionPerformed
 
     private void jMenuItemCadastroVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroVeiculoActionPerformed
         // TODO add your handling code here:
@@ -304,10 +497,6 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
 
-    private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDescricaoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -353,10 +542,14 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemCadastroDeAcessorios;
+    private javax.swing.JMenuItem jMenuItemCadastroDeCategorias;
     private javax.swing.JMenuItem jMenuItemCadastroDeCliente;
     private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
     private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
+    private javax.swing.JMenuItem jMenuItemCadastroDeMotorista;
     private javax.swing.JMenuItem jMenuItemCadastroVeiculo;
+    private javax.swing.JMenuItem jMenuItemLocacao;
     private javax.swing.JMenuItem jMenuItemTelaInicial;
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel1;

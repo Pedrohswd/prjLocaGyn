@@ -4,6 +4,8 @@
  */
 package com.locagyn.visao;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author emill
@@ -66,6 +68,18 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemLocacao = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeMotorista = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeCategorias = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeAcessorios = new javax.swing.JMenuItem();
+        jMenuItemCadastroVeiculo = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeCliente = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeModelo = new javax.swing.JMenuItem();
+        jMenuItemCadastroDeMarca = new javax.swing.JMenuItem();
+        jMenuItemTelaInicial = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -344,10 +358,91 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(1, 1, 1)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jMenuOpcoes.setText("Options");
+
+        jMenuItemLocacao.setText("Locação");
+        jMenuItemLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLocacaoActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemLocacao);
+
+        jMenuItemCadastroDeMotorista.setText("Cadastro de Motorista");
+        jMenuItemCadastroDeMotorista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeMotoristaActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeMotorista);
+
+        jMenuItemCadastroDeCategorias.setText("Cadastro de Categorias");
+        jMenuItemCadastroDeCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeCategoriasActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeCategorias);
+
+        jMenuItemCadastroDeAcessorios.setText("Cadastro de Acessorios");
+        jMenuItemCadastroDeAcessorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeAcessoriosActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeAcessorios);
+
+        jMenuItemCadastroVeiculo.setText("Cadastro de Veículo");
+        jMenuItemCadastroVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroVeiculoActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroVeiculo);
+
+        jMenuItemCadastroDeCliente.setText("Cadastro de Cliente");
+        jMenuItemCadastroDeCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeClienteActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeCliente);
+
+        jMenuItemCadastroDeModelo.setText("Cadastro de Modelo");
+        jMenuItemCadastroDeModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeModeloActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeModelo);
+
+        jMenuItemCadastroDeMarca.setText("Cadastro de Marca");
+        jMenuItemCadastroDeMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroDeMarcaActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemCadastroDeMarca);
+
+        jMenuItemTelaInicial.setText("Tela Inicial");
+        jMenuItemTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemTelaInicialActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItemTelaInicial);
+
+        jMenuBar1.add(jMenuOpcoes);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -357,11 +452,133 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLocacaoActionPerformed
+        // TODO add your handling code here:
+        try {
+            TelaDeLocacao telaLocacao = new TelaDeLocacao();
+            telaLocacao.setLocationRelativeTo(null);
+            telaLocacao.setVisible(true);
+            this.setVisible(false);
+            telaLocacao.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemLocacaoActionPerformed
+
+    private void jMenuItemCadastroDeMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeMotoristaActionPerformed
+        // TODO add your handling code here:
+        try {
+            TelaCadastroMotorista telaMotorista = new TelaCadastroMotorista();
+            telaMotorista.setLocationRelativeTo(null);
+            telaMotorista.setVisible(true);
+            this.setVisible(false);
+            telaMotorista.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeMotoristaActionPerformed
+
+    private void jMenuItemCadastroDeCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeCategoriasActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaDeCategoria telaCategoria = new TelaDeCategoria();
+            telaCategoria.setLocationRelativeTo(null);
+            telaCategoria.setVisible(true);
+            this.setVisible(false);
+            telaCategoria.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeCategoriasActionPerformed
+
+    private void jMenuItemCadastroDeAcessoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeAcessoriosActionPerformed
+        // TODO add your handling code here:
+        try {
+            TelaDeAcessorios telaAcessorios = new TelaDeAcessorios();
+            telaAcessorios.setLocationRelativeTo(null);
+            telaAcessorios.setVisible(true);
+            this.setVisible(false);
+            telaAcessorios.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeAcessoriosActionPerformed
+
+    private void jMenuItemCadastroVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroVeiculoActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaCadastroVeiculo telaVeiculo = new TelaCadastroVeiculo();
+            telaVeiculo.setLocationRelativeTo(null);
+            telaVeiculo.setVisible(true);
+            this.setVisible(false);
+            telaVeiculo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroVeiculoActionPerformed
+
+    private void jMenuItemCadastroDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeClienteActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaCadastroCliente cadastroCliente = new TelaCadastroCliente();
+            cadastroCliente.setLocationRelativeTo(null);
+            cadastroCliente.setVisible(true);
+            this.setVisible(false);
+            cadastroCliente.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeClienteActionPerformed
+
+    private void jMenuItemCadastroDeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeModeloActionPerformed
+        // TODO add your handling code here:
+        try {
+            TelaDosModelos telaModelo = new TelaDosModelos();
+            telaModelo.setLocationRelativeTo(null);
+            telaModelo.setVisible(true);
+            this.setVisible(false);
+            telaModelo.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeModeloActionPerformed
+
+    private void jMenuItemCadastroDeMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeMarcaActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaDasMarcas telaMarca = new TelaDasMarcas();
+            telaMarca.setLocationRelativeTo(null);
+            telaMarca.setVisible(true);
+            this.setVisible(false);
+            telaMarca.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemCadastroDeMarcaActionPerformed
+
+    private void jMenuItemTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTelaInicialActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaInicial telaInicial = new TelaInicial();
+            telaInicial.setLocationRelativeTo(null);
+            telaInicial.setVisible(true);
+            this.setVisible(false);
+            telaInicial.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+    }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -424,6 +641,18 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemCadastroDeAcessorios;
+    private javax.swing.JMenuItem jMenuItemCadastroDeCategorias;
+    private javax.swing.JMenuItem jMenuItemCadastroDeCliente;
+    private javax.swing.JMenuItem jMenuItemCadastroDeMarca;
+    private javax.swing.JMenuItem jMenuItemCadastroDeModelo;
+    private javax.swing.JMenuItem jMenuItemCadastroDeMotorista;
+    private javax.swing.JMenuItem jMenuItemCadastroVeiculo;
+    private javax.swing.JMenuItem jMenuItemLocacao;
+    private javax.swing.JMenuItem jMenuItemTelaInicial;
+    private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
