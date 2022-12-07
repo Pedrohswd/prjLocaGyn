@@ -18,6 +18,7 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
      */
     public TelaDeAcessorios() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

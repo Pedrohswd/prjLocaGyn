@@ -11,6 +11,7 @@ package com.locagyn.enumeracao;
 public enum Situacao {
     DISPONIVEL,
     LOCADO,
-    VENDIDO;
+    VENDIDO,
+    EM_MANUTENÇÃO;
     
 }
