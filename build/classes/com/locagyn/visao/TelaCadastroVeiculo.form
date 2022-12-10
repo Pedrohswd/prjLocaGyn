@@ -141,7 +141,6 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jButtonInculirVeiculo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Component id="jButtonAlterarVeiculo" min="-2" max="-2" attributes="0"/>
@@ -160,7 +159,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jComboBoxCategoria" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jComboBoxTipoDeVeiculo" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jTextFieldPlaca" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jTextFieldIdVeiculo" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
@@ -181,7 +180,7 @@
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jComboBoxTipoDeCombustivel" max="32767" attributes="0"/>
                                   <Component id="jTextFieldRenavam" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jComboBoxTipoDeCombustivel1" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxCategoria" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jTextFieldValorCompra" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
@@ -197,7 +196,7 @@
                               <Component id="jTextFieldAnoModelo" min="-2" pref="140" max="-2" attributes="0"/>
                               <Component id="jTextFieldValorVenda" min="-2" pref="140" max="-2" attributes="0"/>
                               <Component id="jTextFieldAnoFabricacao" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                              <Component id="jComboBoxTipoDeCombustivel2" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                              <Component id="jComboBoxModelo" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="31" max="32767" attributes="0"/>
                           <Component id="jLabelModeloLogoTable" min="-2" pref="182" max="-2" attributes="0"/>
@@ -218,14 +217,14 @@
                               <Component id="jTextFieldIdVeiculo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jTextFieldPlaca" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxCategoria" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jComboBoxTipoDeVeiculo" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -237,7 +236,7 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBoxTipoDeCombustivel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -258,7 +257,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBoxTipoDeCombustivel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxModelo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -384,7 +383,7 @@
             <Property name="text" type="java.lang.String" value="Tipo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxCategoria">
+        <Component class="javax.swing.JComboBox" name="jComboBoxTipoDeVeiculo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -563,7 +562,7 @@
                   </Table>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -588,27 +587,27 @@
             <Property name="text" type="java.lang.String" value="Categoria:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxTipoDeCombustivel1">
+        <Component class="javax.swing.JComboBox" name="jComboBoxCategoria">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="new javax.swing.DefaultComboBoxModel(TipoDeCombustivel.values())" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxTipoDeCombustivel1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxCategoriaActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxTipoDeCombustivel2">
+        <Component class="javax.swing.JComboBox" name="jComboBoxModelo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="new javax.swing.DefaultComboBoxModel(TipoDeCombustivel.values())" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxTipoDeCombustivel2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxModeloActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

@@ -77,7 +77,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextFieldAnoModelo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jComboBoxCategoria = new javax.swing.JComboBox<>();
+        jComboBoxTipoDeVeiculo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jComboBoxTipoDeCombustivel = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -93,8 +93,8 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableVeiculos = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        jComboBoxTipoDeCombustivel1 = new javax.swing.JComboBox<>();
-        jComboBoxTipoDeCombustivel2 = new javax.swing.JComboBox<>();
+        jComboBoxCategoria = new javax.swing.JComboBox<>();
+        jComboBoxModelo = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
         jMenuItemLocacao = new javax.swing.JMenuItem();
@@ -140,7 +140,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel6.setText("Tipo:");
 
-        jComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTipoDeVeiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel7.setText("Combustivel:");
@@ -233,17 +233,17 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel12.setText("Categoria:");
 
-        jComboBoxTipoDeCombustivel1.setModel(new javax.swing.DefaultComboBoxModel(TipoDeCombustivel.values()));
-        jComboBoxTipoDeCombustivel1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel(TipoDeCombustivel.values()));
+        jComboBoxCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoDeCombustivel1ActionPerformed(evt);
+                jComboBoxCategoriaActionPerformed(evt);
             }
         });
 
-        jComboBoxTipoDeCombustivel2.setModel(new javax.swing.DefaultComboBoxModel(TipoDeCombustivel.values()));
-        jComboBoxTipoDeCombustivel2.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxModelo.setModel(new javax.swing.DefaultComboBoxModel(TipoDeCombustivel.values()));
+        jComboBoxModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoDeCombustivel2ActionPerformed(evt);
+                jComboBoxModeloActionPerformed(evt);
             }
         });
 
@@ -258,7 +258,6 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonInculirVeiculo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonAlterarVeiculo)))
@@ -273,7 +272,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jComboBoxTipoDeVeiculo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jTextFieldIdVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldQuilometragem, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -289,7 +288,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jComboBoxTipoDeCombustivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextFieldRenavam)
-                                .addComponent(jComboBoxTipoDeCombustivel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTextFieldValorCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +301,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                             .addComponent(jTextFieldAnoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldValorVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldAnoFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxTipoDeCombustivel2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addComponent(jLabelModeloLogoTable, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 6, Short.MAX_VALUE))))
@@ -317,13 +316,13 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jTextFieldIdVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxTipoDeVeiculo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
@@ -332,7 +331,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel12)
-                                .addComponent(jComboBoxTipoDeCombustivel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel3)
@@ -348,7 +347,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel11)
-                                .addComponent(jComboBoxTipoDeCombustivel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel4)
@@ -497,7 +496,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
             int idModelo = 0;
             ModeloControle objeto1 = new ModeloControle();
 
-            Veiculo objeto = new Veiculo(0, jTextFieldPlaca.getText(), Integer.parseInt(jTextFieldRenavam.getText()), Float.parseFloat(jTextFieldValorCompra.getText()), Float.parseFloat(jTextFieldValorVenda.getText()), Integer.parseInt(jTextFieldAnoFabricacao.getText()), Integer.parseInt(jTextFieldAnoModelo.getText()), jComboBoxTipoDeCombustivel.getSelectedItem(), Integer.parseInt(jTextFieldQuilometragem.getText()), jComboBoxCategoria.getSelectedItem(), objeto1.buscar(idModelo));
+            Veiculo objeto = new Veiculo(0, jTextFieldPlaca.getText(), Integer.parseInt(jTextFieldRenavam.getText()), Float.parseFloat(jTextFieldValorCompra.getText()), Float.parseFloat(jTextFieldValorVenda.getText()), Integer.parseInt(jTextFieldAnoFabricacao.getText()), Integer.parseInt(jTextFieldAnoModelo.getText()), jComboBoxTipoDeCombustivel.getSelectedItem(), Integer.parseInt(jTextFieldQuilometragem.getText()), jComboBoxTipoDeVeiculo.getSelectedItem(), objeto1.buscar(idModelo));
             ArrayList<Modelo> lista = obj.listagem();
             for (int i = 0; i < lista.size(); i++) {
                 if (jComboBoxModelo.getSelectedItem().equals(lista.get(i).getDescricao())) {
@@ -518,7 +517,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
             int idModelo = 0;
             ModeloControle objeto1 = new ModeloControle();
 
-            Veiculo objeto = new Veiculo(Integer.parseInt(jTextFieldIdVeiculo.getText()), jTextFieldPlaca.getText(), Integer.parseInt(jTextFieldRenavam.getText()), Float.parseFloat(jTextFieldValorCompra.getText()), Float.parseFloat(jTextFieldValorVenda.getText()), Integer.parseInt(jTextFieldAnoFabricacao.getText()), Integer.parseInt(jTextFieldAnoModelo.getText()), jComboBoxTipoDeCombustivel.getSelectedItem(), Integer.parseInt(jTextFieldQuilometragem.getText()), jComboBoxCategoria.getSelectedItem(), objeto1.buscar(idModelo));
+            Veiculo objeto = new Veiculo(Integer.parseInt(jTextFieldIdVeiculo.getText()), jTextFieldPlaca.getText(), Integer.parseInt(jTextFieldRenavam.getText()), Float.parseFloat(jTextFieldValorCompra.getText()), Float.parseFloat(jTextFieldValorVenda.getText()), Integer.parseInt(jTextFieldAnoFabricacao.getText()), Integer.parseInt(jTextFieldAnoModelo.getText()), jComboBoxTipoDeCombustivel.getSelectedItem(), Integer.parseInt(jTextFieldQuilometragem.getText()), jComboBoxTipoDeVeiculo.getSelectedItem(), objeto1.buscar(idModelo));
             ArrayList<Modelo> lista = obj.listagem();
             for (int i = 0; i < lista.size(); i++) {
                 if (jComboBoxModelo.getSelectedItem().equals(lista.get(i).getDescricao())) {
@@ -681,13 +680,13 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
 
-    private void jComboBoxTipoDeCombustivel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoDeCombustivel1ActionPerformed
+    private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoDeCombustivel1ActionPerformed
+    }//GEN-LAST:event_jComboBoxCategoriaActionPerformed
 
-    private void jComboBoxTipoDeCombustivel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoDeCombustivel2ActionPerformed
+    private void jComboBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModeloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoDeCombustivel2ActionPerformed
+    }//GEN-LAST:event_jComboBoxModeloActionPerformed
 
     public void limparCampos() throws Exception {
         try {
@@ -764,9 +763,9 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAlterarVeiculo;
     private javax.swing.JButton jButtonInculirVeiculo;
     private javax.swing.JComboBox<String> jComboBoxCategoria;
+    private javax.swing.JComboBox<String> jComboBoxModelo;
     private javax.swing.JComboBox<String> jComboBoxTipoDeCombustivel;
-    private javax.swing.JComboBox<String> jComboBoxTipoDeCombustivel1;
-    private javax.swing.JComboBox<String> jComboBoxTipoDeCombustivel2;
+    private javax.swing.JComboBox<String> jComboBoxTipoDeVeiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

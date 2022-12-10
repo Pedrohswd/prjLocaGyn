@@ -110,17 +110,6 @@ public class VeiculoDao implements IVeiculoDao {
             IModeloDao objetoModelo = new ModeloDao();
             String vetorString[] = linha.split(";");
             objetoVeiculo.setId(Integer.parseInt(vetorString[0]));
-//            objetoVeiculo.setPlaca(vetorString[1]);
-//            objetoVeiculo.setRenavam(Integer.parseInt(vetorString[2]));
-//            objetoVeiculo.setPrecoDeCompra(Float.parseFloat(vetorString[3]));
-//            objetoVeiculo.setPrecoDeVenda(Float.parseFloat(vetorString[4]));
-//            objetoVeiculo.setAnoFabricacao(Integer.parseInt(vetorString[5]));
-//            objetoVeiculo.setAnoModelo(Integer.parseInt(vetorString[6]));
-//            objetoVeiculo.setTipoDeCombutivel(vetorString[7]);
-//            objetoVeiculo.setQuilometragem(Integer.parseInt(vetorString[8]));
-//            objetoVeiculo.setTipoDeVeiculo(vetorString[9]);
-//            int idMarca = Integer.parseInt(vetorString[10]);
-//            objetoVeiculo.setModelo(objetoModelo.buscar(idMarca));
             String saida = vetorString[0] + ";";
             saida += vetorString[1] + ";";
             saida += vetorString[2] + ";";
