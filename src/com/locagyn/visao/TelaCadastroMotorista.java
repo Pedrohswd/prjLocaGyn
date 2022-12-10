@@ -12,6 +12,7 @@ import com.locagyn.modelos.Telefone;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -674,22 +675,25 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
             jTextFieldLogo.setIcon(iconLogo);
             jTextFieldNumeroRegistro.setText(jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 3).toString());
             String categoria = jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 4).toString();
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i <=6; i++) {
 
                 if (categoria.equals(jComboBoxCategoria.getItemAt(i))) {
                     jComboBoxCategoria.setSelectedIndex(i);
                 }
             }
-            jDateValidade.setDate( (Date)jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 5));
+            Date data = dF.parse((String) jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 5));
+            Calendar cal = dF.getCalendar();
+            cal.setTime(data);
+            jDateValidade.setDate(data);
 
-            String telefoneTodo = jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 5).toString();
+            String telefoneTodo = jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 6).toString();
             String[] telefoneSplit = telefoneTodo.split(";");
 
             jTextFieldDDI.setText(telefoneSplit[0]);
             jTextFieldDDD.setText(telefoneSplit[1]);
             jTextFieldNumero.setText(telefoneSplit[2]);
 
-            String enderecoTodo = jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 6).toString();
+            String enderecoTodo = jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 7).toString();
             String[] enderecoSplit = enderecoTodo.split(";");
 
             jTextFieldLogradouro.setText(enderecoSplit[0]);
