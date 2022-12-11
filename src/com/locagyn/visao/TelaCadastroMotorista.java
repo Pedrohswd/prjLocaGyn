@@ -216,6 +216,11 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         jButtonAlterar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonAlterar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
         jButtonIncluir.setBackground(new java.awt.Color(0, 0, 0));
         jButtonIncluir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -772,6 +777,57 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        try {
+
+            //captando telefone
+
+            long ddi = Long.parseLong(jTextFieldDDI.getText());
+            long ddd = Long.parseLong(jTextFieldDDD.getText());
+            long numero = Long.parseLong(jTextFieldNumero.getText());
+            Telefone telefone = new Telefone(ddi, ddd, numero);
+
+            //captando endereco
+            String logradouro = jTextFieldLogradouro.getText();
+            String complemento = jTextFieldComplemento.getText();
+            String bairro = jTextFieldBairro.getText();
+            String cidade = jTextFieldCidade.getText();
+            String estado = jComboBoxEstado.getSelectedItem().toString();
+            long cep = Long.parseLong(jTextFieldCEP.getText());
+            Endereco endereco = new Endereco(logradouro, complemento, cidade, estado, bairro, cep);
+
+            //Trabalhando com datas
+            
+            String dataFormatada = dF.format(this.jDateValidade.getDate());
+            String categoria = jComboBoxCategoria.getSelectedItem().toString();
+
+            Motorista motorista = new Motorista(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldNome.getText(), jTextFieldURL.getText(), Integer.parseInt(jTextFieldNumeroRegistro.getText()), categoria, dataFormatada, telefone, endereco);
+            
+            
+            motoristaControle.alterar(motorista);
+            imprimirDadosNaGrid(motoristaControle.listagem());
+            
+            limparCampos();
+
+        } catch (Exception erro) {
+           JOptionPane.showMessageDialog(this, erro);
+        }
+        
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
+
+    public void limparCampos(){
+        jTextFieldNumeroRegistro.setText("");
+        jTextFieldNome.setText("");
+        jTextFieldBairro.setText("");
+        jTextFieldCEP.setText("");
+        jTextFieldCidade.setText("");
+        jTextFieldComplemento.setText("");
+        jTextFieldDDD.setText("");
+        jTextFieldDDI.setText("");
+        jTextFieldLogradouro.setText("");
+        jTextFieldNumero.setText("");
+        jTextFieldURL.setText("");
+    }
     private void imprimirDadosNaGrid(ArrayList<Motorista> listaDeMarcas) {
         try {
             DefaultTableModel model = (DefaultTableModel) jTableMotorista.getModel();
