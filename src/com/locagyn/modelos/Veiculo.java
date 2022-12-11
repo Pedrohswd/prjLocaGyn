@@ -21,13 +21,15 @@ public class Veiculo {
     private int quilometragem;
     private Object tipoDeVeiculo;
     private Modelo modelo;
+    private Object situacao;
+    private Categoria categoria;
 
     public Veiculo() {
     }
 
     public Veiculo(int id, String placa, int renavam, float precoDeCompra, float precoDeVenda,
             int anoFabricacao, int anoModelo, Object tipoDeCombutivel, int quilometragem,
-            Object tipoDeVeiculo, Modelo modelo) {
+            Object tipoDeVeiculo, Modelo modelo, Object situacao, Categoria categoria) {
         this.id = id;
         this.placa = placa;
         this.renavam = renavam;
@@ -39,7 +41,25 @@ public class Veiculo {
         this.quilometragem = quilometragem;
         this.tipoDeVeiculo = tipoDeVeiculo;
         this.modelo = modelo;
+        this.situacao = situacao;
+        this.categoria = categoria;
         
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Object getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(Object situacao) {
+        this.situacao = situacao;
     }
 
     public int getId() {
@@ -134,7 +154,7 @@ public class Veiculo {
     public String toString() {
         return id + ";" + placa + ";" + renavam + ";" + precoDeCompra + ";" + precoDeVenda + ";" 
                 + anoFabricacao + ";" + anoModelo + ";" + tipoDeCombutivel + ";" +  quilometragem
-                + ";" + tipoDeVeiculo + ";" + modelo.getId();
+                + ";" + tipoDeVeiculo + ";" + modelo.getId() + ";" + situacao + ";" + categoria.getId();
     }
     
 

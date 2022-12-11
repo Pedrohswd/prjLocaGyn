@@ -81,15 +81,26 @@ public class VeiculoDao implements IVeiculoDao {
             String linha;
             while ((linha = br.readLine()) != null) {
                 IModeloDao objetoModelo = new ModeloDao();
+                ICategoriaDao objetoCategoria = new CategoriaDao();
                 Veiculo objetoVeiculo = new Veiculo();
                 String vetorString[] = linha.split(";");
                 System.out.printf(linha);
                 objetoVeiculo.setId(Integer.parseInt(vetorString[0]));
                 objetoVeiculo.setPlaca(vetorString[1]);
+                objetoVeiculo.setRenavam(Integer.parseInt(vetorString[2]));
+                objetoVeiculo.setPrecoDeCompra(Float.parseFloat(vetorString[3]));
+                objetoVeiculo.setPrecoDeVenda(Float.parseFloat(vetorString[4]));
+                objetoVeiculo.setAnoFabricacao(Integer.parseInt(vetorString[5]));
+                objetoVeiculo.setAnoModelo(Integer.parseInt(vetorString[6]));
+                objetoVeiculo.setTipoDeCombutivel(vetorString[7]);
+                objetoVeiculo.setQuilometragem(Integer.parseInt(vetorString[8]));
                 objetoVeiculo.setTipoDeVeiculo(vetorString[9]);
-                //int idModelo = Integer.parseInt(vetorString[10]);
-                //objetoVeiculo.setModelo(objetoModelo.buscar(idModelo));
-                //System.out.print(objetoVeiculo);
+                int idModelo= Integer.parseInt(vetorString[10]);
+                objetoVeiculo.setModelo(objetoModelo.buscar(idModelo));
+                objetoVeiculo.setTipoDeCombutivel(vetorString[11]);
+                int idCategoria= Integer.parseInt(vetorString[12]);
+                objetoVeiculo.setCategoria(objetoCategoria.buscar(idCategoria));
+                
                 listaDeVeiculos.add(objetoVeiculo);
 
             }

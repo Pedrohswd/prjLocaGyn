@@ -101,7 +101,7 @@ public class ModeloDao implements IModeloDao {
 
     @Override
     public Modelo buscar(int id) throws Exception {
-    FileReader fr = new FileReader(nomeDoArquivoNoDisco);
+        FileReader fr = new FileReader(nomeDoArquivoNoDisco);
         BufferedReader br = new BufferedReader(fr);
         String linha = "";
         while ((linha = br.readLine()) != null) {
@@ -115,7 +115,7 @@ public class ModeloDao implements IModeloDao {
                 return new Modelo((Integer.parseInt(vetorString[0])), vetorString[1], vetorString[2]);
             }
         }
-        return null;   
-    }   
+        return null;
+    }
 
 }
