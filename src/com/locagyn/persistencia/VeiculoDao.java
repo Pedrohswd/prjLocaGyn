@@ -110,37 +110,34 @@ public class VeiculoDao implements IVeiculoDao {
             throw erro;
         }
     }
-
+    
     @Override
-    public String selecionarVeiculos(int id) throws Exception {
-        FileReader fr = new FileReader(nomeDoArquivoNoDisco);
+    public Veiculo buscar(int id) throws Exception {
+     FileReader fr = new FileReader(nomeDoArquivoNoDisco);
         BufferedReader br = new BufferedReader(fr);
         String linha = "";
         while ((linha = br.readLine()) != null) {
-            Veiculo objetoVeiculo = new Veiculo();
             IModeloDao objetoModelo = new ModeloDao();
-            String vetorString[] = linha.split(";");
-            objetoVeiculo.setId(Integer.parseInt(vetorString[0]));
-            String saida = vetorString[0] + ";";
-            saida += vetorString[1] + ";";
-            saida += vetorString[2] + ";";
-            saida += vetorString[3] + ";";
-            saida += vetorString[4] + ";";
-            saida += vetorString[5] + ";";
-            saida += vetorString[6] + ";";
-            saida += vetorString[7] + ";";
-            saida += vetorString[8] + ";";
-            saida += vetorString[9] + ";";
-            saida += vetorString[10];
-            
-            
-            
-            
+                ICategoriaDao objetoCategoria = new CategoriaDao();
+                Veiculo objetoVeiculo = new Veiculo();
+                String vetorString[] = linha.split(";");
+                System.out.printf(linha);
+                objetoVeiculo.setId(Integer.parseInt(vetorString[0]));
+                objetoVeiculo.setPlaca(vetorString[1]);
+                objetoVeiculo.setRenavam(Integer.parseInt(vetorString[2]));
+                objetoVeiculo.setPrecoDeCompra(Float.parseFloat(vetorString[3]));
+                objetoVeiculo.setPrecoDeVenda(Float.parseFloat(vetorString[4]));
+                objetoVeiculo.setAnoFabricacao(Integer.parseInt(vetorString[5]));
+                objetoVeiculo.setAnoModelo(Integer.parseInt(vetorString[6]));
+                objetoVeiculo.setTipoDeCombutivel(vetorString[7]);
+                objetoVeiculo.setQuilometragem(Integer.parseInt(vetorString[8]));
+                objetoVeiculo.setTipoDeVeiculo(vetorString[9]);
+                objetoVeiculo.setSituacao(vetorString[11]);
             if (objetoVeiculo.getId() == id) {
                 br.close();
-                return saida;
+                return new Veiculo(Integer.parseInt(vetorString[0]), vetorString[1], Integer.parseInt(vetorString[2]), Float.parseFloat(vetorString[3]), Float.parseFloat(vetorString[4]), Integer.parseInt(vetorString[5]), Integer.parseInt(vetorString[6]), vetorString[7], Integer.parseInt(vetorString[8]), vetorString[9], vetorString[11]);
             }
         }
-        return null;   
+        return null;    
     }
 }

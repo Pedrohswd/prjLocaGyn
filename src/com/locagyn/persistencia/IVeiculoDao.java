@@ -20,5 +20,5 @@ public interface IVeiculoDao {
 
     ArrayList<Veiculo> listagem() throws Exception;
     
-    String selecionarVeiculos(int id) throws Exception;
+    Veiculo buscar(int id) throws Exception;
 }

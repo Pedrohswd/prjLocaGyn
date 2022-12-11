@@ -46,6 +46,23 @@ public class Veiculo {
         
     }
 
+    public Veiculo (int id, String placa, int renavam, float precoDeCompra, float precoDeVenda,
+            int anoFabricacao, int anoModelo, Object tipoDeCombutivel, int quilometragem,
+            Object tipoDeVeiculo, Object situacao) {
+        this.id = id;
+        this.placa = placa;
+        this.renavam = renavam;
+        this.precoDeCompra = precoDeCompra;
+        this.precoDeVenda = precoDeVenda;
+        this.anoFabricacao = anoFabricacao;
+        this.anoModelo = anoModelo;
+        this.tipoDeCombutivel = tipoDeCombutivel;
+        this.quilometragem = quilometragem;
+        this.tipoDeVeiculo = tipoDeVeiculo;
+        this.situacao = situacao;
+
+    }
+
     public Categoria getCategoria() {
         return categoria;
     }

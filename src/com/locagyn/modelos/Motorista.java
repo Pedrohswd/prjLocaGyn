@@ -35,6 +35,15 @@ public class Motorista {
         this.telefone = telefone;
         this.endereco = endereco;
     }
+    
+    public Motorista(int id, String nome, String url, int numeroRegistro, String categoriaCNH, String validade) {
+        this.id = id;
+        this.nome = nome;
+        this.url = url;
+        this.numeroRegistro = numeroRegistro;
+        this.categoriaCNH = categoriaCNH;
+        this.validade = validade;
+    }
 
     public int getId() {
         return id;
