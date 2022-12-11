@@ -97,7 +97,7 @@ public class VeiculoDao implements IVeiculoDao {
                 objetoVeiculo.setTipoDeVeiculo(vetorString[9]);
                 int idModelo= Integer.parseInt(vetorString[10]);
                 objetoVeiculo.setModelo(objetoModelo.buscar(idModelo));
-                objetoVeiculo.setTipoDeCombutivel(vetorString[11]);
+                objetoVeiculo.setSituacao(vetorString[11]);
                 int idCategoria= Integer.parseInt(vetorString[12]);
                 objetoVeiculo.setCategoria(objetoCategoria.buscar(idCategoria));
                 

@@ -103,14 +103,17 @@ public class ModeloDao implements IModeloDao {
     public Modelo buscar(int id) throws Exception {
         FileReader fr = new FileReader(nomeDoArquivoNoDisco);
         BufferedReader br = new BufferedReader(fr);
+        IMarcaDao objetoMarca = new MarcaDao();
         String linha = "";
         while ((linha = br.readLine()) != null) {
-            Modelo objetomMarca = new Modelo();
+            Modelo objetoModelo = new Modelo();
             String vetorString[] = linha.split(";");
-            objetomMarca.setId(Integer.parseInt(vetorString[0]));
-            objetomMarca.setDescricao(vetorString[1]);
-            objetomMarca.setUrl(vetorString[2]);
-            if (objetomMarca.getId() == id) {
+            objetoModelo.setId(Integer.parseInt(vetorString[0]));
+            objetoModelo.setDescricao(vetorString[1]);
+            objetoModelo.setUrl(vetorString[2]);
+            int idMarca = Integer.parseInt(vetorString[3]);
+            objetoModelo.setMarca(objetoMarca.buscar(idMarca));
+            if (objetoModelo.getId() == id) {
                 br.close();
                 return new Modelo((Integer.parseInt(vetorString[0])), vetorString[1], vetorString[2]);
             }

@@ -40,7 +40,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
      */
     public TelaCadastroVeiculo() throws Exception {
         initComponents();
-        jTextFieldIdVeiculo.setEnabled(false);
+        jTextFieldIdentificador.setEnabled(false);
         ModeloControle objeto = new ModeloControle();
         try {
             IVeiculoControle incluirVeiculo = new VeiculoControle();
@@ -56,8 +56,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 listaCombo[pos] = listaModelo.get(pos).getDescricao();
                 jComboBoxModelo.addItem(listaCombo[pos]);
             }
-            
-            
+
             //categoria
             ICategoriaControle objetoCateg = new CategoriaControle();
             ArrayList<Categoria> listaCategoria = objetoCateg.listagem();
@@ -85,7 +84,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldIdVeiculo = new javax.swing.JTextField();
+        jTextFieldIdentificador = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldPlaca = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -138,7 +137,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel1.setText("ID:");
 
-        jTextFieldIdVeiculo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldIdentificador.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel2.setText("Placa:");
@@ -298,7 +297,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jComboBoxTipoDeVeiculo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextFieldIdVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldQuilometragem, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel8))
                         .addGap(34, 34, 34)
@@ -326,9 +325,9 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                             .addComponent(jTextFieldValorVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                             .addComponent(jTextFieldAnoFabricacao, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                             .addComponent(jComboBoxModelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                         .addComponent(jLabelModeloLogoTable, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 33, Short.MAX_VALUE))))
+                        .addGap(0, 123, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -378,7 +377,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextFieldIdVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -502,6 +501,8 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private void imprimirDadosNaGrid(ArrayList<Veiculo> listaDeVeiculos) throws Exception {
         try {
             DefaultTableModel model = (DefaultTableModel) jTableVeiculos.getModel();
+            ModeloControle modelo = new ModeloControle();
+            CategoriaControle categoria = new CategoriaControle();
             // Limpa a tabela
             model.setNumRows(0);
             Iterator<Veiculo> lista = listaDeVeiculos.iterator();
@@ -511,18 +512,18 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 saida[0] = aux.getId() + "";
                 saida[1] = aux.getPlaca();
                 saida[2] = aux.getRenavam() + "";
-                saida[3] = aux.getPrecoDeCompra()+"";
-                saida[4] = aux.getPrecoDeVenda()+"";
-                saida[5] = aux.getAnoFabricacao()+"";
-                saida[6] = aux.getAnoModelo()+"";
-                saida[7] = aux.getTipoDeCombutivel()+"";
-                saida[8] = aux.getQuilometragem()+"";
-                saida[9] = aux.getTipoDeVeiculo()+"";
-                saida[10] = aux.getModelo()+"";
-                saida[11] = aux.getSituacao()+"";
-                saida[12] = aux.getModelo()+"";
-                
-                
+                saida[3] = aux.getPrecoDeCompra() + "";
+                saida[4] = aux.getPrecoDeVenda() + "";
+                saida[5] = aux.getAnoFabricacao() + "";
+                saida[6] = aux.getAnoModelo() + "";
+                saida[7] = aux.getTipoDeCombutivel() + "";
+                saida[8] = aux.getQuilometragem() + "";
+                saida[9] = aux.getTipoDeVeiculo() + "";
+                saida[10] = modelo.buscar(aux.getModelo().getId()).getDescricao();
+                saida[11] = aux.getSituacao() + "";
+                Categoria idCategoria = aux.getCategoria();
+                saida[12] = categoria.buscar(idCategoria.getId()).getDescricao();
+
                 // Incluir nova linha na Tabela
                 model.addRow(saida);
             }
@@ -545,14 +546,14 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                     objeto.setModelo(lista.get(i));
                 }
             }
-            
+
             ArrayList<Categoria> listaCategoria = objetoCategoria.listagem();
             for (int i = 0; i < listaCategoria.size(); i++) {
                 if (jComboBoxCategoria.getSelectedItem().equals(listaCategoria.get(i).getDescricao())) {
                     objeto.setCategoria(listaCategoria.get(i));
                 }
             }
-            
+
             veiculoControle.incluir(objeto);
             limparCampos();
             imprimirDadosNaGrid(veiculoControle.listagem());
@@ -569,7 +570,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
             int idCategoria = 0;
             CategoriaControle objetoCategoria = new CategoriaControle();
 
-            Veiculo objeto = new Veiculo(Integer.parseInt(jTextFieldIdVeiculo.getText()), jTextFieldPlaca.getText(), Integer.parseInt(jTextFieldRenavam.getText()), Float.parseFloat(jTextFieldValorCompra.getText()), Float.parseFloat(jTextFieldValorVenda.getText()), Integer.parseInt(jTextFieldAnoFabricacao.getText()), Integer.parseInt(jTextFieldAnoModelo.getText()), jComboBoxTipoDeCombustivel.getSelectedItem(), Integer.parseInt(jTextFieldQuilometragem.getText()), jComboBoxTipoDeVeiculo.getSelectedItem(), objeto1.buscar(idModelo), jComboBoxSituacao.getSelectedItem(),objetoCategoria.buscar(idCategoria));
+            Veiculo objeto = new Veiculo(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldPlaca.getText(), Integer.parseInt(jTextFieldRenavam.getText()), Float.parseFloat(jTextFieldValorCompra.getText()), Float.parseFloat(jTextFieldValorVenda.getText()), Integer.parseInt(jTextFieldAnoFabricacao.getText()), Integer.parseInt(jTextFieldAnoModelo.getText()), jComboBoxTipoDeCombustivel.getSelectedItem(), Integer.parseInt(jTextFieldQuilometragem.getText()), jComboBoxTipoDeVeiculo.getSelectedItem(), objeto1.buscar(idModelo), jComboBoxSituacao.getSelectedItem(), objetoCategoria.buscar(idCategoria));
             ArrayList<Modelo> lista = obj.listagem();
             for (int i = 0; i < lista.size(); i++) {
                 if (jComboBoxModelo.getSelectedItem().equals(lista.get(i).getDescricao())) {
@@ -587,27 +588,35 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
     private void jTableVeiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableVeiculosMouseClicked
         try {
-            int id = Integer.parseInt(jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 0).toString());
-            String saida = veiculoControle.selecionarVeiculos(id);
-            String[] dados = saida.split(";");
-            jTextFieldIdVeiculo.setText(dados[0]);
-            jTextFieldPlaca.setText(dados[1]);
-            jTextFieldRenavam.setText(dados[2]);
-            jTextFieldValorCompra.setText(dados[3]);
-            jTextFieldValorVenda.setText(dados[4]);
-            jTextFieldAnoFabricacao.setText(dados[5]);
-            jTextFieldAnoModelo.setText(dados[6]);
-            jComboBoxTipoDeCombustivel.setSelectedItem(dados[7]);
-            jTextFieldQuilometragem.setText(dados[8]);
-            jComboBoxTipoDeCombustivel.setSelectedItem(dados[9]);
-            jComboBoxModelo.setSelectedItem(dados[10]);
+            jTextFieldIdentificador.setText(jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 0).toString());
+            jTextFieldPlaca.setText(jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 1).toString());
+            jTextFieldRenavam.setText(jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 2).toString());
+            jTextFieldValorCompra.setText(jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 3).toString());
+            jTextFieldValorVenda.setText(jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 4).toString());
+            jTextFieldAnoFabricacao.setText(jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 5).toString());
+            jTextFieldAnoModelo.setText(jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 6).toString());
+            String combustivel = jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 7).toString();
+            if(combustivel == TipoDeCombustivel.DIESEL.toString())jComboBoxTipoDeCombustivel.setSelectedItem(TipoDeCombustivel.DIESEL.valueOf(combustivel));
+            if(combustivel == TipoDeCombustivel.ELETRICO.toString())jComboBoxTipoDeCombustivel.setSelectedItem(TipoDeCombustivel.ELETRICO.valueOf(combustivel));
+            if(combustivel == TipoDeCombustivel.ETANOL.toString())jComboBoxTipoDeCombustivel.setSelectedItem(TipoDeCombustivel.ETANOL.valueOf(combustivel));
+            if(combustivel == TipoDeCombustivel.FLEX.toString())jComboBoxTipoDeCombustivel.setSelectedItem(TipoDeCombustivel.FLEX.valueOf(combustivel));
+            if(combustivel == TipoDeCombustivel.GASOLINA.toString())jComboBoxTipoDeCombustivel.setSelectedItem(TipoDeCombustivel.GASOLINA.valueOf(combustivel));
+            if(combustivel == TipoDeCombustivel.GNV.toString())jComboBoxTipoDeCombustivel.setSelectedItem(TipoDeCombustivel.GNV.valueOf(combustivel));
+
             
-            
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroVeiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+            jComboBoxTipoDeCombustivel.setSelectedItem(TipoDeCombustivel.ELETRICO.valueOf(combustivel));
+            jTextFieldQuilometragem.setText(jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 8).toString());
+            String tipoDeVeiculo = jTableVeiculos.getValueAt(jTableVeiculos.getSelectedRow(), 9).toString();
+            if(tipoDeVeiculo == TipoDeVeiculo.HATCH.toString())jComboBoxTipoDeVeiculo.setSelectedItem(TipoDeVeiculo.HATCH.valueOf(tipoDeVeiculo));
+            if(tipoDeVeiculo == TipoDeVeiculo.PICKUP.toString())jComboBoxTipoDeVeiculo.setSelectedItem(TipoDeVeiculo.PICKUP.valueOf(tipoDeVeiculo));
+            if(tipoDeVeiculo == TipoDeVeiculo.SEDAN.toString())jComboBoxTipoDeVeiculo.setSelectedItem(TipoDeVeiculo.SEDAN.valueOf(tipoDeVeiculo));
+            if(tipoDeVeiculo == TipoDeVeiculo.SUV.toString())jComboBoxTipoDeVeiculo.setSelectedItem(TipoDeVeiculo.SUV.valueOf(tipoDeVeiculo));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
         }
-            
-            
+
+
     }//GEN-LAST:event_jTableVeiculosMouseClicked
 
     private void jMenuItemLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLocacaoActionPerformed
@@ -740,7 +749,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         try {
             jTextFieldAnoFabricacao.setText("");
             jTextFieldAnoModelo.setText("");
-            jTextFieldIdVeiculo.setText("");
+            jTextFieldIdentificador.setText("");
             jTextFieldPlaca.setText("");
             jTextFieldQuilometragem.setText("");
             jTextFieldRenavam.setText("");
@@ -751,7 +760,6 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         }
 
     }
-
 
     /**
      * @param args the command line arguments
@@ -832,7 +840,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private javax.swing.JTable jTableVeiculos;
     private javax.swing.JTextField jTextFieldAnoFabricacao;
     private javax.swing.JTextField jTextFieldAnoModelo;
-    private javax.swing.JTextField jTextFieldIdVeiculo;
+    private javax.swing.JTextField jTextFieldIdentificador;
     private javax.swing.JTextField jTextFieldPlaca;
     private javax.swing.JTextField jTextFieldQuilometragem;
     private javax.swing.JTextField jTextFieldRenavam;
