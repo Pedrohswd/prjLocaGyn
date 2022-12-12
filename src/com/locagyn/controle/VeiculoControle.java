@@ -13,8 +13,8 @@ import java.util.ArrayList;
  *
  * @author pedro
  */
-public class VeiculoControle implements IVeiculoControle{
-    
+public class VeiculoControle implements IVeiculoControle {
+
     IVeiculoDao veiculoPersistencia = null;
 
     public VeiculoControle() {
@@ -37,8 +37,8 @@ public class VeiculoControle implements IVeiculoControle{
     }
 
     @Override
-    public String selecionarVeiculos(int id) throws Exception {
-        return veiculoPersistencia.selecionarVeiculos(id);
+    public Veiculo buscar(int id) throws Exception {
+        return veiculoPersistencia.buscar(id);
     }
-    
+
 }

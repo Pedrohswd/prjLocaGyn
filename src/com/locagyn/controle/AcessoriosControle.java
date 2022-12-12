@@ -70,12 +70,7 @@ public class AcessoriosControle  implements IAcessoriosControle{
 
     @Override
     public ArrayList<Acessorios> listagem() throws Exception {
-        return acessoriosPersistencia.listagem(); // Generated from
-        // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void buscar(String marca) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return acessoriosPersistencia.listagem(); 
     }
 
     @Override

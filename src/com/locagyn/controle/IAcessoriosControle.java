@@ -19,5 +19,5 @@ public interface IAcessoriosControle {
     ArrayList<Acessorios> listagem() throws Exception;
 
     Acessorios buscar(int id) throws Exception;
- 
+
 }

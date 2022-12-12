@@ -210,25 +210,25 @@ public class ClienteDao implements IClienteDao {
                 objetoCliente.setCpf(vetorString[1]);
                 objetoCliente.setNome(vetorString[2].replaceAll("_", " "));
                 objetoCliente.setIdentidade(vetorString[3]);
-                String[] telSeparado = vetorString[4].split(";");
-                long ddi = Long.parseLong(telSeparado[0]);
-                long ddd = Long.parseLong(telSeparado[1]);
-                long numero = Long.parseLong(telSeparado[2]);
+//                String[] telSeparado = vetorString[4].split(";");
+                long ddi = Long.parseLong(vetorString[4]);
+                long ddd = Long.parseLong(vetorString[5]);
+                long numero = Long.parseLong(vetorString[6]);
                 Telefone telefone = new Telefone(ddi, ddd, numero);
                 objetoCliente.setTelefone(telefone);
-                objetoCliente.setEmail(vetorString[5]);
-                String[] endSeparado = vetorString[6].split(",");
-                String logradouro = endSeparado[0];
-                String complemento = endSeparado[1];
-                String bairro = endSeparado[2];
-                String cidade = endSeparado[3];
-                String estado = endSeparado[4];
-                long cep = Long.parseLong(endSeparado[5]);
+                objetoCliente.setEmail(vetorString[7]);
+//                String[] endSeparado = vetorString[8].split(",");
+                String logradouro = vetorString[8];
+                String complemento = vetorString[9];
+                String bairro = vetorString[10];
+                String cidade = vetorString[11];
+                String estado = vetorString[12];
+                long cep = Long.parseLong(vetorString[13]);
                 Endereco endereco = new Endereco(logradouro, complemento, cidade, estado, bairro, cep);
                 objetoCliente.setEndereco(endereco);
                 if (objetoCliente.getId() == id) {
                     br.close();
-                    return new Cliente((Integer.parseInt(vetorString[0])), vetorString[1], vetorString[2], vetorString[3], vetorString[5], telefone, endereco, tipoDoCliente);
+                    return new Cliente((Integer.parseInt(vetorString[0])), vetorString[1], vetorString[2], vetorString[3], vetorString[7], telefone, endereco, tipoDoCliente);
                 }
             }
         }

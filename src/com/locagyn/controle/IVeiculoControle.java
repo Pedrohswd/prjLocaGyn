@@ -15,6 +15,6 @@ import com.locagyn.persistencia.IVeiculoDao;
 public interface IVeiculoControle {
     void incluir(Veiculo objeto) throws Exception;
     void alterar(Veiculo objeto) throws Exception;
-    ArrayList<Veiculo> listagem() throws Exception;   
-    String selecionarVeiculos(int id) throws Exception;
+    ArrayList<Veiculo> listagem() throws Exception;
+    Veiculo buscar(int id) throws Exception;
 }
