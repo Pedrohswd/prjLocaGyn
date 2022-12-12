@@ -212,6 +212,11 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         jButtonDevolver.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonDevolver.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDevolver.setText("Devolver");
+        jButtonDevolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDevolverActionPerformed(evt);
+            }
+        });
 
         jButtonLocar.setBackground(new java.awt.Color(0, 0, 0));
         jButtonLocar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -317,7 +322,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                                     .addComponent(jDateFim, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jComboBoxTipoDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -740,6 +745,20 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     private void jComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxClienteActionPerformed
+
+    private void jButtonDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDevolverActionPerformed
+        // TODO add your handling code here:
+         try {
+            TelaDevolucao telaDevolucao = new TelaDevolucao();
+            telaDevolucao.setLocationRelativeTo(null);
+            telaDevolucao.setVisible(true);
+            this.setVisible(false);
+            telaDevolucao.setResizable(false);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+        
+    }//GEN-LAST:event_jButtonDevolverActionPerformed
 
     /**
      * @param args the command line arguments
