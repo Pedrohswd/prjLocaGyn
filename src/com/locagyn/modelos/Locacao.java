@@ -109,7 +109,7 @@ public class Locacao {
 
     @Override
     public String toString() {
-        return id + ";" + cliente.getId() + ";" + motorista.getId()  + ";" + veiculo.getId() + ";" + acessorio.getId() + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocação;
+        return id + ";" + cliente.getId() + ";" + motorista.getId()  + ";" + veiculo.getId() + ";" + acessorio.getId() + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocação + ";" + situacao;
     }
     
     

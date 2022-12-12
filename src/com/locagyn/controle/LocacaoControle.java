@@ -29,7 +29,7 @@ public class LocacaoControle implements ILocacaoControle{
 
     @Override
     public ArrayList<Locacao> listagem() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return locacaoPersistencia.listagem();
     }
     
 }
