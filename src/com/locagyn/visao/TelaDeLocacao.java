@@ -26,6 +26,8 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.locagyn.enumeracao.SituacaoLocacao;
+import java.util.Iterator;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -51,8 +53,14 @@ public class TelaDeLocacao extends javax.swing.JFrame {
          jTextFieldIdentificador.setEnabled(false);
         jDateInicio.setDateFormatString("dd/MM/yyyy");
         jDateFim.setDateFormatString("dd/MM/yyyy");
+         try {
+            imprimirDadosNaGrid(locacaoControle.listagem());
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        
+    }
 
-        try {
+       try {
             ArrayList<Veiculo> listaVeiculo = veiculoControle.listagem();
 
             String[] listaCombo = new String[listaVeiculo.size()];
@@ -116,7 +124,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         jButtonDevolver = new javax.swing.JButton();
         jButtonLocar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTableMarcas = new javax.swing.JTable();
+        jTableLocacao = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jComboBoxCliente = new javax.swing.JComboBox<>();
         jDateInicio = new com.toedter.calendar.JDateChooser();
@@ -239,33 +247,40 @@ public class TelaDeLocacao extends javax.swing.JFrame {
             }
         });
 
-        jTableMarcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTableMarcas.setModel(new javax.swing.table.DefaultTableModel(
+        jTableLocacao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTableLocacao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "IDENTIFICADOR", "DESCRIÇÃO", "URL", "LOGO"
+                "IDENTIFICADOR", "MOTORISTA", "VEÍCULO - PLACA", "ACESSORIOS", "DATA INICIO", "DATA FIM", "VALOR DA LOCAÇÃO", "SITUAÇÃO"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTableMarcas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTableMarcas.setGridColor(new java.awt.Color(0, 0, 0));
-        jTableMarcas.setRowHeight(50);
-        jTableMarcas.setShowGrid(true);
-        jTableMarcas.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableLocacao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTableLocacao.setGridColor(new java.awt.Color(0, 0, 0));
+        jTableLocacao.setRowHeight(50);
+        jTableLocacao.setShowGrid(true);
+        jTableLocacao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableMarcasMouseClicked(evt);
+                jTableLocacaoMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jTableMarcas);
+        jScrollPane2.setViewportView(jTableLocacao);
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
@@ -302,41 +317,39 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel9)
                                         .addComponent(jLabel11)))
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jDateInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldIdentificador))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jComboBoxSituacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(176, 176, 176)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(91, 91, 91))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(12, 12, 12)
-                                                .addComponent(jComboBoxSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jDateInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addGap(18, 18, 18)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldValorTotalLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(70, 70, 70)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBoxAcessorios, 0, 175, Short.MAX_VALUE)
-                                    .addComponent(jComboBoxMotorista, 0, 175, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldValorDiaAcessorios)
-                                    .addComponent(jDateFim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBoxTipoDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(30, 30, 30)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jComboBoxTipoDeCliente, 0, 175, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldValorTotalLocacao)
+                                .addComponent(jComboBoxAcessorios, 0, 175, Short.MAX_VALUE)
+                                .addComponent(jComboBoxMotorista, 0, 175, Short.MAX_VALUE)
+                                .addComponent(jTextFieldValorDiaAcessorios)
+                                .addComponent(jDateFim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonLocar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,7 +369,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                     .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
                     .addComponent(jComboBoxTipoDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
@@ -650,7 +663,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItemLocacaoActionPerformed
 
-    private void jTableMarcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMarcasMouseClicked
+    private void jTableLocacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLocacaoMouseClicked
         // TODO add your handling code here:
         try {
 //            jTextFieldIdentificador.setText(jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 0).toString());
@@ -664,7 +677,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }
-    }//GEN-LAST:event_jTableMarcasMouseClicked
+    }//GEN-LAST:event_jTableLocacaoMouseClicked
 
     private void jButtonLocarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLocarActionPerformed
         // TODO add your handling code here:
@@ -739,6 +752,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                     }
                 }
                 locacaoControle.locar(objeto);
+                 imprimirDadosNaGrid(locacaoControle.listagem());
             
             }
 
@@ -764,6 +778,30 @@ public class TelaDeLocacao extends javax.swing.JFrame {
             telaDevolucao.setResizable(false);
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro);
+        }
+    }
+           private void imprimirDadosNaGrid(ArrayList<Locacao> listaDeLocacao) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTableLocacao.getModel();
+            //Limpa a tabela
+            model.setNumRows(0);
+            Iterator<Locacao> lista = listaDeLocacao.iterator();
+            while (lista.hasNext()) {
+                String[] saida = new String[8];
+                Locacao aux = lista.next();
+                saida[0] = aux.getId() + "";
+                saida[1] = motoristaControle.buscar(aux.getMotorista().getId()).getNome();
+                saida[2] = veiculoControle.buscar(aux.getVeiculo().getId()).getPlaca();
+                saida[3] = acessoriosControle.buscar(aux.getAcessorio().getId()).getDescricao();
+                saida[4] = aux.getDataInicio().toString();
+                saida[5] = aux.getDataFim().toString();
+                saida [6] = aux.getValorDaLocação().toString();
+                saida[7] = aux.getSituacao().toString();
+                //Incluir nova linha na Tabela
+                model.addRow(saida);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
         }
         
     }//GEN-LAST:event_jButtonDevolverActionPerformed
@@ -857,7 +895,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableMarcas;
+    private javax.swing.JTable jTableLocacao;
     private javax.swing.JTextField jTextFieldIdentificador;
     private javax.swing.JTextField jTextFieldValorDiaAcessorios;
     private javax.swing.JTextField jTextFieldValorDiaVeiculo;

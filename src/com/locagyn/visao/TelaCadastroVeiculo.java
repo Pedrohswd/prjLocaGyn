@@ -63,8 +63,8 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
             String[] listaCateg = new String[listaCategoria.size()];
             for (int pos = 0; pos < listaCategoria.size(); pos++) {
-                listaCombo[pos] = listaCategoria.get(pos).getDescricao();
-                jComboBoxCategoria.addItem(listaCombo[pos]);
+                listaCateg[pos] = listaCategoria.get(pos).getDescricao();
+                jComboBoxCategoria.addItem(listaCateg[pos]);
             }
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, "Falha ao listar");
@@ -360,9 +360,9 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                             .addComponent(jTextFieldValorVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                             .addComponent(jTextFieldAnoFabricacao, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                             .addComponent(jComboBoxModelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                         .addComponent(jLabelModeloLogoTable, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 123, Short.MAX_VALUE))))
+                        .addGap(0, 75, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,7 +430,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                             .addComponent(jLabel14)
                             .addComponent(jComboBoxSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

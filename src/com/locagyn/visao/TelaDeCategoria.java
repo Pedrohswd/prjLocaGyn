@@ -459,6 +459,21 @@ public class TelaDeCategoria extends javax.swing.JFrame {
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
+        try {
+
+            ICategoriaControle alterarCategoria = new CategoriaControle();
+            Categoria objeto = new Categoria(Integer.parseInt(jTextFieldID.getText()), jTextFieldDescricao.getText(), Float.parseFloat (jTextFieldValorLocacao.getText()));
+            categoriaControle.alterar(objeto);
+
+            imprimirDadosNaGrid(alterarCategoria.listagem());
+        
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+
+        }
+        jTextFieldDescricao.setText("");
+
+                                             
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     private void jTextFieldDescricaoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyReleased
