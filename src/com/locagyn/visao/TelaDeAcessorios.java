@@ -113,10 +113,21 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
                 jTextFieldDescricaoActionPerformed(evt);
             }
         });
+        jTextFieldDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldDescricaoKeyReleased(evt);
+            }
+        });
 
         jComboBoxSituacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jTextFieldValorLocacao.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldValorLocacao.setText("0");
+        jTextFieldValorLocacao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorLocacaoKeyTyped(evt);
+            }
+        });
 
         jButtonIncluir.setBackground(new java.awt.Color(0, 0, 0));
         jButtonIncluir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -491,6 +502,21 @@ public class TelaDeAcessorios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, erro);
         }
     }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
+
+    private void jTextFieldDescricaoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyReleased
+        // TODO add your handling code here:
+        int posicao = jTextFieldDescricao.getCaretPosition();
+        jTextFieldDescricao.setText(jTextFieldDescricao.getText().toUpperCase());
+        jTextFieldDescricao.setCaretPosition(posicao);
+    }//GEN-LAST:event_jTextFieldDescricaoKeyReleased
+
+    private void jTextFieldValorLocacaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorLocacaoKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldValorLocacaoKeyTyped
 
     /**
      * @param args the command line arguments

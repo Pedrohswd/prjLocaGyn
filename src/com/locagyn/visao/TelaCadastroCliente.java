@@ -127,6 +127,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabelTelefone.setText("Telefone:");
 
         jTextFieldCPFCNPJ.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldCPFCNPJ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCPFCNPJKeyTyped(evt);
+            }
+        });
 
         jLabelRazaoSocialNome.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabelRazaoSocialNome.setText("Razão Social:");
@@ -145,6 +150,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabelEndereco.setText("Endereço:");
 
         jTextFieldIdentidade.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldIdentidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldIdentidadeKeyTyped(evt);
+            }
+        });
 
         jButtonAlterar.setBackground(new java.awt.Color(0, 0, 0));
         jButtonAlterar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -170,16 +180,31 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabel1.setText("DDI:");
 
         jTextFieldDDI.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldDDI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDDIKeyTyped(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel2.setText("DDD:");
 
         jTextFieldDDD.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldDDD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDDDKeyTyped(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel3.setText("Número:");
 
         jTextFieldNumero.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNumeroKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel4.setText("Logradouro:");
@@ -195,6 +220,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabel6.setText("CEP:");
 
         jTextFieldCEP.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCEPKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel7.setText("Bairro:");
@@ -283,8 +313,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldDDI, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jTextFieldDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldDDI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
@@ -328,14 +361,10 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGap(40, 40, 40))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 652, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(18, 18, 18)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldNumero)
-                            .addComponent(jTextFieldDDD))
-                        .addGap(476, 476, 476)
+                                .addGap(18, 624, Short.MAX_VALUE)))
                         .addComponent(jButtonIncluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonAlterar)
@@ -921,6 +950,54 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, erro);
         }
     }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
+
+    private void jTextFieldDDIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDDIKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldDDIKeyTyped
+
+    private void jTextFieldDDDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDDDKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldDDDKeyTyped
+
+    private void jTextFieldNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldNumeroKeyTyped
+
+    private void jTextFieldCPFCNPJKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCPFCNPJKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldCPFCNPJKeyTyped
+
+    private void jTextFieldIdentidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdentidadeKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldIdentidadeKeyTyped
+
+    private void jTextFieldCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCEPKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldCEPKeyTyped
 
     /**
      * @param args the command line arguments

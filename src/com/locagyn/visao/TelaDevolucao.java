@@ -102,6 +102,12 @@ public class TelaDevolucao extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Km:");
 
+        jTextFieldKm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldKmKeyTyped(evt);
+            }
+        });
+
         jCheckBoxLocacaoAMaisTempo.setBackground(new java.awt.Color(176, 198, 238));
         jCheckBoxLocacaoAMaisTempo.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jCheckBoxLocacaoAMaisTempo.setForeground(new java.awt.Color(0, 0, 0));
@@ -131,10 +137,21 @@ public class TelaDevolucao extends javax.swing.JFrame {
                 jTextFieldValorDanoActionPerformed(evt);
             }
         });
+        jTextFieldValorDano.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorDanoKeyTyped(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Dias a menos:");
+
+        jTextFieldDiasAMais.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDiasAMaisKeyTyped(evt);
+            }
+        });
 
         jCheckBoxDanoSofrido.setBackground(new java.awt.Color(176, 198, 238));
         jCheckBoxDanoSofrido.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
@@ -212,17 +229,28 @@ public class TelaDevolucao extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldDiasAMenos1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDiasAMenos1KeyTyped(evt);
+            }
+        });
+
         jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Valor:");
 
-        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Total:");
 
         jTextFieldValorSujo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldValorSujoActionPerformed(evt);
+            }
+        });
+        jTextFieldValorSujo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorSujoKeyTyped(evt);
             }
         });
 
@@ -233,6 +261,11 @@ public class TelaDevolucao extends javax.swing.JFrame {
         jTextFieldDiasAMenos4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDiasAMenos4ActionPerformed(evt);
+            }
+        });
+        jTextFieldDiasAMenos4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDiasAMenos4KeyTyped(evt);
             }
         });
 
@@ -247,6 +280,11 @@ public class TelaDevolucao extends javax.swing.JFrame {
         jTextFieldHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldHoraActionPerformed(evt);
+            }
+        });
+        jTextFieldHora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldHoraKeyTyped(evt);
             }
         });
 
@@ -281,7 +319,7 @@ public class TelaDevolucao extends javax.swing.JFrame {
                             .addComponent(jCheckBoxLocacaoAMaisTempo)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(26, 26, 26)
                                 .addComponent(jTextFieldDiasAMais, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jCheckBoxDanoSofrido)
                             .addComponent(jCheckBoxTanqueCheio)
@@ -346,10 +384,6 @@ public class TelaDevolucao extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldAnexo3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldAnexo4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(jTextFieldDiasAMenos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonDevolver))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -392,9 +426,12 @@ public class TelaDevolucao extends javax.swing.JFrame {
                         .addComponent(jCheckBoxTanqueCheio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldDiasAMenos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextFieldDiasAMenos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldDiasAMenos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel19))
                             .addComponent(jLabel21))
-                        .addGap(0, 171, Short.MAX_VALUE)))
+                        .addGap(0, 29, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -654,6 +691,62 @@ public class TelaDevolucao extends javax.swing.JFrame {
     private void jButtonDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDevolverActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDevolverActionPerformed
+
+    private void jTextFieldKmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldKmKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldKmKeyTyped
+
+    private void jTextFieldHoraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldHoraKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldHoraKeyTyped
+
+    private void jTextFieldDiasAMaisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDiasAMaisKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldDiasAMaisKeyTyped
+
+    private void jTextFieldDiasAMenos1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDiasAMenos1KeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldDiasAMenos1KeyTyped
+
+    private void jTextFieldValorDanoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDanoKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldValorDanoKeyTyped
+
+    private void jTextFieldValorSujoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorSujoKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldValorSujoKeyTyped
+
+    private void jTextFieldDiasAMenos4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDiasAMenos4KeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldDiasAMenos4KeyTyped
 
     /**
      * @param args the command line arguments

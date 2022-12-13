@@ -1,4 +1,4 @@
-/*
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -143,21 +143,41 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel2.setText("Placa:");
 
         jTextFieldPlaca.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldPlaca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldPlacaKeyReleased(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel3.setText("Renavam:");
 
         jTextFieldRenavam.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldRenavam.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldRenavamKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel4.setText("Ano de Fabricação:");
 
         jTextFieldAnoFabricacao.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldAnoFabricacao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAnoFabricacaoKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel5.setText("Ano do Modelo:");
 
         jTextFieldAnoModelo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldAnoModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAnoModeloKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel6.setText("Tipo:");
@@ -178,6 +198,11 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel8.setText("Km:");
 
         jTextFieldQuilometragem.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldQuilometragem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldQuilometragemKeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel9.setText("Valor de Compra:");
@@ -186,8 +211,18 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel10.setText("Valor de Venda:");
 
         jTextFieldValorVenda.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldValorVenda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorVendaKeyTyped(evt);
+            }
+        });
 
         jTextFieldValorCompra.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldValorCompra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorCompraKeyTyped(evt);
+            }
+        });
 
         jButtonAlterarVeiculo.setBackground(new java.awt.Color(0, 0, 0));
         jButtonAlterarVeiculo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -744,6 +779,61 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxCategoriaActionPerformed
+
+    private void jTextFieldPlacaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPlacaKeyReleased
+        // TODO add your handling code here:
+        int posicao = jTextFieldPlaca.getCaretPosition();
+        jTextFieldPlaca.setText(jTextFieldPlaca.getText().toUpperCase());
+        jTextFieldPlaca.setCaretPosition(posicao);
+    }//GEN-LAST:event_jTextFieldPlacaKeyReleased
+
+    private void jTextFieldQuilometragemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldQuilometragemKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldQuilometragemKeyTyped
+
+    private void jTextFieldValorCompraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorCompraKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldValorCompraKeyTyped
+
+    private void jTextFieldValorVendaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorVendaKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldValorVendaKeyTyped
+
+    private void jTextFieldAnoFabricacaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAnoFabricacaoKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldAnoFabricacaoKeyTyped
+
+    private void jTextFieldAnoModeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAnoModeloKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldAnoModeloKeyTyped
+
+    private void jTextFieldRenavamKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldRenavamKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldRenavamKeyTyped
 
     public void limparCampos() throws Exception {
         try {

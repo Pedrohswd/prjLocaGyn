@@ -37,6 +37,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
     public TelaCadastroMotorista() {
         initComponents();
         this.setLocationRelativeTo(null);
+         jTextFieldIdentificador.setEnabled(false);
+         jTextFieldURL.setEnabled(false);
         jDateValidade.setDateFormatString("dd/MM/yyyy");
         
         
@@ -136,10 +138,25 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         jLabel6.setText("Número:");
 
         jTextFieldDDI.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldDDI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDDIKeyTyped(evt);
+            }
+        });
 
         jTextFieldDDD.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldDDD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDDDKeyTyped(evt);
+            }
+        });
 
         jTextFieldNumero.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNumeroKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -166,14 +183,39 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         jLabel14.setText("Estado:");
 
         jTextFieldLogradouro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldLogradouro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldLogradouroKeyReleased(evt);
+            }
+        });
 
         jTextFieldComplemento.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldComplemento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldComplementoKeyReleased(evt);
+            }
+        });
 
         jTextFieldCidade.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldCidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldCidadeKeyReleased(evt);
+            }
+        });
 
         jTextFieldBairro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldBairro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldBairroKeyReleased(evt);
+            }
+        });
 
         jTextFieldCEP.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCEPKeyTyped(evt);
+            }
+        });
 
         jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
@@ -201,6 +243,17 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         jLabel19.setText("URL:");
 
         jTextFieldNumeroRegistro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldNumeroRegistro.setText("0");
+        jTextFieldNumeroRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNumeroRegistroActionPerformed(evt);
+            }
+        });
+        jTextFieldNumeroRegistro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNumeroRegistroKeyTyped(evt);
+            }
+        });
 
         jButtonBuscarImagemCNH.setBackground(new java.awt.Color(0, 0, 0));
         jButtonBuscarImagemCNH.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -233,6 +286,11 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         });
 
         jTextFieldNome.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldNomeKeyReleased(evt);
+            }
+        });
 
         jTextFieldIdentificador.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -442,7 +500,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                     .addComponent(jButtonAlterar)
                     .addComponent(jButtonIncluir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 
@@ -537,9 +595,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -771,8 +827,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
 
             motoristaControle.incluir(motorista);
             imprimirDadosNaGrid(motoristaControle.listagem());
-        } catch (Exception ex) {
-            Logger.getLogger(TelaCadastroMotorista.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
         }
 
     }//GEN-LAST:event_jButtonIncluirActionPerformed
@@ -814,6 +870,86 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonAlterarActionPerformed
+
+    private void jTextFieldNumeroRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroRegistroActionPerformed
+        // TODO add your handling code here:
+    
+    }//GEN-LAST:event_jTextFieldNumeroRegistroActionPerformed
+
+    private void jTextFieldNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNomeKeyReleased
+        // TODO add your handling code here:
+        int posicao = jTextFieldNome.getCaretPosition();
+        jTextFieldNome.setText(jTextFieldNome.getText().toUpperCase());
+        jTextFieldNome.setCaretPosition(posicao);
+    }//GEN-LAST:event_jTextFieldNomeKeyReleased
+
+    private void jTextFieldLogradouroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldLogradouroKeyReleased
+        // TODO add your handling code here:
+        int posicao = jTextFieldLogradouro.getCaretPosition();
+        jTextFieldLogradouro.setText(jTextFieldLogradouro.getText().toUpperCase());
+        jTextFieldLogradouro.setCaretPosition(posicao);
+    }//GEN-LAST:event_jTextFieldLogradouroKeyReleased
+
+    private void jTextFieldComplementoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldComplementoKeyReleased
+        // TODO add your handling code here:
+        int posicao = jTextFieldComplemento.getCaretPosition();
+        jTextFieldComplemento.setText(jTextFieldComplemento.getText().toUpperCase());
+        jTextFieldComplemento.setCaretPosition(posicao);
+    }//GEN-LAST:event_jTextFieldComplementoKeyReleased
+
+    private void jTextFieldBairroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBairroKeyReleased
+        // TODO add your handling code here:
+        int posicao = jTextFieldBairro.getCaretPosition();
+        jTextFieldBairro.setText(jTextFieldBairro.getText().toUpperCase());
+        jTextFieldBairro.setCaretPosition(posicao);
+    }//GEN-LAST:event_jTextFieldBairroKeyReleased
+
+    private void jTextFieldCidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCidadeKeyReleased
+        // TODO add your handling code here:
+        int posicao = jTextFieldCidade.getCaretPosition();
+        jTextFieldCidade.setText(jTextFieldCidade.getText().toUpperCase());
+        jTextFieldCidade.setCaretPosition(posicao);
+    }//GEN-LAST:event_jTextFieldCidadeKeyReleased
+
+    private void jTextFieldCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCEPKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldCEPKeyTyped
+
+    private void jTextFieldNumeroRegistroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroRegistroKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldNumeroRegistroKeyTyped
+
+    private void jTextFieldDDIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDDIKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldDDIKeyTyped
+
+    private void jTextFieldDDDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDDDKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldDDDKeyTyped
+
+    private void jTextFieldNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldNumeroKeyTyped
 
     public void limparCampos(){
         jTextFieldNumeroRegistro.setText("");

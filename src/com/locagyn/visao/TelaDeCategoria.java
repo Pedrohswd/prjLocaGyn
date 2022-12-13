@@ -111,6 +111,11 @@ public class TelaDeCategoria extends javax.swing.JFrame {
         jButtonAlterar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonAlterar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
         jButtonIncluir.setBackground(new java.awt.Color(0, 0, 0));
         jButtonIncluir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -123,8 +128,18 @@ public class TelaDeCategoria extends javax.swing.JFrame {
         });
 
         jTextFieldDescricao.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldDescricaoKeyReleased(evt);
+            }
+        });
 
         jTextFieldValorLocacao.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldValorLocacao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorLocacaoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,7 +188,7 @@ public class TelaDeCategoria extends javax.swing.JFrame {
                     .addComponent(jButtonIncluir))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenuOpcoes.setText("Options");
@@ -441,6 +456,25 @@ public class TelaDeCategoria extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jTableCategoriaMouseClicked
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
+
+    private void jTextFieldDescricaoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyReleased
+        // TODO add your handling code here:
+        int posicao = jTextFieldDescricao.getCaretPosition();
+        jTextFieldDescricao.setText(jTextFieldDescricao.getText().toUpperCase());
+        jTextFieldDescricao.setCaretPosition(posicao);
+    }//GEN-LAST:event_jTextFieldDescricaoKeyReleased
+
+    private void jTextFieldValorLocacaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorLocacaoKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldValorLocacaoKeyTyped
 
     /**
      * @param args the command line arguments

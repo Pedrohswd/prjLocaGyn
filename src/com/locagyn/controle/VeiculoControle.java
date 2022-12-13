@@ -23,7 +23,11 @@ public class VeiculoControle implements IVeiculoControle {
 
     @Override
     public void incluir(Veiculo objeto) throws Exception {
+         if ("".equals(objeto.getPlaca().replace(" ", ""))) {
+            throw new Exception("Digite a Placa");
+        }
         veiculoPersistencia.incluir(objeto);
+        
     }
 
     @Override

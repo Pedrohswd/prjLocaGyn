@@ -48,6 +48,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     public TelaDeLocacao() {
         initComponents();
         this.setLocationRelativeTo(null);
+         jTextFieldIdentificador.setEnabled(false);
         jDateInicio.setDateFormatString("dd/MM/yyyy");
         jDateFim.setDateFormatString("dd/MM/yyyy");
 
@@ -189,8 +190,18 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         });
 
         jTextFieldValorDiaVeiculo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldValorDiaVeiculo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorDiaVeiculoKeyTyped(evt);
+            }
+        });
 
         jTextFieldValorDiaAcessorios.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextFieldValorDiaAcessorios.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorDiaAcessoriosKeyTyped(evt);
+            }
+        });
 
         jComboBoxSituacao.setModel(new javax.swing.DefaultComboBoxModel(SituacaoLocacao.values()));
         jComboBoxSituacao.addActionListener(new java.awt.event.ActionListener() {
@@ -324,7 +335,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                                     .addComponent(jDateFim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jComboBoxTipoDeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -756,6 +767,22 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonDevolverActionPerformed
+
+    private void jTextFieldValorDiaVeiculoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDiaVeiculoKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldValorDiaVeiculoKeyTyped
+
+    private void jTextFieldValorDiaAcessoriosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDiaAcessoriosKeyTyped
+        // TODO add your handling code here:
+         char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldValorDiaAcessoriosKeyTyped
 
     /**
      * @param args the command line arguments

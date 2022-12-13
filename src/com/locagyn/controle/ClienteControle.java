@@ -54,6 +54,8 @@ public class ClienteControle implements IClienteControle {
 
     @Override
     public void incluir(Cliente objeto, TipoDeCliente tipoDoCliente) throws Exception {
+    
+      
         /*if (tipoDoCliente.equals(TipoDeCliente.PESSOA_FISICA)) {
             if (buscarCliente(objeto.getCpf(), tipoDoCliente)) {
                 throw new Exception("Cliente já foi cadastrado(a)");

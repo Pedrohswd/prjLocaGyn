@@ -46,9 +46,9 @@ public class AcessoriosControle  implements IAcessoriosControle{
             throw new Exception("Digite a Descrição");
         }
 
-      //  if ("".equals(objeto.getValorDaLocacao().replace(" ", ""))) {
-        //    throw new Exception("Digite o Valor da Locação");
-    //    }
+       if (objeto.getValorDaLocacao()==0) {
+           throw new Exception("Digite o Valor da Locação");
+        }
 
         acessoriosPersistencia.incluir(objeto);
     }
