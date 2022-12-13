@@ -26,6 +26,11 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.locagyn.enumeracao.SituacaoLocacao;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 
@@ -50,17 +55,17 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     public TelaDeLocacao() {
         initComponents();
         this.setLocationRelativeTo(null);
-         jTextFieldIdentificador.setEnabled(false);
+        jTextFieldIdentificador.setEnabled(false);
         jDateInicio.setDateFormatString("dd/MM/yyyy");
         jDateFim.setDateFormatString("dd/MM/yyyy");
-         try {
+        try {
             imprimirDadosNaGrid(locacaoControle.listagem());
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro);
-        
-    }
 
-       try {
+        }
+
+        try {
             ArrayList<Veiculo> listaVeiculo = veiculoControle.listagem();
 
             String[] listaCombo = new String[listaVeiculo.size()];
@@ -190,6 +195,18 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Situação:");
 
+        jComboBoxVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxVeiculoActionPerformed(evt);
+            }
+        });
+
+        jComboBoxAcessorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxAcessoriosActionPerformed(evt);
+            }
+        });
+
         jComboBoxTipoDeCliente.setModel(new javax.swing.DefaultComboBoxModel(TipoDeCliente.values()));
         jComboBoxTipoDeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,11 +334,14 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel9)
                                         .addComponent(jLabel11)))
-                                .addGap(12, 12, 12)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jDateInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldIdentificador))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jDateInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addComponent(jComboBoxSituacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(176, 176, 176)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,12 +364,11 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                                 .addGap(30, 30, 30)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jComboBoxTipoDeCliente, 0, 175, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextFieldValorTotalLocacao)
-                                .addComponent(jComboBoxAcessorios, 0, 175, Short.MAX_VALUE)
-                                .addComponent(jComboBoxMotorista, 0, 175, Short.MAX_VALUE)
-                                .addComponent(jTextFieldValorDiaAcessorios)
-                                .addComponent(jDateFim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jTextFieldValorTotalLocacao, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxAcessorios, javax.swing.GroupLayout.Alignment.LEADING, 0, 175, Short.MAX_VALUE)
+                            .addComponent(jComboBoxMotorista, javax.swing.GroupLayout.Alignment.LEADING, 0, 175, Short.MAX_VALUE)
+                            .addComponent(jTextFieldValorDiaAcessorios, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateFim, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonLocar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -391,8 +410,8 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jDateInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jDateInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jDateFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,31 +596,31 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemTelaInicialActionPerformed
 
     private void jComboBoxTipoDeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoDeClienteActionPerformed
-        try{
-        
-        if (jComboBoxTipoDeCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)){
-            jComboBoxCliente.removeAllItems();
-            ArrayList<Cliente> listaPessoaFisica = clienteControle.listagem(TipoDeCliente.PESSOA_FISICA);
-            String[] listaPF = new String[listaPessoaFisica.size()];
-            for (int pos = 0; pos < listaPessoaFisica.size(); pos++) {
-                listaPF[pos] = listaPessoaFisica.get(pos).getNome();
-                jComboBoxCliente.addItem(listaPF[pos]);
+        try {
+
+            if (jComboBoxTipoDeCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
+                jComboBoxCliente.removeAllItems();
+                ArrayList<Cliente> listaPessoaFisica = clienteControle.listagem(TipoDeCliente.PESSOA_FISICA);
+                String[] listaPF = new String[listaPessoaFisica.size()];
+                for (int pos = 0; pos < listaPessoaFisica.size(); pos++) {
+                    listaPF[pos] = listaPessoaFisica.get(pos).getNome();
+                    jComboBoxCliente.addItem(listaPF[pos]);
+                }
             }
-        }
-        if (jComboBoxTipoDeCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)){
-            jComboBoxCliente.removeAllItems();
-            ArrayList<Cliente> listaPessoaJuridica = clienteControle.listagem(TipoDeCliente.PESSOA_JURIDICA);
-            String[] listaPJ = new String[listaPessoaJuridica.size()];
-            for (int pos = 0; pos < listaPessoaJuridica.size(); pos++) {
-                listaPJ[pos] = listaPessoaJuridica.get(pos).getRazaoSocial();
-                jComboBoxCliente.addItem(listaPJ[pos]);
+            if (jComboBoxTipoDeCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
+                jComboBoxCliente.removeAllItems();
+                ArrayList<Cliente> listaPessoaJuridica = clienteControle.listagem(TipoDeCliente.PESSOA_JURIDICA);
+                String[] listaPJ = new String[listaPessoaJuridica.size()];
+                for (int pos = 0; pos < listaPessoaJuridica.size(); pos++) {
+                    listaPJ[pos] = listaPessoaJuridica.get(pos).getRazaoSocial();
+                    jComboBoxCliente.addItem(listaPJ[pos]);
+                }
             }
-        }
-        if(jComboBoxTipoDeCliente.getSelectedItem().equals(TipoDeCliente.SELECIONE)){
-            jComboBoxCliente.removeAllItems();
-        }
-        
-    }   catch (Exception ex) {
+            if (jComboBoxTipoDeCliente.getSelectedItem().equals(TipoDeCliente.SELECIONE)) {
+                jComboBoxCliente.removeAllItems();
+            }
+
+        } catch (Exception ex) {
             Logger.getLogger(TelaDeLocacao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jComboBoxTipoDeClienteActionPerformed
@@ -692,68 +711,101 @@ public class TelaDeLocacao extends javax.swing.JFrame {
             AcessoriosControle acessorio = new AcessoriosControle();
 
             //trabalhando com datas
-                dataInicioFormatada = dF.format(this.jDateInicio.getDate());
-                dataFimFormatada = dF.format(this.jDateFim.getDate());
-
+            dataInicioFormatada = dF.format(this.jDateInicio.getDate());
+            dataFimFormatada = dF.format(this.jDateFim.getDate());
+            
+            //separa data
+            
+            
+            
+            //calculos
+            Date inicial = dF.parse(dataInicioFormatada);
+            Date finall = dF.parse(dataFimFormatada);
+            
+            Calendar dataIni = dF.getCalendar();
+            Calendar dataFim = dF.getCalendar();
+            
+            dataIni.setTime(inicial);
+            dataFim.setTime(finall);
+            
+            LocalDate dInicio = LocalDate.parse(inicial);
+            LocalDate dFim = LocalDate.parse(finall);
+            
+            
+            
+            Duration tempo = Duration.between(dInicio, dFim);
+            
+            long dias = tempo.toDays();
+            float diariaVeiculo = Float.parseFloat(jTextFieldValorDiaVeiculo.getText());
+            float diariaAcessorio = Float.parseFloat(jTextFieldValorDiaAcessorios.getText());
+            
+            float valorTotal= (diariaVeiculo*dias)+(diariaAcessorio*dias);
+            
+            float valorTotalCaucao = valorTotal+(valorTotal*(150/100));
+            
+            jTextFieldValorTotalLocacao.setText(valorTotalCaucao+"");
+            
+            //gravando dados
+            
 
             if (jComboBoxTipoDeCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
-                Locacao objeto = new Locacao(0, cliente.buscar(idCliente, TipoDeCliente.PESSOA_FISICA), motorista.buscar(idMotorista), veiculo.buscar(idVeiculo), acessorio.buscar(idAcessorio), dataInicioFormatada, dataFimFormatada, Float.parseFloat(jTextFieldValorTotalLocacao.getText()), jComboBoxSituacao.getSelectedItem());
+                Locacao objeto = new Locacao(0, cliente.buscar(idCliente, TipoDeCliente.PESSOA_FISICA), motorista.buscar(idMotorista), veiculo.buscar(idVeiculo), acessorio.buscar(idAcessorio), dataInicioFormatada, dataFimFormatada, valorTotalCaucao, jComboBoxSituacao.getSelectedItem());
                 ArrayList<Veiculo> listaVeiculo = veiculo.listagem();
                 for (int i = 0; i < listaVeiculo.size(); i++) {
                     if (jComboBoxVeiculo.getSelectedItem().equals(listaVeiculo.get(i).getPlaca())) {
                         objeto.setVeiculo(listaVeiculo.get(i));
                     }
                 }
-                ArrayList<Cliente> listaCliente= cliente.listagem(TipoDeCliente.PESSOA_FISICA);
+                ArrayList<Cliente> listaCliente = cliente.listagem(TipoDeCliente.PESSOA_FISICA);
                 for (int i = 0; i < listaCliente.size(); i++) {
                     if (jComboBoxCliente.getSelectedItem().equals(listaCliente.get(i).getNome())) {
                         objeto.setCliente(listaCliente.get(i));
                     }
                 }
-                ArrayList<Motorista> listaMotorista= motorista.listagem();
+                ArrayList<Motorista> listaMotorista = motorista.listagem();
                 for (int i = 0; i < listaMotorista.size(); i++) {
                     if (jComboBoxMotorista.getSelectedItem().equals(listaMotorista.get(i).getNome())) {
                         objeto.setMotorista(listaMotorista.get(i));
                     }
                 }
-                ArrayList<Acessorios> listaAcessorios= acessorio.listagem();
+                ArrayList<Acessorios> listaAcessorios = acessorio.listagem();
                 for (int i = 0; i < listaAcessorios.size(); i++) {
                     if (jComboBoxAcessorios.getSelectedItem().equals(listaAcessorios.get(i).getDescricao())) {
                         objeto.setAcessorio(listaAcessorios.get(i));
                     }
                 }
                 locacaoControle.locar(objeto);
-                
-            } else {
-                Locacao objeto = new Locacao(0, cliente.buscar(idCliente, TipoDeCliente.PESSOA_JURIDICA), motorista.buscar(idMotorista), veiculo.buscar(idVeiculo), acessorio.buscar(idAcessorio), dataInicioFormatada, dataFimFormatada, Float.parseFloat(jTextFieldValorTotalLocacao.getText()), jComboBoxSituacao.getSelectedItem());
 
-            ArrayList<Veiculo> listaVeiculo = veiculo.listagem();
+            } else {
+                Locacao objeto = new Locacao(0, cliente.buscar(idCliente, TipoDeCliente.PESSOA_JURIDICA), motorista.buscar(idMotorista), veiculo.buscar(idVeiculo), acessorio.buscar(idAcessorio), dataInicioFormatada, dataFimFormatada, valorTotalCaucao, jComboBoxSituacao.getSelectedItem());
+
+                ArrayList<Veiculo> listaVeiculo = veiculo.listagem();
                 for (int i = 0; i < listaVeiculo.size(); i++) {
                     if (jComboBoxVeiculo.getSelectedItem().equals(listaVeiculo.get(i).getPlaca())) {
                         objeto.setVeiculo(listaVeiculo.get(i));
                     }
                 }
-                ArrayList<Cliente> listaCliente= cliente.listagem(TipoDeCliente.PESSOA_JURIDICA);
+                ArrayList<Cliente> listaCliente = cliente.listagem(TipoDeCliente.PESSOA_JURIDICA);
                 for (int i = 0; i < listaCliente.size(); i++) {
                     if (jComboBoxTipoDeCliente.getSelectedItem().equals(listaCliente.get(i).getRazaoSocial())) {
                         objeto.setCliente(listaCliente.get(i));
                     }
                 }
-                ArrayList<Motorista> listaMotorista= motorista.listagem();
+                ArrayList<Motorista> listaMotorista = motorista.listagem();
                 for (int i = 0; i < listaMotorista.size(); i++) {
                     if (jComboBoxMotorista.getSelectedItem().equals(listaMotorista.get(i).getNome())) {
                         objeto.setMotorista(listaMotorista.get(i));
                     }
                 }
-                ArrayList<Acessorios> listaAcessorios= acessorio.listagem();
+                ArrayList<Acessorios> listaAcessorios = acessorio.listagem();
                 for (int i = 0; i < listaAcessorios.size(); i++) {
                     if (jComboBoxAcessorios.getSelectedItem().equals(listaAcessorios.get(i).getDescricao())) {
                         objeto.setAcessorio(listaAcessorios.get(i));
                     }
                 }
                 locacaoControle.locar(objeto);
-                 imprimirDadosNaGrid(locacaoControle.listagem());
-            
+                imprimirDadosNaGrid(locacaoControle.listagem());
+
             }
 
         } catch (Exception ex) {
@@ -766,11 +818,13 @@ public class TelaDeLocacao extends javax.swing.JFrame {
 
     private void jComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClienteActionPerformed
         // TODO add your handling code here:
+        
+
     }//GEN-LAST:event_jComboBoxClienteActionPerformed
 
     private void jButtonDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDevolverActionPerformed
         // TODO add your handling code here:
-         try {
+        try {
             TelaDevolucao telaDevolucao = new TelaDevolucao();
             telaDevolucao.setLocationRelativeTo(null);
             telaDevolucao.setVisible(true);
@@ -780,7 +834,8 @@ public class TelaDeLocacao extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, erro);
         }
     }
-           private void imprimirDadosNaGrid(ArrayList<Locacao> listaDeLocacao) {
+
+    private void imprimirDadosNaGrid(ArrayList<Locacao> listaDeLocacao) {
         try {
             DefaultTableModel model = (DefaultTableModel) jTableLocacao.getModel();
             //Limpa a tabela
@@ -795,7 +850,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                 saida[3] = acessoriosControle.buscar(aux.getAcessorio().getId()).getDescricao();
                 saida[4] = aux.getDataInicio().toString();
                 saida[5] = aux.getDataFim().toString();
-                saida [6] = aux.getValorDaLocação().toString();
+                saida[6] = aux.getValorDaLocação().toString();
                 saida[7] = aux.getSituacao().toString();
                 //Incluir nova linha na Tabela
                 model.addRow(saida);
@@ -803,12 +858,12 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-        
+
     }//GEN-LAST:event_jButtonDevolverActionPerformed
 
     private void jTextFieldValorDiaVeiculoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDiaVeiculoKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
@@ -816,11 +871,57 @@ public class TelaDeLocacao extends javax.swing.JFrame {
 
     private void jTextFieldValorDiaAcessoriosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDiaAcessoriosKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldValorDiaAcessoriosKeyTyped
+
+    private void jComboBoxVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVeiculoActionPerformed
+        try {
+
+            float valorDiaVeiculo = 0;
+
+            ArrayList<Veiculo> listaVeiculo;
+
+            listaVeiculo = veiculoControle.listagem();
+            for (int i = 0; i < listaVeiculo.size(); i++) {
+                if (jComboBoxVeiculo.getSelectedItem().equals(listaVeiculo.get(i).getPlaca())) {
+                    valorDiaVeiculo = listaVeiculo.get(i).getCategoria().getValorDaLocacao();
+                }
+            }
+            
+            String saida = Float.toString(valorDiaVeiculo);
+            jTextFieldValorDiaVeiculo.setText(saida);
+            System.out.println(valorDiaVeiculo);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaDeLocacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jComboBoxVeiculoActionPerformed
+
+    private void jComboBoxAcessoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAcessoriosActionPerformed
+        try {
+
+            float valorDiaAcessorio = 0;
+
+            ArrayList<Acessorios> listaAcessorio;
+
+            listaAcessorio = acessoriosControle.listagem();
+            for (int i = 0; i < listaAcessorio.size(); i++) {
+                if (jComboBoxAcessorios.getSelectedItem().equals(listaAcessorio.get(i).getDescricao())) {
+                    valorDiaAcessorio = listaAcessorio.get(i).getValorDaLocacao();
+                }
+            }
+            
+            String saida = Float.toString(valorDiaAcessorio);
+            jTextFieldValorDiaAcessorios.setText(saida);
+            System.out.println(valorDiaAcessorio);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaDeLocacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jComboBoxAcessoriosActionPerformed
 
     /**
      * @param args the command line arguments

@@ -29,7 +29,9 @@ public class MotoristaControle implements IMotoristaControle {
             if ("".equals(objeto.getUrl().replace(" ", ""))) {
             throw new Exception("Selecione uma Imagem");
         }
-              if (objeto.getNumeroRegistro()+"" == null){
+            int i = objeto.getNumeroRegistro();
+            String validar = Integer.toString(i);
+              if (validar == null){
             throw new Exception("Digite o Número de Registro");
         }
                 if ("".equals(objeto.getValidade().replace(" ", ""))) {
