@@ -115,7 +115,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jLabel2.setText("ID:");
 
         jTextFieldUrlModelo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextFieldUrlModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldUrlModelo.setBorder(null);
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
@@ -123,7 +123,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jLabel3.setText("Marca:");
 
         jTextFieldIdentificador.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextFieldIdentificador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldIdentificador.setBorder(null);
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
@@ -131,7 +131,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jLabel4.setText("Descrição:");
 
         jTextFieldDescricaoModelos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextFieldDescricaoModelos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldDescricaoModelos.setBorder(null);
         jTextFieldDescricaoModelos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldDescricaoModelosKeyReleased(evt);
@@ -147,7 +147,7 @@ public class TelaDosModelos extends javax.swing.JFrame {
         jLabel5.setText("URL:");
 
         jLabelImagemModelo.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelImagemModelo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "MODELO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
+        jLabelImagemModelo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
 
         jLabelMarcaLogo.setBackground(new java.awt.Color(0, 0, 0));
 

@@ -91,7 +91,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jLabel2.setText("ID:");
 
         jTextFieldIdentificador.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldIdentificador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldIdentificador.setBorder(null);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel3.setText("Descrição:");
@@ -100,7 +100,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jLabel4.setText("URL:");
 
         jTextFieldDescricao.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldDescricao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldDescricao.setBorder(null);
         jTextFieldDescricao.setInheritsPopupMenu(true);
         jTextFieldDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -112,7 +112,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         });
 
         jTextFieldUrl.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldUrl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldUrl.setBorder(null);
         jTextFieldUrl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUrlActionPerformed(evt);
@@ -150,7 +150,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         });
 
         jTextFieldLogo.setBackground(new java.awt.Color(0, 0, 0));
-        jTextFieldLogo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "MARCA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        jTextFieldLogo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
 
         jTableMarcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableMarcas.setModel(new javax.swing.table.DefaultTableModel(
