@@ -28,9 +28,12 @@ import java.util.logging.Logger;
 import com.locagyn.enumeracao.SituacaoLocacao;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
 import java.util.Calendar;
 import java.util.Date;
+import java.time.temporal.Temporal;
 import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 
@@ -45,7 +48,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     IMotoristaControle motoristaControle = new MotoristaControle();
     IAcessoriosControle acessoriosControle = new AcessoriosControle();
     ILocacaoControle locacaoControle = new LocacaoControle();
-    SimpleDateFormat dF = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat dF = new SimpleDateFormat("yyyy-MM-dd");
     String dataInicioFormatada;
     String dataFimFormatada;
 
@@ -59,8 +62,8 @@ public class TelaDeLocacao extends javax.swing.JFrame {
          jTextFieldValorDiaAcessorios.setEnabled(false);
           jTextFieldValorDiaVeiculo.setEnabled(false);
           jTextFieldValorTotalLocacao.setEnabled(false);
-        jDateInicio.setDateFormatString("dd/MM/yyyy");
-        jDateFim.setDateFormatString("dd/MM/yyyy");
+        jDateInicio.setDateFormatString("yyyy-MM-dd");
+        jDateFim.setDateFormatString("yyyy-MM-dd");
         try {
             imprimirDadosNaGrid(locacaoControle.listagem());
         } catch (Exception erro) {
@@ -135,8 +138,8 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         jTableLocacao = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jComboBoxCliente = new javax.swing.JComboBox<>();
-        jDateInicio = new com.toedter.calendar.JDateChooser();
         jDateFim = new com.toedter.calendar.JDateChooser();
+        jDateInicio = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
         jMenuItemLocacao = new javax.swing.JMenuItem();
@@ -407,12 +410,13 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                     .addComponent(jTextFieldValorDiaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldValorDiaAcessorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jDateInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jDateFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -685,14 +689,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     private void jTableLocacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLocacaoMouseClicked
         // TODO add your handling code here:
         try {
-//            jTextFieldIdentificador.setText(jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 0).toString());
-//            jTextFieldDescricao.setText(jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 1).toString());
-//            jTextFieldUrl.setText(jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 2).toString());
-//            String nomeArquivo = (String) this.jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 2);
-//            jTextFieldUrl.setText(nomeArquivo);
-//            ImageIcon iconLogo = new ImageIcon(nomeArquivo);
-//            iconLogo.setImage(iconLogo.getImage().getScaledInstance(jTextFieldLogo.getWidth(), jTextFieldLogo.getHeight(), 1));
-//            jTextFieldLogo.setIcon(iconLogo);
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }
@@ -711,29 +708,25 @@ public class TelaDeLocacao extends javax.swing.JFrame {
             AcessoriosControle acessorio = new AcessoriosControle();
 
             //trabalhando com datas
+            
+            SimpleDateFormat dataCalc = new SimpleDateFormat("yyyy-MM-dd");
+            
+            
+            dataInicioFormatada= dataCalc.format(this.jDateInicio.getDate());
+            dataFimFormatada= dataCalc.format(this.jDateFim.getDate());
+            
+            //calculos          
+            
+            LocalDate dInicio = LocalDate.parse(dataInicioFormatada);
+
+            LocalDate dFim = LocalDate.parse(dataFimFormatada);
+            
+            
             dataInicioFormatada = dF.format(this.jDateInicio.getDate());
-            dataFimFormatada = dF.format(this.jDateFim.getDate());
-            
-            //separa data
+            dataFimFormatada = dF.format(this.jDateFim.getDate());  
             
             
-            
-            //calculos
-            Date inicial = dF.parse(dataInicioFormatada);
-            Date finall = dF.parse(dataFimFormatada);
-            
-            Calendar dataIni = dF.getCalendar();
-            Calendar dataFim = dF.getCalendar();
-            
-            dataIni.setTime(inicial);
-            dataFim.setTime(finall);
-            
-            LocalDate dInicio = LocalDate.parse(inicial);
-            LocalDate dFim = LocalDate.parse(finall);
-            
-            
-            
-            Duration tempo = Duration.between(dInicio, dFim);
+            Duration tempo = Duration.between(dInicio.atStartOfDay(), dFim.atStartOfDay());
             
             long dias = tempo.toDays();
             float diariaVeiculo = Float.parseFloat(jTextFieldValorDiaVeiculo.getText());
