@@ -51,6 +51,10 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     SimpleDateFormat dF = new SimpleDateFormat("yyyy-MM-dd");
     String dataInicioFormatada;
     String dataFimFormatada;
+    long dias;
+    LocalDate dFim;
+    LocalDate dInicio;
+    
 
     /**
      * Creates new form TelaDeLocacao
@@ -59,9 +63,9 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         jTextFieldIdentificador.setEnabled(false);
-         jTextFieldValorDiaAcessorios.setEnabled(false);
-          jTextFieldValorDiaVeiculo.setEnabled(false);
-          jTextFieldValorTotalLocacao.setEnabled(false);
+        jTextFieldValorDiaAcessorios.setEnabled(false);
+        jTextFieldValorDiaVeiculo.setEnabled(false);
+        jTextFieldValorTotalLocacao.setEnabled(false);
         jDateInicio.setDateFormatString("yyyy-MM-dd");
         jDateFim.setDateFormatString("yyyy-MM-dd");
         try {
@@ -689,7 +693,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     private void jTableLocacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLocacaoMouseClicked
         // TODO add your handling code here:
         try {
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }
@@ -708,40 +712,45 @@ public class TelaDeLocacao extends javax.swing.JFrame {
             AcessoriosControle acessorio = new AcessoriosControle();
 
             //trabalhando com datas
-            
             SimpleDateFormat dataCalc = new SimpleDateFormat("yyyy-MM-dd");
-            
-            
-            dataInicioFormatada= dataCalc.format(this.jDateInicio.getDate());
-            dataFimFormatada= dataCalc.format(this.jDateFim.getDate());
-            
-            //calculos          
-            
-            LocalDate dInicio = LocalDate.parse(dataInicioFormatada);
 
-            LocalDate dFim = LocalDate.parse(dataFimFormatada);
-            
-            
+            dataInicioFormatada = dataCalc.format(this.jDateInicio.getDate());
+            dataFimFormatada = dataCalc.format(this.jDateFim.getDate());
+
+            //calculos          
+            dInicio = LocalDate.parse(dataInicioFormatada);
+
+            dFim = LocalDate.parse(dataFimFormatada);
+
             dataInicioFormatada = dF.format(this.jDateInicio.getDate());
-            dataFimFormatada = dF.format(this.jDateFim.getDate());  
-            
-            
+            dataFimFormatada = dF.format(this.jDateFim.getDate());
+
             Duration tempo = Duration.between(dInicio.atStartOfDay(), dFim.atStartOfDay());
-            
+
+            dias = tempo.toDays();
             long dias = tempo.toDays();
+            
+            //validar tempo para locar
+            if(validaDataLocacao() == true){
+             JOptionPane.showMessageDialog(null, "Veiculo Locado durante esse periodo!");  
+             return;
+            }
+            
+            
+            
+            
+            
             float diariaVeiculo = Float.parseFloat(jTextFieldValorDiaVeiculo.getText());
             float diariaAcessorio = Float.parseFloat(jTextFieldValorDiaAcessorios.getText());
-            
-            float valorTotal= (diariaVeiculo*dias)+(diariaAcessorio*dias);
-            
-            float valorTotalCaucao = valorTotal+(valorTotal*(150/100));
-            
-            jTextFieldValorTotalLocacao.setText(valorTotalCaucao+"");
-            float valorDia = Float.parseFloat(jTextFieldValorDiaAcessorios.getText())+Float.parseFloat(jTextFieldValorDiaAcessorios.getText());
-            
-            //gravando dados
-            
 
+            float valorTotal = (diariaVeiculo * dias) + (diariaAcessorio * dias);
+
+            float valorTotalCaucao = valorTotal + (valorTotal * (150 / 100));
+
+            jTextFieldValorTotalLocacao.setText(valorTotalCaucao + "");
+            float valorDia = Float.parseFloat(jTextFieldValorDiaAcessorios.getText()) + Float.parseFloat(jTextFieldValorDiaAcessorios.getText());
+
+            //gravando dados
             if (jComboBoxTipoDeCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
                 Locacao objeto = new Locacao(0, cliente.buscar(idCliente, TipoDeCliente.PESSOA_FISICA), motorista.buscar(idMotorista), veiculo.buscar(idVeiculo), acessorio.buscar(idAcessorio), dataInicioFormatada, dataFimFormatada, valorTotalCaucao, jComboBoxSituacao.getSelectedItem(), dias, valorDia);
                 ArrayList<Veiculo> listaVeiculo = veiculo.listagem();
@@ -812,7 +821,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
 
     private void jComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClienteActionPerformed
         // TODO add your handling code here:
-        
+
 
     }//GEN-LAST:event_jComboBoxClienteActionPerformed
 
@@ -884,7 +893,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                     valorDiaVeiculo = listaVeiculo.get(i).getCategoria().getValorDaLocacao();
                 }
             }
-            
+
             String saida = Float.toString(valorDiaVeiculo);
             jTextFieldValorDiaVeiculo.setText(saida);
             System.out.println(valorDiaVeiculo);
@@ -907,7 +916,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                     valorDiaAcessorio = listaAcessorio.get(i).getValorDaLocacao();
                 }
             }
-            
+
             String saida = Float.toString(valorDiaAcessorio);
             jTextFieldValorDiaAcessorios.setText(saida);
             System.out.println(valorDiaAcessorio);
@@ -916,6 +925,34 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jComboBoxAcessoriosActionPerformed
+
+    public boolean validaDataLocacao() {
+        try {
+            ArrayList<Locacao> listaLocacao = locacaoControle.listagem();
+            Iterator<Locacao> lista = listaLocacao.iterator();
+            if(lista.hasNext()){
+                int i=Math.toIntExact(dias);
+                long dia= dias;
+                dataInicioFormatada = dF.format(this.jDateInicio.getDate());
+                LocalDate data = dInicio;
+                String[] dados = new String[8];
+                Locacao aux = lista.next();
+                dados[0] = aux.getId() + "";
+                dados[4] = aux.getDataInicio().toString();
+                dados[5] = aux.getDataFim().toString();
+                for(i=(int) dias;i<=dias;i--){
+                    dia = (long) i;
+                    LocalDate proximoDia = data.plusDays(dia);
+                    if(proximoDia == dInicio || proximoDia == dFim){
+                        return true;
+                    }
+                }
+            } 
+        } catch (Exception ex) {
+            Logger.getLogger(TelaDeLocacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 
     /**
      * @param args the command line arguments
