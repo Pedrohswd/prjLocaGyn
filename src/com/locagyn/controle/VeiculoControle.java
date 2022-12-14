@@ -23,8 +23,23 @@ public class VeiculoControle implements IVeiculoControle {
 
     @Override
     public void incluir(Veiculo objeto) throws Exception {
-         if ("".equals(objeto.getPlaca().replace(" ", ""))) {
+          if ("".equals(objeto.getPlaca().replace(" ", ""))) {
             throw new Exception("Digite a Placa");
+        }
+           if (objeto.getRenavam()==0) {
+            throw new Exception("Digite o Renavam");
+        }
+            if (objeto.getAnoFabricacao()==0) {
+            throw new Exception("Digite o Ano de Fabricação");
+        }
+             if (objeto.getAnoModelo()==0) {
+            throw new Exception("Digite o Ano de Modelo");
+        }
+              if (objeto.getPrecoDeCompra()==0) {
+            throw new Exception("Digite o Preço de Compra");
+        }
+               if (objeto.getPrecoDeVenda()==0) {
+            throw new Exception("Digite o Preço de Venda");
         }
         veiculoPersistencia.incluir(objeto);
         
@@ -32,6 +47,24 @@ public class VeiculoControle implements IVeiculoControle {
 
     @Override
     public void alterar(Veiculo objeto) throws Exception {
+         if ("".equals(objeto.getPlaca().replace(" ", ""))) {
+            throw new Exception("Digite a Placa");
+        }
+           if (objeto.getRenavam()==0) {
+            throw new Exception("Digite o Renavam");
+        }
+            if (objeto.getAnoFabricacao()==0) {
+            throw new Exception("Digite o Ano de Fabricação");
+        }
+             if (objeto.getAnoModelo()==0) {
+            throw new Exception("Digite o Ano de Modelo");
+        }
+              if (objeto.getPrecoDeCompra()==0) {
+            throw new Exception("Digite o Preço de Compra");
+        }
+               if (objeto.getPrecoDeVenda()==0) {
+            throw new Exception("Digite o Preço de Venda");
+        }
         veiculoPersistencia.alterar(objeto);
     }
 

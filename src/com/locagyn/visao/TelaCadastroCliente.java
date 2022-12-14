@@ -583,21 +583,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 }
 
             }
-            /*DefaultTableModel tabela = (DefaultTableModel) jTablecpf.getModel();
-            tabela.setNumRows(0);
-            Iterator<Cliente> lista = listadecliente.iterator();
-
-            while (lista.hasNext()) {
-                String[] tab = new String[4];
-                Cliente aux = lista.next();
-                tab[0] = aux.getId() + "";
-                tab[1] = aux.getNome();
-                tab[2] = aux.getCpf();
-                tab[3] = aux.getEmail();
-                tab[4] = aux.getTelefone().toString();
-
-                tabela.addRow(tab);
-            }*/
+            
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
@@ -609,6 +595,22 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         try {
 
             if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
+                  if (jTextFieldDDD.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDD");
+            }
+              if (jTextFieldDDI.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDI");
+            }
+                if (jTextFieldNumero.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Número");
+            }
+                  if (jTextFieldCPFCNPJ.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CPF");
+            }
+                  if (jTextFieldCEP.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CEP");
+            }
+
 
                 long ddi = Long.parseLong(jTextFieldDDI.getText());
                 long ddd = Long.parseLong(jTextFieldDDD.getText());
@@ -631,6 +633,22 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             }
 
             if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
+                  if (jTextFieldDDD.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDD");
+            }
+              if (jTextFieldDDI.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDI");
+            }
+                if (jTextFieldNumero.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Número");
+            }
+                  if (jTextFieldCPFCNPJ.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CNPJ");
+            }
+                  if (jTextFieldCEP.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CEP");
+            }
+
 
                 long ddi = Long.parseLong(jTextFieldDDI.getText());
                 long ddd = Long.parseLong(jTextFieldDDD.getText());
@@ -672,6 +690,22 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
             if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
                 //captando telefone
+                  if (jTextFieldDDD.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDD");
+            }
+              if (jTextFieldDDI.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDI");
+            }
+                if (jTextFieldNumero.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Número");
+            }
+                  if (jTextFieldCPFCNPJ.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CPF");
+            }
+                  if (jTextFieldCEP.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CEP");
+            }
+
 
                 long ddi = Long.parseLong(jTextFieldDDI.getText());
                 long ddd = Long.parseLong(jTextFieldDDD.getText());
@@ -698,7 +732,24 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             }
 
             if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
+                  if (jTextFieldDDD.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDD");
+            }
+              if (jTextFieldDDI.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDI");
+            }
+                if (jTextFieldNumero.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Número");
+            }
+                  if (jTextFieldCPFCNPJ.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CNPJ");
+            }
+                  if (jTextFieldCEP.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CEP");
+            }
+
                 //captando telefone
+               
                 long ddi = Long.parseLong(jTextFieldDDI.getText());
                 long ddd = Long.parseLong(jTextFieldDDD.getText());
                 long numero = Long.parseLong(jTextFieldNumero.getText());

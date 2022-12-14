@@ -420,6 +420,9 @@ public class TelaDeCategoria extends javax.swing.JFrame {
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         // TODO add your handling code here:
         try {
+            if (jTextFieldValorLocacao.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Valor da Locação");
+            }
             Categoria objeto = new Categoria(0, jTextFieldDescricao.getText(), Float.parseFloat (jTextFieldValorLocacao.getText()));
             categoriaControle.incluir(objeto);
             jTextFieldDescricao.setText("");
@@ -467,7 +470,9 @@ public class TelaDeCategoria extends javax.swing.JFrame {
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
         try {
-
+            if (jTextFieldValorLocacao.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Valor da Locação");
+            }
             ICategoriaControle alterarCategoria = new CategoriaControle();
             Categoria objeto = new Categoria(Integer.parseInt(jTextFieldID.getText()), jTextFieldDescricao.getText(), Float.parseFloat (jTextFieldValorLocacao.getText()));
             categoriaControle.alterar(objeto);

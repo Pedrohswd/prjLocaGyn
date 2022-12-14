@@ -242,7 +242,6 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         jLabel19.setText("URL:");
 
         jTextFieldNumeroRegistro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextFieldNumeroRegistro.setText("0");
         jTextFieldNumeroRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNumeroRegistroActionPerformed(evt);
@@ -801,6 +800,21 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         // TODO add your handling code here:
         try {
+             if (jTextFieldDDD.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDD");
+            }
+              if (jTextFieldDDI.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDI");
+            }
+                if (jTextFieldNumero.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Número");
+            }
+                  if (jTextFieldNumeroRegistro.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Número de Registro");
+            }
+                  if (jTextFieldCEP.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CEP");
+            }
             //captando telefone
 
             long ddi = Long.parseLong(jTextFieldDDI.getText());
@@ -834,6 +848,21 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         try {
+             if (jTextFieldDDD.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDD");
+            }
+              if (jTextFieldDDI.getText().trim().isEmpty()){
+                throw new Exception ("Digite o DDI");
+            }
+                if (jTextFieldNumero.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Número");
+            }
+                  if (jTextFieldNumeroRegistro.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Número de Registro");
+            }
+                  if (jTextFieldCEP.getText().trim().isEmpty()){
+                throw new Exception ("Digite o CEP");
+            }
 
             //captando telefone
 

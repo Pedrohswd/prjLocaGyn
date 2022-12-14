@@ -558,6 +558,24 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     }
     private void jButtonInculirVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInculirVeiculoActionPerformed
         try {
+             if (jTextFieldAnoFabricacao.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Ano de Fabricação");
+            }
+              if (jTextFieldAnoModelo.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Ano do Modelo");
+            }
+                if (jTextFieldQuilometragem.getText().trim().isEmpty()){
+                throw new Exception ("Digite a Quilometragem");
+            }
+                  if (jTextFieldRenavam.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Renavam");
+            }
+                  if (jTextFieldValorCompra.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Valor de Compra");
+            }
+                  if (jTextFieldValorVenda.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Valor de Venda");
+            }
             int idModelo = 0;
             ModeloControle objeto1 = new ModeloControle();
             int idCategoria = 0;
@@ -589,6 +607,24 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private void jButtonAlterarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarVeiculoActionPerformed
         // TODO add your handling code here:
         try {
+             if (jTextFieldAnoFabricacao.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Ano de Fabricação");
+            }
+              if (jTextFieldAnoModelo.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Ano do Modelo");
+            }
+                if (jTextFieldQuilometragem.getText().trim().isEmpty()){
+                throw new Exception ("Digite a Quilometragem");
+            }
+                  if (jTextFieldRenavam.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Renavam");
+            }
+                  if (jTextFieldValorCompra.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Valor de Compra");
+            }
+                  if (jTextFieldValorVenda.getText().trim().isEmpty()){
+                throw new Exception ("Digite o Valor de Venda");
+            }
             int idModelo = 0;
             ModeloControle objeto1 = new ModeloControle();
             int idCategoria = 0;

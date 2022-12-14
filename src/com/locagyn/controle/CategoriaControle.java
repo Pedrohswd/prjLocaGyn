@@ -45,10 +45,9 @@ public class CategoriaControle implements ICategoriaControle{
         if ("".equals(objeto.getDescricao().replace(" ", ""))) {
             throw new Exception("Digite a Descrição");
         }
-
-        //if ("".equals(objeto.getUrl().replace(" ", ""))) {
-          //  throw new Exception("Selecione Uma Imagem");
-        //}
+         if (objeto.getValorDaLocacao()==0) {
+           throw new Exception("Digite o Valor da Locação");
+        }
 
         categoriaPersistencia.incluir(objeto);
     }
@@ -61,10 +60,11 @@ public class CategoriaControle implements ICategoriaControle{
         if ("".equals(objeto.getDescricao().replace(" ", ""))) {
             throw new Exception("Digite a Descrição");
         }
+         if (objeto.getValorDaLocacao()==0) {
+           throw new Exception("Digite o Valor da Locação");
+        }
 
-       // if ("".equals(objeto.getUrl().replace(" ", ""))) {
-         //   throw new Exception("Selecione Uma Imagem");
-       // }
+      
         categoriaPersistencia.alterar(objeto);
     }
 
