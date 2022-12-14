@@ -1,2 +1,1 @@
-125;Pedro Henrique;.\src\com\locadora\cnh/Inkedimage (2)_LI.jpg;23123;A;01/12/2020;12;12;4234;Rua longe;perto;Sao judas;Goiania;GO;23123
-156;teste;.\src\com\locadora\cnh/Inkedimage (2)_LI.jpg;23123;A;01/12/2020;12;12;4234;Rua longe;perto;Sao judas;Goiania;GO;23123
+7;PEDRO HENRIQUE;.\src\com\locadora\cnh/Inkedimage (2)_LI_Moment.jpg;1244312;B;13/12/2022;55;62;985201723;RUA TIMBIRAS;CASA1;SÃO JOSE;NERÓPOLIS;GO;75460000

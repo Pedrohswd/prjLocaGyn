@@ -1,2 +1,0 @@
-159;cauan;9999999;111;1111;313131311;aaaaa;aaaa;aaaa;aaa;aaaaaa;MG;1111
-160;cauan;2222222;111;1111;313131311;aaaaa;aaaa;aaaa;aaa;aaaaaa;MG;1111

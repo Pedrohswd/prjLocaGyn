@@ -160,12 +160,17 @@
                                           <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextFieldIdentificador" pref="181" max="32767" attributes="0"/>
-                                      <Component id="jDateInicio" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldIdentificador" min="-2" pref="181" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jDateInicio" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jComboBoxSituacao" alignment="1" min="-2" pref="181" max="-2" attributes="0"/>
                           </Group>
@@ -175,28 +180,23 @@
                                   <Component id="jLabel7" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" pref="106" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" pref="106" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel8" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jDateFim" max="32767" attributes="0"/>
-                                              <Component id="jComboBoxTipoDeCliente" alignment="1" pref="175" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldValorTotalLocacao" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jComboBoxAcessorios" alignment="0" pref="175" max="32767" attributes="0"/>
-                                              <Component id="jComboBoxMotorista" alignment="0" pref="175" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldValorDiaAcessorios" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jComboBoxTipoDeCliente" alignment="1" pref="175" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldValorTotalLocacao" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jComboBoxAcessorios" alignment="0" pref="175" max="32767" attributes="0"/>
+                                      <Component id="jComboBoxMotorista" alignment="0" pref="175" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldValorDiaAcessorios" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jDateFim" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -246,15 +246,13 @@
                       <Component id="jTextFieldValorDiaAcessorios" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel8" max="32767" attributes="0"/>
-                              <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jDateFim" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabel8" max="32767" attributes="0"/>
+                          <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jDateInicio" min="-2" max="-2" attributes="0"/>
+                      <Component id="jDateFim" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -587,7 +585,7 @@
                   </TableColumnModel>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -625,9 +623,9 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jDateFim">
-        </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="jDateInicio">
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="jDateFim">
         </Component>
       </SubComponents>
     </Container>

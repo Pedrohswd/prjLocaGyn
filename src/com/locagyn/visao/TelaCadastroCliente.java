@@ -629,6 +629,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 Cliente clientepf = new Cliente(Integer.parseInt(xxx), jTextFieldCPFCNPJ.getText(), jTextFieldRazaoSocialNome.getText(), jTextFieldIdentidade.getText(), jTextFieldEmail.getText(), telefone, endereco, TipoDeCliente.PESSOA_FISICA);
                 clienteControle.alterar(clientepf, TipoDeCliente.PESSOA_FISICA);
                 imprimirTabela(clienteControle.listagem(TipoDeCliente.PESSOA_FISICA), TipoDeCliente.PESSOA_FISICA);
+                limparTextField();
 
             }
 
@@ -667,7 +668,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 Cliente clientepj = new Cliente(Integer.parseInt(jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 0).toString()), jTextFieldCPFCNPJ.getText(), jTextFieldRazaoSocialNome.getText(), jTextFieldEmail.getText(), telefone, endereco, TipoDeCliente.PESSOA_JURIDICA);
                 clienteControle.alterar(clientepj, TipoDeCliente.PESSOA_JURIDICA);
                 imprimirTabela(clienteControle.listagem(TipoDeCliente.PESSOA_JURIDICA), TipoDeCliente.PESSOA_JURIDICA);
-
+                limparTextField();
             }
 
             //Cliente clientepj = new Cliente(0, jTextFieldCPFCNPJ.getText(), jTextFieldRazaoSocialNome.getText(), jTextFieldEmail.getText(), telefone, endereco, TipoDeCliente.PESSOA_JURIDICA);
@@ -724,6 +725,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 Cliente clientepf = new Cliente(0, jTextFieldCPFCNPJ.getText(), jTextFieldRazaoSocialNome.getText(), jTextFieldIdentidade.getText(), jTextFieldEmail.getText(), telefone, endereco, TipoDeCliente.PESSOA_FISICA);
                 clienteControle.incluir(clientepf, TipoDeCliente.PESSOA_FISICA);
                 imprimirTabela(clienteControle.listagem(TipoDeCliente.PESSOA_FISICA), TipoDeCliente.PESSOA_FISICA);
+                limparTextField();
                 /*jTextFieldCPFCNPJ.setText("");
                 jTextFieldIdentidade.setText("");
                 jTextFieldEmail.setText("");
@@ -770,6 +772,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 /*
                 jTextFieldEmail.setText("");
                  */
+                limparTextField();
             }
 
         } catch (Exception erro) {
@@ -968,6 +971,22 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableCNPJMouseClicked
 
+    public void limparTextField(){
+        jTextFieldBairro.setText("");
+        jTextFieldCEP.setText("");
+        jTextFieldCPFCNPJ.setText("");
+        jTextFieldCidade.setText("");
+        jTextFieldComplemento.setText("");
+        jTextFieldDDD.setText("");
+        jTextFieldDDI.setText("");
+        jTextFieldEmail.setText("");
+        jTextFieldIdentidade.setText("");
+        jTextFieldLogradouro.setText("");
+        jTextFieldNumero.setText("");
+        jTextFieldRazaoSocialNome.setText("");
+        
+    }
+    
     private void jMenuItemLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLocacaoActionPerformed
         // TODO add your handling code here:
         try {

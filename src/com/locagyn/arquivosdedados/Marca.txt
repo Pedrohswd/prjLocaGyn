@@ -1,2 +1,1 @@
-1;TOYOTA;.\src\com\locadora\logos/logo TOYOTA.png
-11;FIAT;.\src\com\locadora\logos/logo FIAT.jpg
+1;FIAT;.\src\com\locadora\logos/logo FIAT.jpg
