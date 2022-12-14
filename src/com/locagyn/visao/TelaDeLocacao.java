@@ -14,6 +14,7 @@ import com.locagyn.controle.IVeiculoControle;
 import com.locagyn.controle.LocacaoControle;
 import com.locagyn.controle.MotoristaControle;
 import com.locagyn.controle.VeiculoControle;
+import com.locagyn.enumeracao.Situacao;
 import com.locagyn.enumeracao.TipoDeCliente;
 import com.locagyn.modelos.Acessorios;
 import com.locagyn.modelos.Cliente;
@@ -161,47 +162,36 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(176, 198, 238));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("ID:");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Cliente:");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Motorista:");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Veiculo:");
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Acessorios:");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Valor por dia:");
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Valor por dia:");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Data Fim:");
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Data inicio:");
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Valor da locação:");
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Situação:");
 
         jComboBoxVeiculo.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +276,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true, true, true
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -309,7 +299,6 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTableLocacao);
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Tipo de Cliente:");
 
         jComboBoxCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -693,6 +682,38 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
 
+            //achando o motorista pra jogar na combo
+            int i = 0;
+            while (jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 1).toString().equals(jComboBoxMotorista.getItemAt(i))) {
+                jComboBoxMotorista.setSelectedIndex(i);
+                i++;
+            }
+            i = 0;
+            while (jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 2).toString().equals(jComboBoxVeiculo.getItemAt(i))) {
+                jComboBoxVeiculo.setSelectedIndex(i);
+                i++;
+            }
+            i = 0;
+            while (jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 3).toString().equals(jComboBoxAcessorios.getItemAt(i))) {
+                jComboBoxAcessorios.setSelectedIndex(i);
+                i++;
+            }
+            i = 0;
+            String tipoDeSituacao = jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 7).toString();
+            if(tipoDeSituacao == Situacao.DISPONIVEL.toString())jComboBoxSituacao.setSelectedItem(Situacao.DISPONIVEL.valueOf(tipoDeSituacao));
+            if(tipoDeSituacao == Situacao.LOCADO.toString())jComboBoxSituacao.setSelectedItem(Situacao.LOCADO.valueOf(tipoDeSituacao));
+            if(tipoDeSituacao == Situacao.VENDIDO.toString())jComboBoxSituacao.setSelectedItem(Situacao.VENDIDO.valueOf(tipoDeSituacao));
+            if(tipoDeSituacao == Situacao.EM_MANUTENÇÃO.toString())jComboBoxSituacao.setSelectedItem(Situacao.EM_MANUTENÇÃO.valueOf(tipoDeSituacao));
+
+            jTextFieldValorTotalLocacao.setText(jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 6).toString());
+            
+
+            /*
+            jTextFieldIdentidade.setText(jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 3).toString());
+            jTextFieldEmail.setText(jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 4).toString());
+             */
+            System.out.println(jTableLocacao.getSelectedRow() + " " + jTableLocacao.getSelectedColumn());
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }
@@ -749,7 +770,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                         objeto.setVeiculo(listaVeiculo.get(i));
                     }
                 }
-                int idVei=0; 
+                int idVei = 0;
                 ArrayList<Locacao> listaLocacao = locacaoControle.listagem();
                 Iterator<Locacao> lista = listaLocacao.iterator();
                 String[] dados = new String[9];
@@ -760,9 +781,8 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                 }
                 int compare = 0;
                 compare = objeto.getVeiculo().getId();
-                
 
-                if (compare == idVei){
+                if (compare == idVei) {
                     if (validaDataLocacao() == true) {
                         JOptionPane.showMessageDialog(null, "Veiculo Locado durante esse periodo!");
                         return;
