@@ -13,24 +13,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/modelos/Locacao.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/persistencia/ICategoriaDao.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/persistencia/ILocacaoDao.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/controle/MarcaControle.java</file>
             <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/persistencia/LocacaoDao.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/controle/DevolucaoControle.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/arquivosdedados/Devolucao.txt</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/controle/ClienteControle.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/controle/ModeloControle.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/persistencia/IDevolucaoDao.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/modelos/Devolucao.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/visao/TelaDevolucao.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/controle/LocacaoControle.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/controle/AcessoriosControle.java</file>
             <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/arquivosdedados/Locacao.txt</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/persistencia/DevolucaoDao.java</file>
             <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/visao/TelaDeLocacao.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/controle/CategoriaControle.java</file>
-            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/controle/IDevolucaoControle.java</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/controle/ILocacaoControle.java</file>
+            <file>file:/C:/Users/pedro/OneDrive/Área%20de%20Trabalho/prj/prjLocaGyn/src/com/locagyn/visao/TelaDevolucao.java</file>
         </group>
     </open-files>
 </project-private>

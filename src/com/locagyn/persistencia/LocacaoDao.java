@@ -79,6 +79,7 @@ public class LocacaoDao implements ILocacaoDao{
                 objetoLocacao.setDataFim(vetorString[6]);
                 objetoLocacao.setValorDaLocação(Float.parseFloat(vetorString[7]));
                 objetoLocacao.setSituacao(vetorString[8]);
+                objetoLocacao.setDiasLocados(Long.parseLong(vetorString[9]));
                 
                 
                 listaDeLocacao.add(objetoLocacao);

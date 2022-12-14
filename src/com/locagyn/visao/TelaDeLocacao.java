@@ -54,7 +54,6 @@ public class TelaDeLocacao extends javax.swing.JFrame {
     long dias;
     LocalDate dFim;
     LocalDate dInicio;
-    
 
     /**
      * Creates new form TelaDeLocacao
@@ -729,17 +728,8 @@ public class TelaDeLocacao extends javax.swing.JFrame {
 
             dias = tempo.toDays();
             long dias = tempo.toDays();
-            
             //validar tempo para locar
-            if(validaDataLocacao() == true){
-             JOptionPane.showMessageDialog(null, "Veiculo Locado durante esse periodo!");  
-             return;
-            }
-            
-            
-            
-            
-            
+
             float diariaVeiculo = Float.parseFloat(jTextFieldValorDiaVeiculo.getText());
             float diariaAcessorio = Float.parseFloat(jTextFieldValorDiaAcessorios.getText());
 
@@ -757,6 +747,25 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                 for (int i = 0; i < listaVeiculo.size(); i++) {
                     if (jComboBoxVeiculo.getSelectedItem().equals(listaVeiculo.get(i).getPlaca())) {
                         objeto.setVeiculo(listaVeiculo.get(i));
+                    }
+                }
+                int idVei=0; 
+                ArrayList<Locacao> listaLocacao = locacaoControle.listagem();
+                Iterator<Locacao> lista = listaLocacao.iterator();
+                String[] dados = new String[9];
+                if (lista.hasNext()) {
+                    Locacao aux = lista.next();
+                    dados[0] = aux.getId() + "";
+                    idVei = aux.getVeiculo().getId();
+                }
+                int compare = 0;
+                compare = objeto.getVeiculo().getId();
+                
+
+                if (compare == idVei){
+                    if (validaDataLocacao() == true) {
+                        JOptionPane.showMessageDialog(null, "Veiculo Locado durante esse periodo!");
+                        return;
                     }
                 }
                 ArrayList<Cliente> listaCliente = cliente.listagem(TipoDeCliente.PESSOA_FISICA);
@@ -930,24 +939,37 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         try {
             ArrayList<Locacao> listaLocacao = locacaoControle.listagem();
             Iterator<Locacao> lista = listaLocacao.iterator();
-            if(lista.hasNext()){
-                int i=Math.toIntExact(dias);
-                long dia= dias;
+            while (lista.hasNext()) {
+                int j, i;
+                long dia = dias;
+                long diaValidar = dias;
                 dataInicioFormatada = dF.format(this.jDateInicio.getDate());
                 LocalDate data = dInicio;
-                String[] dados = new String[8];
+                String[] dados = new String[9];
                 Locacao aux = lista.next();
                 dados[0] = aux.getId() + "";
+                dados[1] = aux.getVeiculo().getId() + "";
                 dados[4] = aux.getDataInicio().toString();
                 dados[5] = aux.getDataFim().toString();
-                for(i=(int) dias;i<=dias;i--){
-                    dia = (long) i;
-                    LocalDate proximoDia = data.plusDays(dia);
-                    if(proximoDia == dInicio || proximoDia == dFim){
-                        return true;
+                long dataLocada = aux.getDiasLocados();
+
+                LocalDate dataValidar = LocalDate.parse(dados[4]);
+
+                for (j = Math.toIntExact(dataLocada); j > 0; j--) {
+                    diaValidar = (long) j;
+                    LocalDate proximoDiaValidar = dataValidar.plusDays(diaValidar);
+
+                    for (i = Math.toIntExact(dias); i > 0; i--) {
+                        dia = (long) i;
+                        LocalDate proximoDia = data.plusDays(dia);
+                        if (proximoDia.equals(proximoDiaValidar)) {
+                            return true;
+                        }
+
                     }
+
                 }
-            } 
+            }
         } catch (Exception ex) {
             Logger.getLogger(TelaDeLocacao.class.getName()).log(Level.SEVERE, null, ex);
         }
