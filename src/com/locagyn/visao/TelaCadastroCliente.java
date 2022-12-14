@@ -583,7 +583,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 }
 
             }
-            
+
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
@@ -595,22 +595,21 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         try {
 
             if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
-                  if (jTextFieldDDD.getText().trim().isEmpty()){
-                throw new Exception ("Digite o DDD");
-            }
-              if (jTextFieldDDI.getText().trim().isEmpty()){
-                throw new Exception ("Digite o DDI");
-            }
-                if (jTextFieldNumero.getText().trim().isEmpty()){
-                throw new Exception ("Digite o Número");
-            }
-                  if (jTextFieldCPFCNPJ.getText().trim().isEmpty()){
-                throw new Exception ("Digite o CPF");
-            }
-                  if (jTextFieldCEP.getText().trim().isEmpty()){
-                throw new Exception ("Digite o CEP");
-            }
-
+                if (jTextFieldDDD.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o DDD");
+                }
+                if (jTextFieldDDI.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o DDI");
+                }
+                if (jTextFieldNumero.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o Número");
+                }
+                if (jTextFieldCPFCNPJ.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o CPF");
+                }
+                if (jTextFieldCEP.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o CEP");
+                }
 
                 long ddi = Long.parseLong(jTextFieldDDI.getText());
                 long ddd = Long.parseLong(jTextFieldDDD.getText());
@@ -634,22 +633,21 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             }
 
             if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
-                  if (jTextFieldDDD.getText().trim().isEmpty()){
-                throw new Exception ("Digite o DDD");
-            }
-              if (jTextFieldDDI.getText().trim().isEmpty()){
-                throw new Exception ("Digite o DDI");
-            }
-                if (jTextFieldNumero.getText().trim().isEmpty()){
-                throw new Exception ("Digite o Número");
-            }
-                  if (jTextFieldCPFCNPJ.getText().trim().isEmpty()){
-                throw new Exception ("Digite o CNPJ");
-            }
-                  if (jTextFieldCEP.getText().trim().isEmpty()){
-                throw new Exception ("Digite o CEP");
-            }
-
+                if (jTextFieldDDD.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o DDD");
+                }
+                if (jTextFieldDDI.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o DDI");
+                }
+                if (jTextFieldNumero.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o Número");
+                }
+                if (jTextFieldCPFCNPJ.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o CNPJ");
+                }
+                if (jTextFieldCEP.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o CEP");
+                }
 
                 long ddi = Long.parseLong(jTextFieldDDI.getText());
                 long ddd = Long.parseLong(jTextFieldDDD.getText());
@@ -690,30 +688,26 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             }
 
             if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
-                //captando telefone
-                  if (jTextFieldDDD.getText().trim().isEmpty()){
-                throw new Exception ("Digite o DDD");
-            }
-              if (jTextFieldDDI.getText().trim().isEmpty()){
-                throw new Exception ("Digite o DDI");
-            }
-                if (jTextFieldNumero.getText().trim().isEmpty()){
-                throw new Exception ("Digite o Número");
-            }
-                  if (jTextFieldCPFCNPJ.getText().trim().isEmpty()){
-                throw new Exception ("Digite o CPF");
-            }
-                  if (jTextFieldCEP.getText().trim().isEmpty()){
-                throw new Exception ("Digite o CEP");
-            }
 
-
+                if (jTextFieldDDD.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o DDD");
+                }
+                if (jTextFieldDDI.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o DDI");
+                }
+                if (jTextFieldNumero.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o Número");
+                }
+                if (jTextFieldCEP.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o CEP");
+                }
+                //telefone
                 long ddi = Long.parseLong(jTextFieldDDI.getText());
                 long ddd = Long.parseLong(jTextFieldDDD.getText());
                 long numero = Long.parseLong(jTextFieldNumero.getText());
                 Telefone telefone = new Telefone(ddi, ddd, numero);
 
-                //captando endereco
+                //endereco
                 String logradouro = jTextFieldLogradouro.getText();
                 String complemento = jTextFieldComplemento.getText();
                 String bairro = jTextFieldBairro.getText();
@@ -734,24 +728,20 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             }
 
             if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
-                  if (jTextFieldDDD.getText().trim().isEmpty()){
-                throw new Exception ("Digite o DDD");
-            }
-              if (jTextFieldDDI.getText().trim().isEmpty()){
-                throw new Exception ("Digite o DDI");
-            }
-                if (jTextFieldNumero.getText().trim().isEmpty()){
-                throw new Exception ("Digite o Número");
-            }
-                  if (jTextFieldCPFCNPJ.getText().trim().isEmpty()){
-                throw new Exception ("Digite o CNPJ");
-            }
-                  if (jTextFieldCEP.getText().trim().isEmpty()){
-                throw new Exception ("Digite o CEP");
-            }
+                if (jTextFieldDDD.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o DDD");
+                }
+                if (jTextFieldDDI.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o DDI");
+                }
+                if (jTextFieldNumero.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o Número");
+                }
+                if (jTextFieldCEP.getText().trim().isEmpty()) {
+                    throw new Exception("Digite o CEP");
+                }
 
                 //captando telefone
-               
                 long ddi = Long.parseLong(jTextFieldDDI.getText());
                 long ddd = Long.parseLong(jTextFieldDDD.getText());
                 long numero = Long.parseLong(jTextFieldNumero.getText());
@@ -919,7 +909,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             }
             if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
                 throw new Exception("Antes de Selecionar algum cliente físico selecione o tipo de cliente físico.");
-            } else if(jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.SELECIONE)){
+            } else if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.SELECIONE)) {
                 throw new Exception("Selecione um tipo de cliente");
             }
         } catch (Exception erro) {
@@ -962,7 +952,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
             } else if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
                 throw new Exception("Antes de Selecionar algum cliente PJ selecione o tipo de cliente PJ.");
-            } else if(jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.SELECIONE)){
+            } else if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.SELECIONE)) {
                 throw new Exception("Selecione um tipo de cliente");
             }
             System.out.println(jTableCNPJ.getSelectedRow() + " " + jTableCNPJ.getSelectedColumn());
@@ -971,7 +961,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableCNPJMouseClicked
 
-    public void limparTextField(){
+    public void limparTextField() {
         jTextFieldBairro.setText("");
         jTextFieldCEP.setText("");
         jTextFieldCPFCNPJ.setText("");
@@ -984,9 +974,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jTextFieldLogradouro.setText("");
         jTextFieldNumero.setText("");
         jTextFieldRazaoSocialNome.setText("");
-        
+
     }
-    
+
     private void jMenuItemLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLocacaoActionPerformed
         // TODO add your handling code here:
         try {
@@ -1115,12 +1105,18 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         if (!Character.isDigit(e)) {
             evt.consume();
         }
+        if ((jTextFieldDDI.getText() + evt.getKeyChar()).length() > 3) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextFieldDDIKeyTyped
 
     private void jTextFieldDDDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDDDKeyTyped
         // TODO add your handling code here:
         char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+        if ((jTextFieldDDD.getText() + evt.getKeyChar()).length() > 2) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldDDDKeyTyped
@@ -1131,6 +1127,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         if (!Character.isDigit(e)) {
             evt.consume();
         }
+        if ((jTextFieldNumero.getText() + evt.getKeyChar()).length() > 9) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextFieldNumeroKeyTyped
 
     private void jTextFieldCPFCNPJKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCPFCNPJKeyTyped
@@ -1139,6 +1138,12 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         if (!Character.isDigit(e)) {
             evt.consume();
         }
+
+        if ((jTextFieldCPFCNPJ.getText() + evt.getKeyChar()).length() > 11) {
+            evt.consume();
+        }
+
+
     }//GEN-LAST:event_jTextFieldCPFCNPJKeyTyped
 
     private void jTextFieldIdentidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdentidadeKeyTyped

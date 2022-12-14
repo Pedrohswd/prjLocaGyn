@@ -108,15 +108,27 @@ public class ClienteControle implements IClienteControle {
             }
         }
 
-        /*if (tipoDoCliente.equals(TipoDeCliente.PESSOA_FISICA)) {
-            if (buscarCliente(objeto.getCpf(), tipoDoCliente)) {
-                throw new Exception("Cliente já foi cadastrado(a)");
-            }
+        if (tipoDoCliente.equals(TipoDeCliente.PESSOA_FISICA)) {
+            //if (buscarCliente(objeto.getCpf(), tipoDoCliente)) {
+            //    throw new Exception("Cliente já foi cadastrado(a)");
+            //}
             String aux = objeto.getCpf();
-            if ("".equals(objeto.getCpf())) {
-                throw new Exception("Digite um cpf válido.");
-            }
+            //if ("".equals(objeto.getCpf())) {
+            //    throw new Exception("Digite um cpf válido.");
+            //}
+            if ("".equals(objeto.getCpf())) throw new Exception("Insira o CPF.");
+            if ("".equals(objeto.getNome())) throw new Exception("Insira um Nome");           
+            if ("".equals(objeto.getIdentidade())) throw new Exception("Insira a identidade.");
+            if ("".equals(objeto.getEmail())) throw new Exception("Insira o email.");
+            
+            
+            if ("".equals(objeto.getEndereco().getLongradouro())) throw new Exception("Insira o logradouro.");
+            if ("".equals(objeto.getEndereco().getComplemento())) throw new Exception("Insira o complemento.");
+            if ("".equals(objeto.getEndereco().getBairro())) throw new Exception("Insira o bairro.");
+            if ("".equals(objeto.getEndereco().getCidade())) throw new Exception("Insira a cidade.");
+            
         }
+
         if (tipoDoCliente.equals(TipoDeCliente.PESSOA_JURIDICA)) {
             if (buscarCliente(objeto.getCnpj(), tipoDoCliente)) {
                 throw new Exception("Cliente já foi cadastrado(a)");
@@ -125,7 +137,7 @@ public class ClienteControle implements IClienteControle {
             if ("".equals(objeto.getCnpj())) {
                 throw new Exception("Digite um nome válido.");
             }
-        }*/
+        }
         clientePersistencia.incluir(objeto, tipoDoCliente);
 
     }
