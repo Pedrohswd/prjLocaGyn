@@ -242,6 +242,11 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         jButtonCancelar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jButtonDevolver.setBackground(new java.awt.Color(0, 0, 0));
         jButtonDevolver.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -332,38 +337,36 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel9)
                                         .addComponent(jLabel11)))
-                                .addGap(12, 12, 12)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                                    .addComponent(jDateInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jDateInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addComponent(jComboBoxSituacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(176, 176, 176)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(91, 91, 91))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel10)
-                                    .addGap(18, 18, 18)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addGap(30, 30, 30)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jComboBoxTipoDeCliente, 0, 175, Short.MAX_VALUE)
-                            .addComponent(jTextFieldValorTotalLocacao, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxAcessorios, javax.swing.GroupLayout.Alignment.LEADING, 0, 175, Short.MAX_VALUE)
-                            .addComponent(jComboBoxMotorista, javax.swing.GroupLayout.Alignment.LEADING, 0, 175, Short.MAX_VALUE)
-                            .addComponent(jTextFieldValorDiaAcessorios, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateFim, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jComboBoxTipoDeCliente, 0, 175, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldValorTotalLocacao, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxAcessorios, javax.swing.GroupLayout.Alignment.LEADING, 0, 175, Short.MAX_VALUE)
+                                    .addComponent(jComboBoxMotorista, javax.swing.GroupLayout.Alignment.LEADING, 0, 175, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldValorDiaAcessorios, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(91, 91, 91))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                                .addComponent(jDateFim, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonLocar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -700,18 +703,26 @@ public class TelaDeLocacao extends javax.swing.JFrame {
             }
             i = 0;
             String tipoDeSituacao = jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 7).toString();
-            if(tipoDeSituacao == Situacao.DISPONIVEL.toString())jComboBoxSituacao.setSelectedItem(Situacao.DISPONIVEL.valueOf(tipoDeSituacao));
-            if(tipoDeSituacao == Situacao.LOCADO.toString())jComboBoxSituacao.setSelectedItem(Situacao.LOCADO.valueOf(tipoDeSituacao));
-            if(tipoDeSituacao == Situacao.VENDIDO.toString())jComboBoxSituacao.setSelectedItem(Situacao.VENDIDO.valueOf(tipoDeSituacao));
-            if(tipoDeSituacao == Situacao.EM_MANUTENÇÃO.toString())jComboBoxSituacao.setSelectedItem(Situacao.EM_MANUTENÇÃO.valueOf(tipoDeSituacao));
+            if(tipoDeSituacao == SituacaoLocacao.CANCELADA.toString())jComboBoxSituacao.setSelectedItem(SituacaoLocacao.CANCELADA.valueOf(tipoDeSituacao));
+            if(tipoDeSituacao == SituacaoLocacao.EM_ANDAMENTO.toString())jComboBoxSituacao.setSelectedItem(SituacaoLocacao.EM_ANDAMENTO.valueOf(tipoDeSituacao));
+            if(tipoDeSituacao == SituacaoLocacao.FINALIZADA.toString())jComboBoxSituacao.setSelectedItem(SituacaoLocacao.FINALIZADA.valueOf(tipoDeSituacao));
 
             jTextFieldValorTotalLocacao.setText(jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 6).toString());
             
+            Date dataInicio = dF.parse((String) jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 4));
+            Calendar calIni = dF.getCalendar();
+            calIni.setTime(dataInicio);
+            jDateInicio.setDate(dataInicio);
+            
+            Date dataFim = dF.parse((String) jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 5));
+            Calendar calFim = dF.getCalendar();
+            calFim.setTime(dataFim);
+            jDateFim.setDate(dataFim);
+            
+            
+            
 
-            /*
-            jTextFieldIdentidade.setText(jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 3).toString());
-            jTextFieldEmail.setText(jTableLocacao.getValueAt(jTableLocacao.getSelectedRow(), 4).toString());
-             */
+
             System.out.println(jTableLocacao.getSelectedRow() + " " + jTableLocacao.getSelectedColumn());
 
         } catch (Exception e) {
@@ -954,6 +965,22 @@ public class TelaDeLocacao extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jComboBoxAcessoriosActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        jTextFieldIdentificador.setText("");
+        jTextFieldValorDiaAcessorios.setText("");
+        jTextFieldValorDiaVeiculo.setText("");
+        jTextFieldValorTotalLocacao.setText("");
+        jDateFim.setDate(null);
+        jDateFim.setDate(null);
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     public boolean validaDataLocacao() {
         try {
