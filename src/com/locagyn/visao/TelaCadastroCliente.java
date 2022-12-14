@@ -630,6 +630,28 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
             }
 
+            if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
+
+                long ddi = Long.parseLong(jTextFieldDDI.getText());
+                long ddd = Long.parseLong(jTextFieldDDD.getText());
+                long numero = Long.parseLong(jTextFieldNumero.getText());
+                Telefone telefone = new Telefone(ddi, ddd, numero);
+
+                //captando endereco
+                String logradouro = jTextFieldLogradouro.getText();
+                String complemento = jTextFieldComplemento.getText();
+                String bairro = jTextFieldBairro.getText();
+                String cidade = jTextFieldCidade.getText();
+                String estado = jComboBoxEstado.getSelectedItem().toString();
+                long cep = Long.parseLong(jTextFieldCEP.getText());
+                Endereco endereco = new Endereco(logradouro, complemento, cidade, estado, bairro, cep);
+
+                Cliente clientepj = new Cliente(Integer.parseInt(jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 0).toString()), jTextFieldCPFCNPJ.getText(), jTextFieldRazaoSocialNome.getText(), jTextFieldEmail.getText(), telefone, endereco, TipoDeCliente.PESSOA_JURIDICA);
+                clienteControle.alterar(clientepj, TipoDeCliente.PESSOA_JURIDICA);
+                imprimirTabela(clienteControle.listagem(TipoDeCliente.PESSOA_JURIDICA), TipoDeCliente.PESSOA_JURIDICA);
+
+            }
+
             //Cliente clientepj = new Cliente(0, jTextFieldCPFCNPJ.getText(), jTextFieldRazaoSocialNome.getText(), jTextFieldEmail.getText(), telefone, endereco, TipoDeCliente.PESSOA_JURIDICA);
         } catch (Exception e) {
         }
@@ -806,74 +828,93 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void jTableCPFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCPFMouseClicked
         // TODO add your handling code here:
-        if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
-            jTextFieldRazaoSocialNome.setText(jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 1).toString());
-            jTextFieldCPFCNPJ.setText(jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 2).toString());
-            jTextFieldIdentidade.setText(jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 3).toString());
-            jTextFieldEmail.setText(jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 4).toString());
 
-            String telefoneTodo = jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 5).toString();
-            String[] telefoneSplit = telefoneTodo.split(";");
+        try {
 
-            jTextFieldDDI.setText(telefoneSplit[0]);
-            jTextFieldDDD.setText(telefoneSplit[1]);
-            jTextFieldNumero.setText(telefoneSplit[2]);
+            if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
+                jTextFieldRazaoSocialNome.setText(jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 1).toString());
+                jTextFieldCPFCNPJ.setText(jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 2).toString());
+                jTextFieldIdentidade.setText(jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 3).toString());
+                jTextFieldEmail.setText(jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 4).toString());
 
-            String enderecoTodo = jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 6).toString();
-            String[] enderecoSplit = enderecoTodo.split(";");
+                String telefoneTodo = jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 5).toString();
+                String[] telefoneSplit = telefoneTodo.split(";");
 
-            jTextFieldLogradouro.setText(enderecoSplit[0]);
-            jTextFieldComplemento.setText(enderecoSplit[1]);
-            jTextFieldBairro.setText(enderecoSplit[2]);
-            jTextFieldCidade.setText(enderecoSplit[3]);
+                jTextFieldDDI.setText(telefoneSplit[0]);
+                jTextFieldDDD.setText(telefoneSplit[1]);
+                jTextFieldNumero.setText(telefoneSplit[2]);
 
-            for (int i = 0; i < 26; i++) {
+                String enderecoTodo = jTableCPF.getValueAt(jTableCPF.getSelectedRow(), 6).toString();
+                String[] enderecoSplit = enderecoTodo.split(";");
 
-                if (enderecoSplit[4].equals(jComboBoxEstado.getItemAt(i))) {
-                    jComboBoxEstado.setSelectedIndex(i);
+                jTextFieldLogradouro.setText(enderecoSplit[0]);
+                jTextFieldComplemento.setText(enderecoSplit[1]);
+                jTextFieldBairro.setText(enderecoSplit[2]);
+                jTextFieldCidade.setText(enderecoSplit[3]);
+
+                for (int i = 0; i < 26; i++) {
+
+                    if (enderecoSplit[4].equals(jComboBoxEstado.getItemAt(i))) {
+                        jComboBoxEstado.setSelectedIndex(i);
+                    }
                 }
+
+                jTextFieldCEP.setText(enderecoSplit[5]);
+
+                System.out.println(jTableCPF.getSelectedRow() + " " + jTableCPF.getSelectedColumn());
             }
-
-            jTextFieldCEP.setText(enderecoSplit[5]);
-
-            System.out.println(jTableCPF.getSelectedRow() + " " + jTableCPF.getSelectedColumn());
+            if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
+                throw new Exception("Antes de Selecionar algum cliente físico selecione o tipo de cliente físico.");
+            } else if(jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.SELECIONE)){
+                throw new Exception("Selecione um tipo de cliente");
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-
     }//GEN-LAST:event_jTableCPFMouseClicked
 
     private void jTableCNPJMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCNPJMouseClicked
         // TODO add your handling code here:
-        if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
-            jTextFieldRazaoSocialNome.setText(jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 1).toString());
-            jTextFieldCPFCNPJ.setText(jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 2).toString());
-            jTextFieldEmail.setText(jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 3).toString());
+        try {
 
-            String telefoneTodo = jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 4).toString();
-            String[] telefoneSplit = telefoneTodo.split(";");
+            if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_JURIDICA)) {
+                jTextFieldRazaoSocialNome.setText(jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 1).toString());
+                jTextFieldCPFCNPJ.setText(jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 2).toString());
+                jTextFieldEmail.setText(jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 3).toString());
 
-            jTextFieldDDI.setText(telefoneSplit[0]);
-            jTextFieldDDD.setText(telefoneSplit[1]);
-            jTextFieldNumero.setText(telefoneSplit[2]);
+                String telefoneTodo = jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 4).toString();
+                String[] telefoneSplit = telefoneTodo.split(";");
 
-            String enderecoTodo = jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 5).toString();
-            String[] enderecoSplit = enderecoTodo.split(";");
+                jTextFieldDDI.setText(telefoneSplit[0]);
+                jTextFieldDDD.setText(telefoneSplit[1]);
+                jTextFieldNumero.setText(telefoneSplit[2]);
 
-            jTextFieldLogradouro.setText(enderecoSplit[0]);
-            jTextFieldComplemento.setText(enderecoSplit[1]);
-            jTextFieldBairro.setText(enderecoSplit[2]);
-            jTextFieldCidade.setText(enderecoSplit[3]);
+                String enderecoTodo = jTableCNPJ.getValueAt(jTableCNPJ.getSelectedRow(), 5).toString();
+                String[] enderecoSplit = enderecoTodo.split(";");
 
-            for (int i = 0; i < 26; i++) {
+                jTextFieldLogradouro.setText(enderecoSplit[0]);
+                jTextFieldComplemento.setText(enderecoSplit[1]);
+                jTextFieldBairro.setText(enderecoSplit[2]);
+                jTextFieldCidade.setText(enderecoSplit[3]);
 
-                if (enderecoSplit[4].equals(jComboBoxEstado.getItemAt(i))) {
-                    jComboBoxEstado.setSelectedIndex(i);
+                for (int i = 0; i < 26; i++) {
+
+                    if (enderecoSplit[4].equals(jComboBoxEstado.getItemAt(i))) {
+                        jComboBoxEstado.setSelectedIndex(i);
+                    }
                 }
+
+                jTextFieldCEP.setText(enderecoSplit[5]);
+
+            } else if (jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
+                throw new Exception("Antes de Selecionar algum cliente PJ selecione o tipo de cliente PJ.");
+            } else if(jComboBoxTipoCliente.getSelectedItem().equals(TipoDeCliente.SELECIONE)){
+                throw new Exception("Selecione um tipo de cliente");
             }
-
-            jTextFieldCEP.setText(enderecoSplit[5]);
-
+            System.out.println(jTableCNPJ.getSelectedRow() + " " + jTableCNPJ.getSelectedColumn());
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-        System.out.println(jTableCNPJ.getSelectedRow() + " " + jTableCNPJ.getSelectedColumn());
     }//GEN-LAST:event_jTableCNPJMouseClicked
 
     private void jMenuItemLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLocacaoActionPerformed
@@ -1000,7 +1041,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void jTextFieldDDIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDDIKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
@@ -1008,7 +1049,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void jTextFieldDDDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDDDKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
@@ -1016,7 +1057,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void jTextFieldNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
@@ -1024,7 +1065,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void jTextFieldCPFCNPJKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCPFCNPJKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
@@ -1032,7 +1073,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void jTextFieldIdentidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdentidadeKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
@@ -1040,7 +1081,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void jTextFieldCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCEPKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }

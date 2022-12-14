@@ -73,18 +73,18 @@ public class ClienteDao implements IClienteDao {
     @Override
     public void alterar(Cliente objeto, TipoDeCliente tipoDoCliente) throws Exception {
         try {
-            Iterator<Cliente> lista = listagem(objeto.getTipoDoCliente()).iterator();
             if (tipoDoCliente == PESSOA_FISICA) {
+                Iterator<Cliente> lista = listagem(TipoDeCliente.PESSOA_FISICA).iterator();
                 FileWriter fw = new FileWriter(nomeDoArquivoNoDiscoPF);
                 BufferedWriter bw = new BufferedWriter(fw);
+
                 while (lista.hasNext()) {
 
                     Cliente aux = lista.next();
-                    //System.out.println(aux);
                     if (aux.getId() == objeto.getId()) {
-                        bw.write(objeto.toString() + "\n");
+                        bw.write(objeto.toString(TipoDeCliente.PESSOA_FISICA)+ "\n");
                     } else {
-                        bw.write(aux.toString() + "\n");
+                        bw.write(aux.toString(TipoDeCliente.PESSOA_FISICA)+ "\n");
                     }
 
                 }
@@ -92,6 +92,7 @@ public class ClienteDao implements IClienteDao {
                 bw.close();
             }
             if (tipoDoCliente == PESSOA_JURIDICA) {
+                Iterator<Cliente> lista = listagem(TipoDeCliente.PESSOA_JURIDICA).iterator();
                 FileWriter fw = new FileWriter(nomeDoArquivoNoDiscoPJ);
                 BufferedWriter bw = new BufferedWriter(fw);
 
@@ -99,9 +100,9 @@ public class ClienteDao implements IClienteDao {
 
                     Cliente aux = lista.next();
                     if (aux.getId() == objeto.getId()) {
-                        bw.write(objeto.toString() + "\n");
+                        bw.write(objeto.toString(TipoDeCliente.PESSOA_JURIDICA)+ "\n");
                     } else {
-                        bw.write(aux.toString() + "\n");
+                        bw.write(aux.toString(TipoDeCliente.PESSOA_JURIDICA)+ "\n");
                     }
 
                 }
