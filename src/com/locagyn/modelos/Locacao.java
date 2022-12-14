@@ -9,7 +9,7 @@ package com.locagyn.modelos;
  * @author pedro
  */
 public class Locacao {
-    
+
     private int id;
     private Cliente cliente;
     private Motorista motorista;
@@ -19,11 +19,23 @@ public class Locacao {
     private String dataFim;
     private Float valorDaLocação;
     private Object situacao;
+    private long diasLocados;
+    private float valorDia;
 
-    public Locacao() {
+    public Locacao(int id, Motorista motorista, Veiculo veiculo, Acessorios acessorio, String dataInicio, String dataFim, float valorDaLocacao, String situacao, long diasLocados) {
+        this.id = id;
+        this.id = id;
+        this.motorista = motorista;
+        this.veiculo = veiculo;
+        this.acessorio = acessorio;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.valorDaLocação = valorDaLocacao;
+        this.situacao = situacao;
+        this.diasLocados = diasLocados;
     }
 
-    public Locacao(int id, Cliente cliente, Motorista motorista, Veiculo veiculo, Acessorios acessorio, String dataInicio, String dataFim, Float valorDaLocação, Object situacao) {
+    public Locacao(int id, Cliente cliente, Motorista motorista, Veiculo veiculo, Acessorios acessorio, String dataInicio, String dataFim, float valorDaLocação, Object situacao, long diasLocados, float valorDia) {
         this.id = id;
         this.cliente = cliente;
         this.motorista = motorista;
@@ -33,6 +45,37 @@ public class Locacao {
         this.dataFim = dataFim;
         this.valorDaLocação = valorDaLocação;
         this.situacao = situacao;
+        this.diasLocados = diasLocados;
+        this.valorDia = valorDia;
+    }
+
+    public Locacao(int id, String dataInicio, String dataFim, Float valorDaLocação, String situacao, long diasLocados, float valorDia) {
+        this.id = id;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.valorDaLocação = valorDaLocação;
+        this.situacao = situacao;
+        this.diasLocados = diasLocados;
+        this.valorDia = valorDia;
+    }
+    
+    public long getDiasLocados() {
+        return diasLocados;
+    }
+
+    public void setDiasLocados(long diasLocados) {
+        this.diasLocados = diasLocados;
+    }
+
+    public float getValorDia() {
+        return valorDia;
+    }
+
+    public void setValorDia(float valorDia) {
+        this.valorDia = valorDia;
+    }
+
+    public Locacao() {
     }
 
     public Object getSituacao() {
@@ -109,9 +152,7 @@ public class Locacao {
 
     @Override
     public String toString() {
-        return id + ";" + cliente.getId() + ";" + motorista.getId()  + ";" + veiculo.getId() + ";" + acessorio.getId() + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocação + ";" + situacao;
+        return id + ";" + cliente.getId() + ";" + motorista.getId() + ";" + veiculo.getId() + ";" + acessorio.getId() + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocação + ";" + situacao + ";" + diasLocados + ";" + valorDia;
     }
-    
-    
-    
+
 }

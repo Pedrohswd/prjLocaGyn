@@ -90,6 +90,38 @@ public class LocacaoDao implements ILocacaoDao{
             throw erro;
         }
     }
+
+    @Override
+    public Locacao buscar(int id) throws Exception {
+                FileReader fr = new FileReader(nomeDoArquivoNoDisco);
+        BufferedReader br = new BufferedReader(fr);
+        String linha;
+        while ((linha = br.readLine()) != null) {
+            IVeiculoDao objetoVeiculo = new VeiculoDao();
+            IMotoristaDao objetoMotorista = new MotoristaDao();
+            IAcessoriosDao objetoAcessorio = new AcessoriosDao();
+            Locacao objetoLocacao = new Locacao();
+            String vetorString[] = linha.split(";");
+            objetoLocacao.setId(Integer.parseInt(vetorString[0]));
+            int idMotorista = Integer.parseInt(vetorString[2]);
+            objetoLocacao.setMotorista(objetoMotorista.buscar(idMotorista));
+            int idVeiculo = Integer.parseInt(vetorString[3]);
+            objetoLocacao.setVeiculo(objetoVeiculo.buscar(idVeiculo));
+            int idAcessorios = Integer.parseInt(vetorString[4]);
+            objetoLocacao.setAcessorio(objetoAcessorio.buscar(idAcessorios));
+            objetoLocacao.setDataInicio(vetorString[5]);
+            objetoLocacao.setDataFim(vetorString[6]);
+            objetoLocacao.setValorDaLocação(Float.parseFloat(vetorString[7]));
+            objetoLocacao.setSituacao(vetorString[8]);
+            objetoLocacao.setDiasLocados(Long.parseLong(vetorString[9]));
+            objetoLocacao.setValorDia(Float.parseFloat(vetorString[10]));
+            if (objetoLocacao.getId() == id) {
+                br.close();
+                return new Locacao(Integer.parseInt(vetorString[0]), vetorString[5], vetorString[6], Float.parseFloat(vetorString[7]), vetorString[8], Long.parseLong(vetorString[9]),Float.parseFloat(vetorString[10]));
+            }
+        }
+        return null;
+    }
     
     
 }

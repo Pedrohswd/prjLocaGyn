@@ -4,11 +4,17 @@
  */
 package com.locagyn.visao;
 
+import com.locagyn.controle.IDevolucaoControle;
 import com.locagyn.controle.ILocacaoControle;
 import com.locagyn.controle.LocacaoControle;
+import com.locagyn.enumeracao.SituacaoLocacao;
+import com.locagyn.modelos.Devolucao;
 import com.locagyn.modelos.Locacao;
-import com.locagyn.persistencia.ILocacaoDao;
+import com.locagyn.controle.DevolucaoControle;
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,14 +22,27 @@ import javax.swing.JOptionPane;
  * @author emill
  */
 public class TelaDevolucao extends javax.swing.JFrame {
-    
+
     ILocacaoControle locacaoControle = new LocacaoControle();
+    IDevolucaoControle devolucaoControle = new DevolucaoControle();
+    String anexo1;
+    String anexo2;
+    String anexo3;
+    String anexo4;
 
     /**
      * Creates new form TelaDevolucao
      */
     public TelaDevolucao() {
         initComponents();
+        jTextFieldTanqueCheio.setEnabled(false);
+        jTextFieldDiasAMais.setEnabled(false);
+        jTextFieldValorDano.setEnabled(false);
+        jTextFieldValorSujo.setEnabled(false);
+        jTextFieldDiasAMenos.setEnabled(false);
+        jTextFieldTotal.setEnabled(false);
+        jTextFieldTotal.setEditable(false);
+        
 
         try {
             ArrayList<Locacao> listaLocacao = locacaoControle.listagem();
@@ -71,13 +90,13 @@ public class TelaDevolucao extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jComboBoxLocacao = new javax.swing.JComboBox<>();
         jButtonDevolver = new javax.swing.JButton();
-        jTextFieldDiasAMenos1 = new javax.swing.JTextField();
+        jTextFieldDiasAMenos = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jTextFieldValorSujo = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextFieldDiasAMenos4 = new javax.swing.JTextField();
-        jTextFieldDiasAMenos5 = new javax.swing.JTextField();
+        jTextFieldTanqueCheio = new javax.swing.JTextField();
+        jTextFieldTotal = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jTextFieldHora = new javax.swing.JTextField();
@@ -199,25 +218,51 @@ public class TelaDevolucao extends javax.swing.JFrame {
         jButtonAnexo1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonAnexo1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnexo1.setText("Anexo 1");
+        jButtonAnexo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnexo1ActionPerformed(evt);
+            }
+        });
 
         jButtonAnexo2.setBackground(new java.awt.Color(0, 0, 0));
         jButtonAnexo2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonAnexo2.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnexo2.setText("Anexo 2");
+        jButtonAnexo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnexo2ActionPerformed(evt);
+            }
+        });
 
         jButtonAnexo3.setBackground(new java.awt.Color(0, 0, 0));
         jButtonAnexo3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonAnexo3.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnexo3.setText("Anexo 3");
+        jButtonAnexo3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnexo3ActionPerformed(evt);
+            }
+        });
 
         jButtonAnexo4.setBackground(new java.awt.Color(0, 0, 0));
         jButtonAnexo4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButtonAnexo4.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnexo4.setText("Anexo 4");
+        jButtonAnexo4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnexo4ActionPerformed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Locação:");
+
+        jComboBoxLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxLocacaoActionPerformed(evt);
+            }
+        });
 
         jButtonDevolver.setBackground(new java.awt.Color(0, 0, 0));
         jButtonDevolver.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -229,9 +274,9 @@ public class TelaDevolucao extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldDiasAMenos1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldDiasAMenos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldDiasAMenos1KeyTyped(evt);
+                jTextFieldDiasAMenosKeyTyped(evt);
             }
         });
 
@@ -258,14 +303,14 @@ public class TelaDevolucao extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("Valor:");
 
-        jTextFieldDiasAMenos4.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldTanqueCheio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDiasAMenos4ActionPerformed(evt);
+                jTextFieldTanqueCheioActionPerformed(evt);
             }
         });
-        jTextFieldDiasAMenos4.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldTanqueCheio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldDiasAMenos4KeyTyped(evt);
+                jTextFieldTanqueCheioKeyTyped(evt);
             }
         });
 
@@ -313,13 +358,13 @@ public class TelaDevolucao extends javax.swing.JFrame {
                             .addComponent(jCheckBoxLimpeza)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldDiasAMenos1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldDiasAMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jCheckBoxLocacaoAMenosTempo)
                             .addComponent(jCheckBoxLocacaoAMaisTempo)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
-                                .addGap(26, 26, 26)
+                                .addGap(18, 18, 18)
                                 .addComponent(jTextFieldDiasAMais, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jCheckBoxDanoSofrido)
                             .addComponent(jCheckBoxTanqueCheio)
@@ -329,7 +374,7 @@ public class TelaDevolucao extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel21)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldDiasAMenos4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextFieldTanqueCheio, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel22)
@@ -346,7 +391,7 @@ public class TelaDevolucao extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldDiasAMenos5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextFieldTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -408,7 +453,7 @@ public class TelaDevolucao extends javax.swing.JFrame {
                         .addComponent(jCheckBoxLocacaoAMenosTempo)
                         .addGap(16, 16, 16)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldDiasAMenos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldDiasAMenos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckBoxDanoSofrido)
@@ -427,8 +472,8 @@ public class TelaDevolucao extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextFieldDiasAMenos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldDiasAMenos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldTanqueCheio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel19))
                             .addComponent(jLabel21))
                         .addGap(0, 29, Short.MAX_VALUE)))
@@ -654,22 +699,60 @@ public class TelaDevolucao extends javax.swing.JFrame {
 
     private void jCheckBoxLocacaoAMaisTempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLocacaoAMaisTempoActionPerformed
         // TODO add your handling code here:
+        if (jCheckBoxLocacaoAMaisTempo.isSelected()) {
+            jCheckBoxLocacaoAMenosTempo.setEnabled(false);
+            jTextFieldDiasAMais.setEnabled(true);
+
+        } else {
+            jTextFieldDiasAMais.setText("");
+            jTextFieldDiasAMais.setEnabled(false);
+
+        }
     }//GEN-LAST:event_jCheckBoxLocacaoAMaisTempoActionPerformed
 
     private void jCheckBoxLocacaoAMenosTempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLocacaoAMenosTempoActionPerformed
-        // TODO add your handling code here:
+        if (jCheckBoxLocacaoAMenosTempo.isSelected()) {
+            jCheckBoxLocacaoAMaisTempo.setEnabled(false);
+            jTextFieldDiasAMenos.setEnabled(true);
+
+        } else {
+            jTextFieldDiasAMenos.setText("");
+            jTextFieldDiasAMenos.setEnabled(false);
+
+        }
     }//GEN-LAST:event_jCheckBoxLocacaoAMenosTempoActionPerformed
 
     private void jCheckBoxDanoSofridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxDanoSofridoActionPerformed
-        // TODO add your handling code here:
+        if (jCheckBoxDanoSofrido.isSelected()) {
+            jTextFieldValorDano.setEnabled(true);
+
+        } else {
+            jTextFieldValorDano.setText("");
+            jTextFieldValorDano.setEnabled(false);
+
+        }
     }//GEN-LAST:event_jCheckBoxDanoSofridoActionPerformed
 
     private void jCheckBoxLimpezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLimpezaActionPerformed
-        // TODO add your handling code here:
+        if (jCheckBoxLimpeza.isSelected()) {
+            jTextFieldValorSujo.setEnabled(true);
+
+        } else {
+            jTextFieldValorSujo.setText("");
+            jTextFieldValorSujo.setEnabled(false);
+
+        }
     }//GEN-LAST:event_jCheckBoxLimpezaActionPerformed
 
     private void jCheckBoxTanqueCheioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTanqueCheioActionPerformed
-        // TODO add your handling code here:
+        if (jCheckBoxTanqueCheio.isSelected()) {
+            jTextFieldTanqueCheio.setEnabled(true);
+
+        } else {
+            jTextFieldTanqueCheio.setText("");
+            jTextFieldTanqueCheio.setEnabled(false);
+
+        }
     }//GEN-LAST:event_jCheckBoxTanqueCheioActionPerformed
 
     private void jTextFieldValorDanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorDanoActionPerformed
@@ -680,21 +763,81 @@ public class TelaDevolucao extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldValorSujoActionPerformed
 
-    private void jTextFieldDiasAMenos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDiasAMenos4ActionPerformed
+    private void jTextFieldTanqueCheioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTanqueCheioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDiasAMenos4ActionPerformed
+    }//GEN-LAST:event_jTextFieldTanqueCheioActionPerformed
 
     private void jTextFieldHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHoraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldHoraActionPerformed
 
     private void jButtonDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDevolverActionPerformed
-        // TODO add your handling code here:
+        try {
+            float multas = 0, quilometragemVeiculo = 0, valorTotal = 0, valorPorDia = 0;
+            int dias = 0;
+            String dataInicio, dataFim;
+            SituacaoLocacao situacao;
+            long diasCombinados = 0;
+            if (jCheckBoxTanqueCheio.isSelected()) {
+                multas += Float.parseFloat(jTextFieldTanqueCheio.getText());
+            }
+            if (jCheckBoxDanoSofrido.isSelected()) {
+                multas += Float.parseFloat(jTextFieldValorDano.getText());
+            }
+            if (jCheckBoxLimpeza.isSelected()) {
+                multas += Float.parseFloat(jTextFieldValorSujo.getText());
+            }
+            if (jCheckBoxLocacaoAMaisTempo.isSelected()) {
+                dias += Integer.parseInt(jTextFieldDiasAMais.getText());
+            }
+            if (jCheckBoxLocacaoAMenosTempo.isSelected()) {
+                dias += Integer.parseInt(jTextFieldDiasAMenos.getText()) * -1;
+            }
+
+            ArrayList<Locacao> listaVeiculo;
+            listaVeiculo = locacaoControle.listagem();
+            for (int i = 0; i < listaVeiculo.size(); i++) {
+                if (jComboBoxLocacao.getSelectedItem().equals(listaVeiculo.get(i).getDataInicio())) {
+                    int id = listaVeiculo.get(i).getId();
+                    int idMotorista = listaVeiculo.get(i).getMotorista().getId();
+                    int idVeiculo = listaVeiculo.get(i).getVeiculo().getId();
+                    int idAcessorio = listaVeiculo.get(i).getAcessorio().getId();
+                    quilometragemVeiculo = listaVeiculo.get(i).getVeiculo().getQuilometragem();
+                    valorTotal = listaVeiculo.get(i).getValorDaLocação();
+                    dataInicio = listaVeiculo.get(i).getDataInicio();
+                    dataFim = listaVeiculo.get(i).getDataFim();
+                    diasCombinados = listaVeiculo.get(i).getDiasLocados();
+                    valorPorDia = listaVeiculo.get(i).getValorDia();
+
+                }
+            }
+            //calculos
+            float valorParam = valorTotal;
+            diasCombinados = diasCombinados + dias;
+            float valorAPagar = diasCombinados * valorPorDia;
+            valorTotal = valorTotal - valorAPagar;
+            if (multas != 0) {
+                valorTotal = valorTotal - multas;
+            }
+            int idLocacao = 0;
+            Devolucao objetoDevolucao = new Devolucao(0,locacaoControle.buscar(idLocacao), anexo1, anexo2, anexo3, anexo4, valorParam, valorPorDia, valorAPagar);
+            ArrayList<Locacao> listaDevolucao = locacaoControle.listagem();
+                for (int i = 0; i < listaDevolucao.size(); i++) {
+                    if (jComboBoxLocacao.getSelectedItem().equals(listaDevolucao.get(i).getDataInicio())) {
+                        objetoDevolucao.setLocacao(listaDevolucao.get(i));
+                    }
+                }
+            devolucaoControle.incluir(objetoDevolucao);
+            
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Falha ao carregar dados!");
+        }
     }//GEN-LAST:event_jButtonDevolverActionPerformed
 
     private void jTextFieldKmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldKmKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
@@ -702,7 +845,7 @@ public class TelaDevolucao extends javax.swing.JFrame {
 
     private void jTextFieldHoraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldHoraKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
@@ -710,23 +853,23 @@ public class TelaDevolucao extends javax.swing.JFrame {
 
     private void jTextFieldDiasAMaisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDiasAMaisKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldDiasAMaisKeyTyped
 
-    private void jTextFieldDiasAMenos1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDiasAMenos1KeyTyped
+    private void jTextFieldDiasAMenosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDiasAMenosKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextFieldDiasAMenos1KeyTyped
+    }//GEN-LAST:event_jTextFieldDiasAMenosKeyTyped
 
     private void jTextFieldValorDanoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDanoKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
@@ -734,19 +877,133 @@ public class TelaDevolucao extends javax.swing.JFrame {
 
     private void jTextFieldValorSujoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorSujoKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldValorSujoKeyTyped
 
-    private void jTextFieldDiasAMenos4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDiasAMenos4KeyTyped
+    private void jTextFieldTanqueCheioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTanqueCheioKeyTyped
         // TODO add your handling code here:
-         char e = evt.getKeyChar();
+        char e = evt.getKeyChar();
         if (!Character.isDigit(e)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextFieldDiasAMenos4KeyTyped
+    }//GEN-LAST:event_jTextFieldTanqueCheioKeyTyped
+
+    private void jComboBoxLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLocacaoActionPerformed
+        try {
+
+            float quilometragemVeiculo = 0;
+            float valorTotal = 0;
+
+            ArrayList<Locacao> listaVeiculo;
+
+            listaVeiculo = locacaoControle.listagem();
+            for (int i = 0; i < listaVeiculo.size(); i++) {
+                if (jComboBoxLocacao.getSelectedItem().equals(listaVeiculo.get(i).getDataInicio())) {
+                    quilometragemVeiculo = listaVeiculo.get(i).getVeiculo().getQuilometragem();
+                    valorTotal = listaVeiculo.get(i).getValorDaLocação();
+                }
+            }
+            String saida = Float.toString(quilometragemVeiculo);
+            jTextFieldKm.setText(saida);
+            saida = Float.toString(valorTotal);
+            jTextFieldTotal.setText(saida);
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Falha ao carregar dados!");
+        }
+    }//GEN-LAST:event_jComboBoxLocacaoActionPerformed
+
+    private void jButtonAnexo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnexo1ActionPerformed
+        try {
+            JFileChooser fc = new JFileChooser();
+            File logo = new File("./src/com/locadora/devolucao");
+            fc.setCurrentDirectory(logo);
+            fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            fc.showOpenDialog(this);
+            File arquivo = fc.getSelectedFile();
+            String nomeDoArquivo = arquivo.getPath();
+            String nome = arquivo.getName();
+            String url = logo.getPath();
+            url += "/" + nome;
+            anexo1 = url;
+            ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
+            iconLogo.setImage(iconLogo.getImage().getScaledInstance(jTextFieldAnexo1.getWidth(), jTextFieldAnexo1.getHeight(), 1));
+            jTextFieldAnexo1.setIcon(iconLogo);
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, "Selecione uma imagem!");
+        }
+    }//GEN-LAST:event_jButtonAnexo1ActionPerformed
+
+    private void jButtonAnexo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnexo2ActionPerformed
+        try {
+            JFileChooser fc = new JFileChooser();
+            File logo = new File("./src/com/locadora/devolucao");
+            fc.setCurrentDirectory(logo);
+            fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            fc.showOpenDialog(this);
+            File arquivo = fc.getSelectedFile();
+            String nomeDoArquivo = arquivo.getPath();
+            String nome = arquivo.getName();
+            String url = logo.getPath();
+            url += "/" + nome;
+            anexo2 = url;
+            ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
+            iconLogo.setImage(iconLogo.getImage().getScaledInstance(jTextFieldAnexo2.getWidth(), jTextFieldAnexo2.getHeight(), 1));
+            jTextFieldAnexo2.setIcon(iconLogo);
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, "Selecione uma imagem!");
+        }
+    }//GEN-LAST:event_jButtonAnexo2ActionPerformed
+
+    private void jButtonAnexo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnexo3ActionPerformed
+        try {
+            JFileChooser fc = new JFileChooser();
+            File logo = new File("./src/com/locadora/devolucao");
+            fc.setCurrentDirectory(logo);
+            fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            fc.showOpenDialog(this);
+            File arquivo = fc.getSelectedFile();
+            String nomeDoArquivo = arquivo.getPath();
+            String nome = arquivo.getName();
+            String url = logo.getPath();
+            url += "/" + nome;
+            anexo3 = url;
+            ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
+            iconLogo.setImage(iconLogo.getImage().getScaledInstance(jTextFieldAnexo3.getWidth(), jTextFieldAnexo3.getHeight(), 1));
+            jTextFieldAnexo3.setIcon(iconLogo);
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, "Selecione uma imagem!");
+        }
+
+
+    }//GEN-LAST:event_jButtonAnexo3ActionPerformed
+
+    private void jButtonAnexo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnexo4ActionPerformed
+        try {
+            JFileChooser fc = new JFileChooser();
+            File logo = new File("./src/com/locadora/devolucao");
+            fc.setCurrentDirectory(logo);
+            fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            fc.showOpenDialog(this);
+            File arquivo = fc.getSelectedFile();
+            String nomeDoArquivo = arquivo.getPath();
+            String nome = arquivo.getName();
+            String url = logo.getPath();
+            url += "/" + nome;
+            anexo4 = url;
+            ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
+            iconLogo.setImage(iconLogo.getImage().getScaledInstance(jTextFieldAnexo4.getWidth(), jTextFieldAnexo4.getHeight(), 1));
+            jTextFieldAnexo4.setIcon(iconLogo);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, "Selecione uma imagem!");
+        }
+    }//GEN-LAST:event_jButtonAnexo4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -822,11 +1079,11 @@ public class TelaDevolucao extends javax.swing.JFrame {
     private javax.swing.JLabel jTextFieldAnexo3;
     private javax.swing.JLabel jTextFieldAnexo4;
     private javax.swing.JTextField jTextFieldDiasAMais;
-    private javax.swing.JTextField jTextFieldDiasAMenos1;
-    private javax.swing.JTextField jTextFieldDiasAMenos4;
-    private javax.swing.JTextField jTextFieldDiasAMenos5;
+    private javax.swing.JTextField jTextFieldDiasAMenos;
     private javax.swing.JTextField jTextFieldHora;
     private javax.swing.JTextField jTextFieldKm;
+    private javax.swing.JTextField jTextFieldTanqueCheio;
+    private javax.swing.JTextField jTextFieldTotal;
     private javax.swing.JTextField jTextFieldValorDano;
     private javax.swing.JTextField jTextFieldValorSujo;
     // End of variables declaration//GEN-END:variables

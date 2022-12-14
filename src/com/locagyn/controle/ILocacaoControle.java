@@ -18,4 +18,6 @@ public interface ILocacaoControle {
     void devolver(Locacao objeto) throws Exception;
 
     ArrayList<Locacao> listagem() throws Exception;
+    
+    Locacao buscar(int id) throws Exception;
 }

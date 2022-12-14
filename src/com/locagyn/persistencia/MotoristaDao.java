@@ -138,23 +138,6 @@ public class MotoristaDao implements IMotoristaDao {
                 objetoMotorista.setNumeroRegistro(Integer.parseInt(vetorString[3]));
                 objetoMotorista.setCategoriaCNH(vetorString[4]);
                 objetoMotorista.setValidade(vetorString[5]);
-
-//                long ddi = Long.parseLong(vetorString[6]);
-//                long ddd = Long.parseLong(vetorString[7]);
-//                long numero = Long.parseLong(vetorString[8]);
-//
-//                Telefone telefone = new Telefone(ddi, ddd, numero);
-//                objetoMotorista.setTelefone(telefone);
-//
-//                String logradouro = vetorString[9];
-//                String complemento = vetorString[10];
-//                String bairro = vetorString[11];
-//                String cidade = vetorString[12];
-//                String estado = vetorString[13];
-//                long cep = Long.parseLong(vetorString[14]);
-//
-//                Endereco endereco = new Endereco(logradouro, complemento, cidade, estado, bairro, cep);
-//                objetoMotorista.setEndereco(endereco);
             if (objetoMotorista.getId() == id) {
                 br.close();
                 return new Motorista(Integer.parseInt(vetorString[0]), vetorString[1], vetorString[2], Integer.parseInt(vetorString[3]), vetorString[4], vetorString[5]);

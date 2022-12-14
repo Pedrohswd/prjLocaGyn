@@ -159,14 +159,14 @@
                               <Component id="jCheckBoxLimpeza" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldDiasAMenos1" min="-2" pref="165" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldDiasAMenos" min="-2" pref="165" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jCheckBoxLocacaoAMenosTempo" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jCheckBoxLocacaoAMaisTempo" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jTextFieldDiasAMais" min="-2" pref="162" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jCheckBoxDanoSofrido" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -177,7 +177,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextFieldDiasAMenos4" min="-2" pref="165" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldTanqueCheio" min="-2" pref="165" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
@@ -201,7 +201,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldDiasAMenos5" min="-2" pref="165" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTotal" min="-2" pref="165" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -282,7 +282,7 @@
                           <Component id="jCheckBoxLocacaoAMenosTempo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldDiasAMenos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldDiasAMenos" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -304,8 +304,8 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jTextFieldDiasAMenos4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldDiasAMenos5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTanqueCheio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -542,6 +542,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Anexo 1"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnexo1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAnexo2">
           <Properties>
@@ -556,6 +559,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Anexo 2"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnexo2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAnexo3">
           <Properties>
@@ -570,6 +576,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Anexo 3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnexo3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAnexo4">
           <Properties>
@@ -584,6 +593,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Anexo 4"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnexo4ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
           <Properties>
@@ -602,6 +614,9 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxLocacaoActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -623,9 +638,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDevolverActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldDiasAMenos1">
+        <Component class="javax.swing.JTextField" name="jTextFieldDiasAMenos">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldDiasAMenos1KeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldDiasAMenosKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
@@ -667,13 +682,13 @@
             <Property name="text" type="java.lang.String" value="Valor:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldDiasAMenos4">
+        <Component class="javax.swing.JTextField" name="jTextFieldTanqueCheio">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDiasAMenos4ActionPerformed"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldDiasAMenos4KeyTyped"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTanqueCheioActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldTanqueCheioKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldDiasAMenos5">
+        <Component class="javax.swing.JTextField" name="jTextFieldTotal">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
           <Properties>

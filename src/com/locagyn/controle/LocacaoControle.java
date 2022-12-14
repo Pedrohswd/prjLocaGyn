@@ -31,5 +31,10 @@ public class LocacaoControle implements ILocacaoControle{
     public ArrayList<Locacao> listagem() throws Exception {
         return locacaoPersistencia.listagem();
     }
+
+    @Override
+    public Locacao buscar(int id) throws Exception {
+        return locacaoPersistencia.buscar(id);
+    }
     
 }

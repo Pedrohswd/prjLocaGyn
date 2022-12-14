@@ -737,12 +737,13 @@ public class TelaDeLocacao extends javax.swing.JFrame {
             float valorTotalCaucao = valorTotal+(valorTotal*(150/100));
             
             jTextFieldValorTotalLocacao.setText(valorTotalCaucao+"");
+            float valorDia = Float.parseFloat(jTextFieldValorDiaAcessorios.getText())+Float.parseFloat(jTextFieldValorDiaAcessorios.getText());
             
             //gravando dados
             
 
             if (jComboBoxTipoDeCliente.getSelectedItem().equals(TipoDeCliente.PESSOA_FISICA)) {
-                Locacao objeto = new Locacao(0, cliente.buscar(idCliente, TipoDeCliente.PESSOA_FISICA), motorista.buscar(idMotorista), veiculo.buscar(idVeiculo), acessorio.buscar(idAcessorio), dataInicioFormatada, dataFimFormatada, valorTotalCaucao, jComboBoxSituacao.getSelectedItem());
+                Locacao objeto = new Locacao(0, cliente.buscar(idCliente, TipoDeCliente.PESSOA_FISICA), motorista.buscar(idMotorista), veiculo.buscar(idVeiculo), acessorio.buscar(idAcessorio), dataInicioFormatada, dataFimFormatada, valorTotalCaucao, jComboBoxSituacao.getSelectedItem(), dias, valorDia);
                 ArrayList<Veiculo> listaVeiculo = veiculo.listagem();
                 for (int i = 0; i < listaVeiculo.size(); i++) {
                     if (jComboBoxVeiculo.getSelectedItem().equals(listaVeiculo.get(i).getPlaca())) {
@@ -770,7 +771,7 @@ public class TelaDeLocacao extends javax.swing.JFrame {
                 locacaoControle.locar(objeto);
 
             } else {
-                Locacao objeto = new Locacao(0, cliente.buscar(idCliente, TipoDeCliente.PESSOA_JURIDICA), motorista.buscar(idMotorista), veiculo.buscar(idVeiculo), acessorio.buscar(idAcessorio), dataInicioFormatada, dataFimFormatada, valorTotalCaucao, jComboBoxSituacao.getSelectedItem());
+                Locacao objeto = new Locacao(0, cliente.buscar(idCliente, TipoDeCliente.PESSOA_JURIDICA), motorista.buscar(idMotorista), veiculo.buscar(idVeiculo), acessorio.buscar(idAcessorio), dataInicioFormatada, dataFimFormatada, valorTotalCaucao, jComboBoxSituacao.getSelectedItem(), dias, valorDia);
 
                 ArrayList<Veiculo> listaVeiculo = veiculo.listagem();
                 for (int i = 0; i < listaVeiculo.size(); i++) {
