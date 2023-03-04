@@ -28,3 +28,5 @@ Para executar o software, siga os seguintes passos:
 ## Autores
 
 - [Pedro Henrique](https://github.com/Pedrohswd) - desenvolvedor do projeto.
+- [Emilly] (https://github.com/Emilly-sdg) - desenvolvedor do projeto.
+- [Cauan] - desenvolvedor do projeto.
